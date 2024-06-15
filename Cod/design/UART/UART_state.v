@@ -20,7 +20,7 @@ Daca toti bitii verificati (START, PARITY, STOP) sunt valizi, atunci counicarea 
 *///----------------------------------------------------------------------------------------------
 
 
-`timescale 1 ns/1 ns
+
 
 module UART_state
   #(`include "../PARAM/UART_params.v")

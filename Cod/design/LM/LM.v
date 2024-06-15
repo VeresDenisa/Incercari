@@ -5,7 +5,7 @@ This module receives errors/data/actualization from other modules and represents
 them on the board's LEDS.
 */
 
-`timescale 1 ns/1 ns
+
 
 module LM
 #(`include "../PARAM/LM_params.v")

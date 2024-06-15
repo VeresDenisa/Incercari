@@ -1,4 +1,4 @@
-`timescale 1 ns/1 ns 
+ 
 `define ACTIVE 1'b0
 
 module Color_Manager_Assign_Data

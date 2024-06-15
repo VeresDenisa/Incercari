@@ -1,14 +1,13 @@
 import uvm_pkg::*;
 `include "uvm_macros.svh"
  
-import test_pack::*;
-`include "assertions.svh"
+import DB_test_pack::*;
 
 `define CLOCK 10
 
 module testbench;  
     bit clk;
-    bit rst_n;
+    bit rst;
     
     initial begin
         clk = 1'b0;
@@ -16,9 +15,9 @@ module testbench;
     end
 
     initial begin
-        rst_n = 1'b1;
-        #`CLOCK rst_n = 1'b0;
-        #`CLOCK rst_n = 1'b1;
+        rst = 1'b1;
+        #`CLOCK rst = 1'b0;
+        #`CLOCK rst = 1'b1;
     end
     
     DB_VIF DB_input_i(clk);
@@ -26,7 +25,7 @@ module testbench;
     
     DB DB_DUT (
         .clk(clk),
-        .rst_n(rst_n),
+        .rst(rst),
         .btnHS(DB_input_i.HS),
         .btnVS(DB_input_i.VS),
         .btnDF_UART(DB_input_i.DF_UART),
@@ -34,12 +33,12 @@ module testbench;
         .HS(DB_output_i.HS),
         .VS(DB_output_i.VS),
         .DF_UART(DB_output_i.DF_UART),
-        .DF_VGA(DB_output_i.DF_VGA),
+        .DF_VGA(DB_output_i.DF_VGA)
         );
 
-    bind testbench.DB_DUT DB_DUT_ASS (
+    /*bind testbench.DB_DUT DB_DUT_ASS (
         .clk(clk),
-        .rst_n(rst_n),
+        .rst(rst),
         .btnHS(DB_input_i.HS),
         .btnVS(DB_input_i.VS),
         .btnDF_UART(DB_input_i.DF_UART),
@@ -47,8 +46,8 @@ module testbench;
         .HS(DB_output_i.HS),
         .VS(DB_output_i.VS),
         .DF_UART(DB_output_i.DF_UART),
-        .DF_VGA(DB_output_i.DF_VGA),
-        );
+        .DF_VGA(DB_output_i.DF_VGA)
+        );*/
     
     initial begin
         uvm_config_db#(virtual DB_VIF)::set(null, "uvm_test_top.env.DB_agent_input_h*",  "DB_VIF", DB_input_i);

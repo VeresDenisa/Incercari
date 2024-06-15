@@ -1,4 +1,4 @@
-`timescale 1 ns/1 ns  
+  
 
 module VGA_Control_tb
 	#(`include "../PARAM/VGA_Width_Parameters.v");

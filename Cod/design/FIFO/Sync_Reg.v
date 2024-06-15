@@ -1,4 +1,4 @@
-`timescale 1 ns/1 ns
+
 
 module Sync_Reg
 #(parameter SIZE = 4)

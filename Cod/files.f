@@ -28,3 +28,12 @@ design/TB/tb_LM.v
 design/TB/tb_Sync_Reg.v
 design/TB/tb_UART.v
 design/TB/VGA_Control_tb.v
+
+testbench/pack/DB_item_pack.sv
+testbench/pack/DB_sequence_pack.sv
+testbench/DB/interface/DB_VIF.sv
+testbench/pack/DB_agent_pack.sv
+testbench/pack/DB_coverage_pack.sv
+testbench/pack/DB_environment_pack.sv
+testbench/pack/DB_test_pack.sv
+testbench/DB/testbench_DB.sv

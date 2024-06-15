@@ -37,11 +37,9 @@ task DB_driver::reset_phase(uvm_phase phase);
     DB_i.DF_UART <= 1'b0;
     DB_i.DF_VGA  <= 1'b0;
 
-    DB_i.rst_n <= 1'b1;
     @(DB_i.driver);
-    DB_i.rst_n <= 1'b0;
     @(DB_i.driver);
-    DB_i.rst_n <= 1'b1;
+    @(DB_i.driver);
     @(DB_i.driver);
 
     phase.drop_objection(this);

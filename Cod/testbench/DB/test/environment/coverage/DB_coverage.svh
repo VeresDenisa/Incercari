@@ -1,7 +1,7 @@
 class DB_coverage extends uvm_component;
   `uvm_component_utils(DB_coverage);
   
-  uvm_analysis_imp  #(db_item, DB_coverage) DB_an_port;
+  uvm_analysis_imp  #(DB_item, DB_coverage) DB_an_port;
    
   DB_item DB_t;
 
@@ -30,10 +30,10 @@ function void DB_coverage::write(DB_item t);
   `uvm_info(get_name(), $sformatf("DB coverage item: %s", DB_t.convert2string), UVM_FULL);
 
   DB_cvg.sample();
-endfunction : write_input
+endfunction : write
 
 function void DB_coverage::report_phase(uvm_phase phase);
   `uvm_info(get_name(), $sformatf("---> EXIT PHASE: --> REPORT <--"), UVM_DEBUG);
-  `uvm_info(get_name(),$sformatf("DB coverage:  %.2f%%", DB_cvg.get_DB_coverage()),  UVM_LOW);
+  `uvm_info(get_name(),$sformatf("DB coverage:  %.2f%%", DB_cvg.get_coverage()),  UVM_LOW);
   `uvm_info(get_name(), $sformatf("<--- EXIT PHASE: --> REPORT <--"), UVM_DEBUG);
 endfunction : report_phase

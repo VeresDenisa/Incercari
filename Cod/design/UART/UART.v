@@ -8,7 +8,7 @@ The module is formed by:
 *///--------------------------------------------------------------------------------------------------
 
 
-`timescale 1 ns/1 ns
+
 
 module UART
 #(`include "../PARAM/UART_params.v")

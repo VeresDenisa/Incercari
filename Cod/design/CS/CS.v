@@ -1,4 +1,4 @@
-`timescale 1 ns/1 ns
+
 
 module CS
 #(`include "../PARAM/LM_params.v")

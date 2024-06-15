@@ -1,4 +1,4 @@
-`timescale 1 ns/1 ns 
+ 
 /*
 Module Name: Conter  
 This module provides the sincrpnization signals as well as internal counter for the modules 

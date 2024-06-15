@@ -23,7 +23,7 @@ function void DB_agent::build_phase(uvm_phase phase);
     super.build_phase(phase);
     `uvm_info(get_name(), $sformatf("---> ENTER PHASE: --> BUILD <--"), UVM_DEBUG);
 
-    if(!uvm_config_db#(DB_config)::get(this, "", "config", DB_config_h))
+    if(!uvm_config_db#(DB_config)::get(this, "", "DB_config_db", DB_config_h))
         `uvm_fatal(this.get_name(), "Failed to get config object");
     
     if(!uvm_config_db#(virtual DB_VIF)::get(this, "", "DB_VIF", DB_i))

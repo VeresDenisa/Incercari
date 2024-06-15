@@ -25,19 +25,19 @@ function void DB_environment::build_phase(uvm_phase phase);
     super.build_phase(phase);  
     `uvm_info(get_name(), $sformatf("---> ENTER PHASE: --> BUILD <--"), UVM_DEBUG);
     
-    if(!uvm_config_db #(DB_environment_config)::get(this, "", "config", env_config_h))
+    if(!uvm_config_db #(DB_environment_config)::get(this, "", "DB_config_db", DB_environment_config_h))
         `uvm_fatal(this.get_name(), "Failed to get DB environment config");
 
     DB_config_input_h = new(.is_active(UVM_ACTIVE));
     DB_config_output_h = new(.is_active(UVM_PASSIVE));
         
-    uvm_config_db #(DB_config)::set(this, "DB_agent_input_h*",  "config", DB_config_input_h);
-    uvm_config_db #(DB_config)::set(this, "DB_agent_output_h*", "config", DB_config_output_h);
+    uvm_config_db #(DB_config)::set(this, "DB_agent_input_h*",  "DB_config_db", DB_config_input_h);
+    uvm_config_db #(DB_config)::set(this, "DB_agent_output_h*", "DB_config_db", DB_config_output_h);
     
     DB_agent_input_h  = DB_agent::type_id::create("DB_agent_input_h",  this);
     DB_agent_output_h = DB_agent::type_id::create("DB_agent_output_h", this);
     
-    cov = coverage::type_id::create("cov", this); 
+    cov = DB_coverage::type_id::create("cov", this); 
         
     `uvm_info(get_name(), $sformatf("<--- EXIT PHASE: --> BUILD <--"), UVM_DEBUG);
 endfunction : build_phase

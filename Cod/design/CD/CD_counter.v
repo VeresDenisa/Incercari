@@ -5,7 +5,7 @@ This 32-bit counter has a limit input though which the maximum value is set.
 When the count reaches the limit value, the clkock changes.
 */
 
-`timescale 1 ns/1 ns
+
 
 module CD_counter
   #(`include "../PARAM/CD_params.v", 

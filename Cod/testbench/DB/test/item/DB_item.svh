@@ -1,10 +1,10 @@
 class DB_item extends uvm_sequence_item;
     `uvm_object_utils(DB_item);
 
-    logic HS;
-    logic VS;
-    logic DF_UART;
-    logic DF_VGA;
+    rand logic HS;
+    rand logic VS;
+    rand logic DF_UART;
+    rand logic DF_VGA;
     
     function new(string name = "DB_item");
         super.new(name);

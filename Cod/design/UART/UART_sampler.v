@@ -6,7 +6,7 @@
 // If the majority of the samples are the same then the output is validated.
 //----------------------------------------------------------------------------------------------
 
-`timescale 1 ns/1 ns
+
  
 module UART_sampler
 #(`include "../PARAM/UART_params.v")

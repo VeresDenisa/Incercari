@@ -1,4 +1,4 @@
-`timescale 1 ns/1 ns 
+ 
 /* 
 The sole role for this module is to decide when the Pixel Counter (CountP) reaches the display region (based
 on parameters from the Config unit) and only then to transmit the color data which is the input for the 

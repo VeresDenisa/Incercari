@@ -4,10 +4,10 @@ package DB_agent_pack;
     
     import DB_item_pack::*;
   
-    `include "src/DB/test/environment/DB_agent/DB_config.svh"
+    `include "testbench/DB/test/environment/agent/DB_config.svh"
   
-    `include "src/DB/test/environment/DB_agent/DB_driver.svh"
-    `include "src/DB/test/environment/DB_agent/DB_monitor.svh"
+    `include "testbench/DB/test/environment/agent/DB_driver.svh"
+    `include "testbench/DB/test/environment/agent/DB_monitor.svh"
     
-    `include "src/DB/test/environment/DB_agent/DB_agent.svh"
+    `include "testbench/DB/test/environment/agent/DB_agent.svh"
   endpackage : DB_agent_pack

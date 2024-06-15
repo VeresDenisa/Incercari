@@ -10,7 +10,7 @@ The module is formed by:
        -CLK DB - clock for DB (20Hz)
 */ 
 
-`timescale 1 ns/1 ns
+
 
 module CD
   #(`include "../PARAM/CD_params.v")

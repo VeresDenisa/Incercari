@@ -1,4 +1,4 @@
-`timescale 1 ns/1 ns
+
 
 module Color_Manager_Config_Manager
 	#(`include "../PARAM/Color_Manager_Width_Parameters.v",

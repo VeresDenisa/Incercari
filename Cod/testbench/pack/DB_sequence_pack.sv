@@ -4,5 +4,5 @@ package DB_sequence_pack;
   
     import DB_item_pack::*;
   
-    `include "src/DB/test/sequence/DB_sequence.svh"
+    `include "testbench/DB/test/sequence/DB_sequence.svh"
   endpackage : DB_sequence_pack

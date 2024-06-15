@@ -8,7 +8,7 @@ The configuration resets the counters for the UART/VGA clock. The addresses are:
 The maximum value of the counters for the the UART/VGA clock are sent though baudrate and resolution.
 */
 
-`timescale 1 ns/1 ns 
+ 
 
 module CD_config
   #(`include "../PARAM/CD_params.v")

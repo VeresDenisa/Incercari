@@ -21,9 +21,9 @@ function void DB_monitor::build_phase (uvm_phase phase);
     super.build_phase(phase);  
     `uvm_info(get_name(), $sformatf("---> ENTER PHASE: --> BUILD <--"), UVM_DEBUG);
     
-    item      = new("DB_item");
-    item_prev = new("DB_previous_item");
-    an_port   = new("mon_an_port", this);
+    item       = new("DB_item");
+    item_prev  = new("DB_previous_item");
+    DB_an_port = new("DB_an_port", this);
 
     item_prev.setDefault();
     
@@ -43,7 +43,7 @@ task DB_monitor::run_phase(uvm_phase phase);
         if(!item.compare(item_prev) || !item.equalDefault()) begin
             `uvm_info(get_name(), $sformatf("Monitore an item."), UVM_MEDIUM);
             `uvm_info(get_name(), $sformatf("Monitore item: %s", item.convert2string), UVM_HIGH);
-            an_port.write(item);
+            DB_an_port.write(item);
         end
         item_prev.copy(item);
     end : forever_monitor

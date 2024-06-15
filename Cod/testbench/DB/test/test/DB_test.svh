@@ -1,8 +1,8 @@
 class DB_test extends uvm_test;
     `uvm_component_utils(DB_test);
 
-    environment_config env_config;
-    environment env; 
+    DB_environment_config env_config;
+    DB_environment env; 
 
     DB_sequence DB_seq;
     
@@ -22,9 +22,9 @@ function void DB_test::build_phase(uvm_phase phase);
     `uvm_info(get_name(), $sformatf("---> ENTER PHASE: --> BUILD <--"), UVM_DEBUG);
 
     env_config = new(.is_cluster(UNIT));
-    uvm_config_db #(environment_config)::set(this, "env*", "config", env_config);
+    uvm_config_db #(DB_environment_config)::set(this, "env*", "DB_config_db", env_config);
 
-    env = environment::type_id::create("env", this); 
+    env = DB_environment::type_id::create("env", this); 
 
     DB_seq = DB_sequence::type_id::create("DB_seq");
     DB_seq.set_parameters(.number_of_items(20));
@@ -45,7 +45,7 @@ task DB_test::main_phase(uvm_phase phase);
 
     phase.raise_objection(this);
     fork
-        DB_seq.start(env.DB_agent_h.seqr);
+        DB_seq.start(env.DB_agent_input_h.seqr);
     join
     phase.drop_objection(this);  
 

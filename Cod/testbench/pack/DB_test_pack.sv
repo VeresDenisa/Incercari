@@ -9,5 +9,5 @@ package DB_test_pack;
 
     `define CLOCK 10
   
-    `include "src/DB/test/DB_test.svh"
+    `include "testbench/DB/test/test/DB_test.svh"
   endpackage : DB_test_pack

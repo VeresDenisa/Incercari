@@ -1,4 +1,4 @@
-`timescale 1 ns/1 ns 
+ 
 //The testbench for the Color_Manager module.
 module Color_Manager_tb
 #(`include "../PARAM/Color_Manager_Width_Parameters.v");

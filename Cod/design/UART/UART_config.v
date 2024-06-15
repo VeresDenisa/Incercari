@@ -10,7 +10,7 @@
 //    - STOP: 0-1 BIT (default), 1-2 BITS
 //--------------------------------------------------------------------------------------------------
 
-`timescale 1 ns/1 ns
+
 
 module UART_config 
   #(`include "../PARAM/UART_params.v")

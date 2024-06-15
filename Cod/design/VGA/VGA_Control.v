@@ -1,4 +1,4 @@
-`timescale 1 ns/1 ns  
+  
 /*
 	Module Name: VGA_Control 
  	This is a configurable module, a controller for the the VGA.
