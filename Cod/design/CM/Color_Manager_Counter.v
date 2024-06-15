@@ -3,7 +3,7 @@
 module Color_Manager_Counter
 	#(`include "../PARAM/Color_Manager_Width_Parameters.v") 
 	(input Clk,
-	input Rst,
+	input rst_n,
 	input[BACKPORCH_WIDTH-1:0] BackPorch,
 	input[FRONTPORCH_WIDTH-1:0] FrontPorch,
 	input Sync,
@@ -15,9 +15,9 @@ module Color_Manager_Counter
 	reg [FRONTPORCH_WIDTH-1:0]    Count_intern_reg, Count_intern_nxt;
 	
 	
-	always@(posedge Clk or posedge Rst)
+	always@(posedge Clk or negedge rst_n)
 	begin
-		if(Rst)
+		if(~rst_n)
 		begin
 			Counter_Valid_reg	<= 1'b0;
 			Count_reg		 	<= 'b0;

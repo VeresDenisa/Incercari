@@ -1,7 +1,7 @@
 
 
 module tb_UART;
-	reg clk, rst;
+	reg clk, rst_n;
 	reg in;
 	reg clkinVGA;
 	reg c_valid;
@@ -13,7 +13,7 @@ module tb_UART;
   wire [7:0]out;
   wire valid_out;
 	 
-	UART UART_INSTANCE(.clk(clk), .rst(rst),
+	UART UART_INSTANCE(.clk(clk), .rst_n(rst_n),
 					.in(in), .clkinVGA(clkinVGA),
 					.c_valid(c_valid), .c_addr(c_addr),
 					.c_data(c_data), .c_ready(c_ready),
@@ -87,9 +87,9 @@ module tb_UART;
 	endtask
 	
 	initial begin
-		rst = 1'b1;
+		rst_n = 1'b1;
 		#7;
-		rst = 1'b0;
+		rst_n = 1'b0;
 	end
 
 	initial begin

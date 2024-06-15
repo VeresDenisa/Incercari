@@ -13,11 +13,11 @@ $upscope $end
 
 $scope module testbench $end
 $var reg 1 ! clk $end
-$var reg 1 " rst $end
+$var reg 1 " rst_n $end
 
 $scope module DB_DUT $end
 $var wire 1 # clk $end
-$var wire 1 $ rst $end
+$var wire 1 $ rst_n $end
 $var wire 1 % btnHS $end
 $var wire 1 & btnVS $end
 $var wire 1 ' btnDF_UART $end
@@ -30,7 +30,7 @@ $var wire 1 , DF_VGA $end
 $scope module DB_HS $end
 $var parameter 32 - LIMIT $end
 $var wire 1 # clk $end
-$var wire 1 $ rst $end
+$var wire 1 $ rst_n $end
 $var wire 1 % button $end
 $var wire 1 ) signal $end
 $var reg 2 . ctr_nxt [1:0] $end
@@ -44,7 +44,7 @@ $upscope $end
 $scope module DB_VS $end
 $var parameter 32 4 LIMIT $end
 $var wire 1 # clk $end
-$var wire 1 $ rst $end
+$var wire 1 $ rst_n $end
 $var wire 1 & button $end
 $var wire 1 * signal $end
 $var reg 2 5 ctr_nxt [1:0] $end
@@ -58,7 +58,7 @@ $upscope $end
 $scope module DB_DF_UART $end
 $var parameter 32 ; LIMIT $end
 $var wire 1 # clk $end
-$var wire 1 $ rst $end
+$var wire 1 $ rst_n $end
 $var wire 1 ' button $end
 $var wire 1 + signal $end
 $var reg 2 < ctr_nxt [1:0] $end
@@ -72,7 +72,7 @@ $upscope $end
 $scope module DB_DF_VGA $end
 $var parameter 32 B LIMIT $end
 $var wire 1 # clk $end
-$var wire 1 $ rst $end
+$var wire 1 $ rst_n $end
 $var wire 1 ( button $end
 $var wire 1 , signal $end
 $var reg 2 C ctr_nxt [1:0] $end

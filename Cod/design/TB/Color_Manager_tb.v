@@ -13,7 +13,7 @@ module Color_Manager_tb
 	
 	
 	reg Clk;
-	reg Rst;
+	reg rst_n;
 	reg Empty;
 	reg C_Rdy;
 	reg [UART_DATA_WIDTH-1:0] RXD_Data;
@@ -35,7 +35,7 @@ module Color_Manager_tb
 	wire [DATA_WIDTH-1:0]   Data_VGA;
 	
 	Color_Manager colorCM  (.Clk(Clk),
-							.Rst(Rst),
+							.rst_n(rst_n),
 							.Empty(Empty),
 							.C_Rdy(C_Rdy),
 							.RXD_Data(RXD_Data),
@@ -78,9 +78,9 @@ module Color_Manager_tb
 				
 	initial
 	begin
-		Rst = 1'b1;
+		rst_n = 1'b1;
 		#RST_DURATION 
-		Rst = 1'b0;
+		rst_n = 1'b0;
 	end
 	
 	

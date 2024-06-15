@@ -5,7 +5,7 @@ module Sync_Reg
 (
   input w_clk,
   input r_clk,
-  input rst,
+  input rst_n,
   
   input [SIZE-1:0] w_data,
   output [SIZE-1:0]r_data,
@@ -20,8 +20,8 @@ reg [SIZE-1:0]w_data_reg, w_data_next;
 reg           r_empty_reg, r_empty_next;
 reg           w_empty_reg, w_empty_next;
 
-always @(posedge w_clk or posedge rst) begin
-  if(rst) begin
+always @(posedge w_clk or negedge rst_n) begin
+  if(~rst_n) begin
     w_empty_reg <= 1'b1;
     w_data_reg  <= 'd0;
   end else begin
@@ -30,8 +30,8 @@ always @(posedge w_clk or posedge rst) begin
   end
 end
 
-always @(posedge r_clk or posedge rst) begin
-  if(rst) begin
+always @(posedge r_clk or negedge rst_n) begin
+  if(~rst_n) begin
     r_empty_reg <= 1'b1;
     r_data_reg  <= 'd0;
   end else begin

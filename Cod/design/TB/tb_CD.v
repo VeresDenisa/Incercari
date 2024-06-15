@@ -1,7 +1,7 @@
 
 
 module tb_CD;
-	reg clk, rst;
+	reg clk, rst_n;
 	reg clkinVGA;
 	reg c_valid;
 	reg [3:0]c_addr;
@@ -12,7 +12,7 @@ module tb_CD;
   wire clk_LM;
   wire clk_DB;
 	 
-	CD CLOCK_DIVIDER_INSTANCE(.clk(clk), .rst(rst), .clkinVGA(clkinVGA),
+	CD CLOCK_DIVIDER_INSTANCE(.clk(clk), .rst_n(rst_n), .clkinVGA(clkinVGA),
 					.c_valid(c_valid), .c_addr(c_addr), .c_data(c_data), .c_ready(c_ready), 
 					.clk_VGA(clk_VGA), .clk_UART(clk_UART), .clk_LM(clk_LM), .clk_DB(clk_DB));	
 					
@@ -56,9 +56,9 @@ module tb_CD;
 	endtask
 	
 	initial begin
-		rst = 1'b1;
+		rst_n = 1'b1;
 		#8;
-		rst = 1'b0;
+		rst_n = 1'b0;
 	end
 
 	initial begin

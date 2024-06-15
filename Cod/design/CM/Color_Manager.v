@@ -2,7 +2,7 @@
 module Color_Manager
 #(`include "../PARAM/Color_Manager_Width_Parameters.v")
    (input Clk,
-	input Rst,
+	input rst_n,
 	input Empty,
 	input C_Rdy,
 	input [UART_DATA_WIDTH-1:0] RXD_Data,
@@ -35,7 +35,7 @@ module Color_Manager
 	wire 					    C_Rdy_Assign;
 	
 	Color_Manager_Config_Manager configCM(.Clk(Clk),
-							.Rst(Rst),
+							.rst_n(rst_n),
 							.Empty(Empty),
 							.C_Rdy(C_Rdy & C_Rdy_Assign),
 							.RXD_Data(RXD_Data),
@@ -49,7 +49,7 @@ module Color_Manager
 							.Error_Valid(Error_Valid));
 							
 	Color_Manager_Assign_Data assignCM(.Clk(Clk),
-						.Rst(Rst),
+						.rst_n(rst_n),
 						.C_Addr(C_Addr),
 						.C_Data(C_Data),
 						.C_Valid(C_Valid),
@@ -71,7 +71,7 @@ module Color_Manager
 					
 							
 	Color_Manager_Counter counterH(.Clk(Clk),
-				 .Rst(Rst),
+				 .rst_n(rst_n),
 				 .BackPorch(H_BackPorch),
 				 .FrontPorch(H_FrontPorch), 
 				 .Sync(HSync),
@@ -79,7 +79,7 @@ module Color_Manager
 				 .CounterP(Counter_X));
 				 
 	Color_Manager_Counter counterV(.Clk(Clk),
-				 .Rst(Rst),
+				 .rst_n(rst_n),
 				 .BackPorch(V_BackPorch),
 				 .FrontPorch(V_FrontPorch), 
 				 .Sync(VSync),

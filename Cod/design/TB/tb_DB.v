@@ -2,7 +2,7 @@
 
 module tb_DB;
 reg clk;
-reg rst;
+reg rst_n;
 
 reg btnHS;
 reg btnVS;
@@ -14,7 +14,7 @@ wire VS;
 wire DF_UART;
 wire DF_VGA; 
 	
-	DB DB_INSTANCE(.clk(clk), .rst(rst),
+	DB DB_INSTANCE(.clk(clk), .rst_n(rst_n),
 					.btnHS(btnHS), .HS(HS), 
 					.btnVS(btnVS), .VS(VS), 
 					.btnDF_UART(btnDF_UART), .DF_UART(DF_UART), 
@@ -53,9 +53,9 @@ wire DF_VGA;
    
    
 	initial begin
-		rst = 1'b1;
+		rst_n = 1'b1;
 		#8;
-		rst = 1'b0;
+		rst_n = 1'b0;
 	end
    
   initial

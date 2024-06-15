@@ -3,7 +3,7 @@
 module tb_LM; 
 
 reg clk;
-reg rst;
+reg rst_n;
 reg UART_data_debug_switch;
 reg clkVGA;
 reg clkUART;
@@ -16,7 +16,7 @@ reg UART_errors_valid;
 reg [7:0]config_notification;
 wire [15:0]leds;
 	
-	Led_Manager LM(.clk(clk), .rst(rst),
+	Led_Manager LM(.clk(clk), .rst_n(rst_n),
 					.UART_data_debug_switch(UART_data_debug_switch), 
 					.clkVGA(clkVGA),	.clkUART(clkUART), 
 					.UART_data(UART_data),	.UART_data_valid(UART_data_valid), 
@@ -112,9 +112,9 @@ wire [15:0]leds;
 	endtask
 	
 	initial begin
-		rst = 1'b1;
+		rst_n = 1'b1;
 		#250;
-		rst = 1'b0;
+		rst_n = 1'b0;
 	end
 
 	initial begin

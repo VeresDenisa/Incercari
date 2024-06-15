@@ -7,7 +7,7 @@ import DB_test_pack::*;
 
 module testbench;  
     bit clk;
-    bit rst;
+    bit rst_n;
     
     initial begin
         clk = 1'b0;
@@ -15,9 +15,9 @@ module testbench;
     end
 
     initial begin
-        rst = 1'b1;
-        #`CLOCK rst = 1'b0;
-        #`CLOCK rst = 1'b1;
+        rst_n = 1'b1;
+        #`CLOCK rst_n = 1'b0;
+        #`CLOCK rst_n = 1'b1;
     end
     
     DB_VIF DB_input_i(clk);
@@ -25,7 +25,7 @@ module testbench;
     
     DB DB_DUT (
         .clk(clk),
-        .rst(rst),
+        .rst_n(rst_n),
         .btnHS(DB_input_i.HS),
         .btnVS(DB_input_i.VS),
         .btnDF_UART(DB_input_i.DF_UART),
@@ -38,7 +38,7 @@ module testbench;
 
     /*bind testbench.DB_DUT DB_DUT_ASS (
         .clk(clk),
-        .rst(rst),
+        .rst_n(rst_n),
         .btnHS(DB_input_i.HS),
         .btnVS(DB_input_i.VS),
         .btnDF_UART(DB_input_i.DF_UART),

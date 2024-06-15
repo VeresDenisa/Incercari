@@ -5,7 +5,7 @@ module Color_Manager_Config_Manager
 	  `include "../PARAM/Color_Manager_Addr_Parameters.v",
 	  `include "../PARAM/Color_Manager_Parameters.v")
 	(input Clk, 
-	input Rst,
+	input rst_n,
 	input Empty,
 	input C_Rdy,
 	input [UART_DATA_WIDTH-1:0] RXD_Data,
@@ -32,9 +32,9 @@ module Color_Manager_Config_Manager
 	reg [CONFIG_ERROR_WIDTH-1:0] Config_Error_reg, Config_Error_nxt;
 	reg Error_Valid_reg, Error_Valid_nxt;
 	
-	always@(posedge Clk or posedge Rst)
+	always@(posedge Clk or negedge rst_n)
 	begin
-		if(Rst)
+		if(~rst_n)
 		begin
 			State_reg						<= IDLE;
 			Err_reg 						<= 0;			

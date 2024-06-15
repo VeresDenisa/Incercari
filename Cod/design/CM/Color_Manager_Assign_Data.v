@@ -6,7 +6,7 @@ module Color_Manager_Assign_Data
 	  `include "../PARAM/Color_Manager_Parameters.v",
 	  `include "../PARAM/Color_Manager_Addr_Parameters.v")
 	(input Clk,
-	input Rst,
+	input rst_n,
 	input [C_ADDR_WIDTH-1:0] C_Addr,
 	input [C_DATA_WIDTH-1:0] C_Data,
 	input 					 C_Valid,
@@ -50,9 +50,9 @@ module Color_Manager_Assign_Data
 	
 
 	
-	always@(posedge Clk or posedge Rst)
+	always@(posedge Clk or negedge rst_n)
 	begin
-		if(Rst)
+		if(~rst_n)
 		begin		
 			C_Rdy_reg <= 1; 
 			VGA_Notification_Valid_reg <= 0;

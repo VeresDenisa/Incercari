@@ -3,7 +3,7 @@ quietly set dataset_list [list wave_DB_test4 wave_DB_test3 wave_DB_test2 wave_DB
 if {[catch {datasetcheck $dataset_list}]} {abort}
 quietly WaveActivateNextPane {} 0
 add wave -noupdate wave_DB_test4:/testbench/DB_DUT/clk
-add wave -noupdate wave_DB_test4:/testbench/DB_DUT/rst
+add wave -noupdate wave_DB_test4:/testbench/DB_DUT/rst_n
 add wave -noupdate -divider <NULL>
 add wave -noupdate wave_DB_test4:/testbench/DB_DUT/btnHS
 add wave -noupdate wave_DB_test4:/testbench/DB_DUT/HS

@@ -2,7 +2,7 @@
 
 module DB_debouncer #(parameter LIMIT = 2)(
   input clk,
-  input rst,
+  input rst_n,
   input button,
   output signal
 );
@@ -11,8 +11,8 @@ module DB_debouncer #(parameter LIMIT = 2)(
   reg sync_nxt, sync_ff;
   reg button_nxt, button_ff;
  
-  always @(posedge clk or posedge rst) begin
-    if(~rst) begin
+  always @(posedge clk or negedge rst_n) begin
+    if(~rst_n) begin
       ctr_ff    <= 'd0;
       sync_ff   <= 1'b0;
       button_ff <= 1'b0;

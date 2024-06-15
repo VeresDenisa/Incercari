@@ -23,7 +23,7 @@ module VGA_Config
 	  `include "../PARAM/VGA_Parameters.v",
 	  `include "../PARAM/VGA_Addr_Parameters.v")
 	(input Clk,
-	input Rst,
+	input rst_n,
 	input Valid,
 	input [CONFIG_WIDTH-1:0] Addr,
 	input [CONFIG_WIDTH-1:0] Data,
@@ -49,9 +49,9 @@ module VGA_Config
 	reg     [REZ_MAX_WIDTH-1:0] 	H_Count_Max_reg, H_Count_Max_nxt;
 	reg     [REZ_MAX_WIDTH-1:0]  	V_Count_Max_reg, V_Count_Max_nxt;
 	
-	always@(posedge Clk or posedge Rst)
+	always@(posedge Clk or negedge rst_n)
 	begin
-		if(Rst)
+		if(~rst_n)
 		begin
 			Load_reg    		<= 1;
 			H_Left_Margin_reg   <= H_Left_Margin_RD;

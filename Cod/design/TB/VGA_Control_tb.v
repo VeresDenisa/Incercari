@@ -9,7 +9,7 @@ module VGA_Control_tb
 	parameter WAIT 		     = 100;
 	parameter WAIT_CONFIG 	 = 600;
 	
-	reg Clk, Rst, C_valid;
+	reg Clk, rst_n, C_valid;
 	reg [CONFIG_WIDTH-1:0] C_addr, C_data;
 	reg [DATA_WIDTH-1:0] Data_in;
 	
@@ -22,7 +22,7 @@ module VGA_Control_tb
 
 	
 	VGA_Control vga(.Clk(Clk),
-					.Rst(Rst),
+					.rst_n(rst_n),
 					.C_valid(C_valid), 
 					.C_addr(C_addr), 
 					.C_data(C_data),
@@ -53,9 +53,9 @@ module VGA_Control_tb
 	initial
 	begin
 		//1 clock cicle reset
-		Rst = 1'b1;
+		rst_n = 1'b1;
 		#RST_DURATION 
-		Rst = 1'b0;
+		rst_n = 1'b0;
 	end
 	
 	

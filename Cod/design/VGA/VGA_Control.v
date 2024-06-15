@@ -12,7 +12,7 @@
 module VGA_Control
 	#(`include "../PARAM/VGA_Width_Parameters.v")
 	(input Clk,
-	input Rst,
+	input rst_n,
 	input C_valid,
 	input [CONFIG_WIDTH-1:0] C_addr,
 	input [CONFIG_WIDTH-1:0] C_data,
@@ -42,7 +42,7 @@ module VGA_Control
 	wire  [REZ_MAX_WIDTH-1:0]  	Count_v;
 	
 	VGA_Config config1(	.Clk(Clk), 
-					.Rst(Rst),
+					.rst_n(rst_n),
 					.Valid(C_valid),
 					.Addr(C_addr),
 					.Data(C_data),
@@ -58,21 +58,21 @@ module VGA_Control
 					
 	
 	VGA_Counter CounterH(.Clk(Clk),
-					.Rst(Rst||Load_config),
+					.rst_n(rst_n||Load_config),
 					.Sync_pulse(H_sync_pulse),
 					.Count_max(H_count_max), 
 					.Counter_sync(HSync),
 					.CounterP(Count_h));
 					
 	VGA_Counter CounterV(.Clk(HSync),
-					.Rst(Rst||Load_config),
+					.rst_n(rst_n||Load_config),
 					.Sync_pulse(V_sync_pulse),
 					.Count_max(V_count_max), 
 					.Counter_sync(VSync),
 					.CounterP(Count_v));
 					
 	VGA_Assign_color assgncolor(.Clk(Clk),
-							.Rst(Rst),
+							.rst_n(rst_n),
 							.Data(Data_in),
 							.Count_h(Count_h),
 							.Count_v(Count_v),
