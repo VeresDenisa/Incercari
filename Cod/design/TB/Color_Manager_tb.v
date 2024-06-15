@@ -19,7 +19,7 @@ module Color_Manager_tb
 	reg [UART_DATA_WIDTH-1:0] RXD_Data;
 	reg Vertical_Split;
 	reg Horizontal_Split;
-	reg VGA_Debugg;
+	reg VGA_debug;
 	reg HSync;
 	reg VSync;
 	wire [C_ADDR_WIDTH-1:0] C_Addr;
@@ -41,7 +41,7 @@ module Color_Manager_tb
 							.RXD_Data(RXD_Data),
 							.Vertical_Split(Vertical_Split),
 							.Horizontal_Split(Horizontal_Split),
-							.VGA_Debugg(VGA_Debugg),
+							.VGA_debug(VGA_debug),
 							.HSync(HSync),
 							.VSync(VSync),
 							.C_Addr(C_Addr),
@@ -88,7 +88,7 @@ module Color_Manager_tb
 	begin
 		Vertical_Split=0;
 		Horizontal_Split=0;
-		VGA_Debugg=0;
+		VGA_debug=0;
 		//HSync=0;
 		//VSync=0;
 		Empty=1;

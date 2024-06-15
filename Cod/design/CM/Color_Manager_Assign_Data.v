@@ -12,7 +12,7 @@ module Color_Manager_Assign_Data
 	input 					 C_Valid,
 	input Vertical_Split,
 	input Horizontal_Split,
-	input VGA_Debugg,
+	input VGA_debug,
 	input 						Counter_X_Valid,
 	input [COUNTER_WIDTH-1:0] 	Counter_X,
 	input 					 	Counter_Y_Valid,
@@ -110,29 +110,29 @@ module Color_Manager_Assign_Data
 		Current_Qudran_Config_nxt  = Current_Qudran_Config_reg;
 		Previous_Qudran_Config_nxt = Previous_Qudran_Config_reg;
 		
-		//1.When the VGA_Debugg switch activates is shows a standard configuration and bypass the whole module
-		if(VGA_Debugg)
+		//1.When the VGA_debug switch activates is shows a standard configuration and bypass the whole module
+		if(VGA_debug)
 		begin
 			if(Counter_X_Valid && Counter_Y_Valid)
 			begin
 				if(Counter_X < HalfX_reg && Counter_Y < HalfY_reg) //x < half and y < half
 				begin
-					Data_VGA_nxt=Left_UP_Debugg;
+					Data_VGA_nxt=Left_UP_debug;
 				end
 				else begin
 					if(Counter_X < HalfX_reg && Counter_Y >= HalfY_reg) // x < half and y > half
 					begin
-						Data_VGA_nxt=Left_DOWN_Debugg;
+						Data_VGA_nxt=Left_DOWN_debug;
 					end
 					else begin
 						if(Counter_X >= HalfX_reg && Counter_Y >= HalfY_reg) //x>half and y>half 
 						begin
-							Data_VGA_nxt=Right_DOWN_Debugg;
+							Data_VGA_nxt=Right_DOWN_debug;
 						end
 						else begin
 							if(Counter_X >= HalfX_reg && Counter_Y < HalfY_reg) // x > half and y < half
 							begin
-								Data_VGA_nxt=Right_UP_Debugg;
+								Data_VGA_nxt=Right_UP_debug;
 							end
 						end
 					end
@@ -229,7 +229,7 @@ module Color_Manager_Assign_Data
 				endcase
 				VGA_Notification_Valid_nxt = 1;
 			end
-						//6.When the VGA_Debugg switch isn't activated, the colors from the user appears only in the active region
+						//6.When the VGA_debug switch isn't activated, the colors from the user appears only in the active region
 			//This is where the DATA_VGA recive values
 			if(Counter_X_Valid && Counter_Y_Valid)
 			begin

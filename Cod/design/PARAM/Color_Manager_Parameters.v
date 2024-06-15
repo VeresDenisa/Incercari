@@ -108,11 +108,11 @@
 	parameter QLEFTDOWN	 = 2'b10,
 	parameter QRIGHTDOWN = 2'b11,
 	
-	//Colors for the debugg mode
-	parameter  Left_UP_Debugg 		= 12'b111101111001,
-	parameter  Left_DOWN_Debugg 	= 12'b011111111001,
-	parameter  Right_UP_Debugg 		= 12'b111101100000,
-	parameter  Right_DOWN_Debugg 	=12'b011111110000,
+	//Colors for the debug mode
+	parameter  Left_UP_debug 		= 12'b111101111001,
+	parameter  Left_DOWN_debug 	= 12'b011111111001,
+	parameter  Right_UP_debug 		= 12'b111101100000,
+	parameter  Right_DOWN_debug 	=12'b011111110000,
 	
 	//Quadran Change Notifications
 	parameter STATE0SPLIT_CHANGE 		= 4'b1000,
