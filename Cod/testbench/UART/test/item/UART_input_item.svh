@@ -26,11 +26,11 @@ function void UART_input_item::copy(UART_input_item item);
 endfunction : copy
 
 function void UART_input_item::setDefault();
-    this.in = 'b0;
+    this.in = 'b1;
 endfunction : setDefault
 
 function bit UART_input_item::equalDefault();
-    if(this.in !== 'b0) return 1'b0;
+    if(this.in !== 'b1) return 1'b0;
   return 1'b1;
 endfunction : equalDefault
 

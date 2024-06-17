@@ -47,8 +47,8 @@ function void CONF_input_agent::connect_phase(uvm_phase phase);
 
     if(CONF_input_config_h.get_is_active() == UVM_ACTIVE) begin
         drv.seq_item_port.connect(seqr.seq_item_export);
-        mon.an_port.connect(seqr.export_port);
     end
+    mon.an_port.connect(seqr.export_port);
 
     `uvm_info(get_name(), $sformatf("<--- EXIT PHASE: --> CONNECT <--"), UVM_DEBUG);
 endfunction : connect_phase

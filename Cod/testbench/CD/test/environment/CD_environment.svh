@@ -36,10 +36,10 @@ function void CD_environment::build_phase(uvm_phase phase);
         CD_config_h   = new(.is_active(UVM_PASSIVE));
         CONF_config_h = new(.is_active(UVM_ACTIVE));
             
-        uvm_config_db #(agent_config)::set(this, "CD_agent_h*",         "CD_config_db", CD_config_h);
+        uvm_config_db #(agent_config)::set(this, "CD_agent_h*",   "CD_config_db", CD_config_h);
         uvm_config_db #(agent_config)::set(this, "CONF_agent_h*", "CD_config_db", CONF_config_h);
         
-        CD_agent_h   = CD_agent        ::type_id::create("CD_agent_h",        this);
+        CD_agent_h   = CD_agent        ::type_id::create("CD_agent_h",   this);
         CONF_agent_h = CONF_input_agent::type_id::create("CONF_agent_h", this);
         
         cov = CD_coverage::type_id::create("cov", this); 

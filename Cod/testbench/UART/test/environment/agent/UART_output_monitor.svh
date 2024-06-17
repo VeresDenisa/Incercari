@@ -1,23 +1,23 @@
-class CD_monitor extends uvm_monitor;
-    `uvm_component_utils(CD_monitor)
+class UART_output_monitor extends uvm_monitor;
+    `uvm_component_utils(UART_output_monitor)
     
-    virtual CD_VIF i;
+    virtual UART_output_VIF i;
     
-    uvm_analysis_port #(CD_item) an_port;
+    uvm_analysis_port #(UART_output_item) an_port;
     
-    CD_item item, item_prev;
+    UART_output_item item, item_prev;
     
-    function new (string name = "CD_monitor", uvm_component parent = null);
+    function new (string name = "UART_output_monitor", uvm_component parent = null);
         super.new(name, parent);
     endfunction : new
     
     extern function void build_phase (uvm_phase phase);
     extern task run_phase(uvm_phase phase);
-endclass : CD_monitor
+endclass : UART_output_monitor
 
 
 
-function void CD_monitor::build_phase (uvm_phase phase);
+function void UART_output_monitor::build_phase (uvm_phase phase);
     super.build_phase(phase);  
     `uvm_info(get_name(), $sformatf("---> ENTER PHASE: --> BUILD <--"), UVM_DEBUG);
     
@@ -27,13 +27,13 @@ function void CD_monitor::build_phase (uvm_phase phase);
 
     item_prev.setDefault();
     
-    if(!uvm_config_db#(virtual CD_VIF)::get(this, "", "CD_VIF", i))
+    if(!uvm_config_db#(virtual UART_output_VIF)::get(this, "", "UART_output_VIF", i))
         `uvm_fatal(this.get_name(), "Failed to get interface");  
 
     `uvm_info(get_name(), $sformatf("<--- EXIT PHASE: --> BUILD <--"), UVM_DEBUG); 
 endfunction : build_phase
 
-task CD_monitor::run_phase(uvm_phase phase);
+task UART_output_monitor::run_phase(uvm_phase phase);
     `uvm_info(get_name(), $sformatf("---> ENTER PHASE: --> RUN <--"), UVM_DEBUG);
 
     forever begin : forever_monitor

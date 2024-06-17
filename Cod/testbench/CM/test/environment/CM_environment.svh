@@ -1,8 +1,8 @@
 class CM_environment extends uvm_env;
     `uvm_component_utils(CM_environment);
         
-    CM_input_agent    CM_input_agent_h;
-    CM_output_agent   CM_output_agent_h;
+    CM_input_agent    CM_agent_input_h;
+    CM_output_agent   CM_agent_output_h;
     CONF_output_agent CONF_agent_h;
 
     agent_config CM_config_input_h;
@@ -39,13 +39,13 @@ function void CM_environment::build_phase(uvm_phase phase);
         CM_config_output_h = new(.is_active(UVM_PASSIVE));
         CONF_config_h      = new(.is_active(UVM_ACTIVE));
             
-        uvm_config_db #(agent_config)::set(this, "CM_input_agent_h*",  "CM_config_db", CM_config_input_h);
-        uvm_config_db #(agent_config)::set(this, "CM_output_agent_h*", "CM_config_db", CM_config_output_h);
+        uvm_config_db #(agent_config)::set(this, "CM_agent_input_h*",  "CM_config_db", CM_config_input_h);
+        uvm_config_db #(agent_config)::set(this, "CM_agent_output_h*", "CM_config_db", CM_config_output_h);
         uvm_config_db #(agent_config)::set(this, "CONF_agent_h*",      "CM_config_db", CONF_config_h);
         
-        CM_input_agent_h  = CM_agent::type_id::create("CM_input_agent_h",  this);
-        CM_output_agent_h = CM_agent::type_id::create("CM_output_agent_h", this);
-        CONF_agent_h      = CM_agent::type_id::create("CONF_agent_h",      this);
+        CM_agent_input_h  = CM_input_agent   ::type_id::create("CM_agent_input_h",  this);
+        CM_agent_output_h = CM_output_agent  ::type_id::create("CM_agent_output_h", this);
+        CONF_agent_h      = CONF_output_agent::type_id::create("CONF_agent_h",      this);
         
         cov = CM_coverage::type_id::create("cov", this); 
     end
@@ -56,8 +56,8 @@ endfunction : build_phase
 function void CM_environment::connect_phase(uvm_phase phase);
     if(env_config_h.get_is_cluster() == UNIT) begin
         v_seqr.CONF_output_seqr = CONF_agent_h.seqr;
-        CM_input_agent_h.mon.an_port.connect(cov.an_port_CM_input);
-        CM_output_agent_h.mon.an_port.connect(cov.an_port_CM_output);
+        CM_agent_input_h.mon.an_port.connect(cov.an_port_CM_input);
+        CM_agent_output_h.mon.an_port.connect(cov.an_port_CM_output);
         CONF_agent_h.mon.an_port.connect(cov.an_port_CONF);
     end
 endfunction : connect_phase

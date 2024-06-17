@@ -17,7 +17,7 @@ endclass : DB_sequence
 
 
 function void DB_sequence::set_parameters(integer number_of_items = 1);
-    this.number_of_items     = number_of_items;
+    this.number_of_items = number_of_items;
 endfunction
 
 task DB_sequence::body();

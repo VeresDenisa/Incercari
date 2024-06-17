@@ -1,18 +1,18 @@
-class CM_input_sequence extends uvm_sequence #(CM_input_item);
-    `uvm_object_utils(CM_input_sequence)
+class UART_input_sequence extends uvm_sequence #(UART_input_item);
+    `uvm_object_utils(UART_input_sequence)
     
-    CM_input_item item;
+    UART_input_item item;
 
-    function new (string name = "CM_input_sequence");
+    function new (string name = "UART_input_sequence");
         super.new(name);
     endfunction : new
 
     extern task body();
-endclass : CM_input_sequence
+endclass : UART_input_sequence
 
 
-task CM_input_sequence::body();
-    item = CM_input_item::type_id::create("CM_input_item");
+task UART_input_sequence::body();
+    item = UART_input_item::type_id::create("UART_input_item");
 
     `uvm_info(get_name(), $sformatf("Create CM input sequence."), UVM_MEDIUM);
 

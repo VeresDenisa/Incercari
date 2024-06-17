@@ -1,7 +1,7 @@
 import uvm_pkg::*;
 `include "uvm_macros.svh"
  
-import DB_test_pack::*;
+import test_pack::*;
 
 `define CLOCK 10
 
