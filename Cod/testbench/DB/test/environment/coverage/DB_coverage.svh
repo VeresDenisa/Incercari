@@ -1,7 +1,7 @@
 class DB_coverage extends uvm_component;
   `uvm_component_utils(DB_coverage);
   
-  uvm_analysis_imp  #(DB_item, DB_coverage) DB_an_port;
+  uvm_analysis_imp  #(DB_item, DB_coverage) an_port;
    
   DB_item DB_t;
 
@@ -10,7 +10,7 @@ class DB_coverage extends uvm_component;
   function new(string name = "DB_coverage", uvm_component parent = null);
     super.new(name, parent);
 
-    DB_an_port = new("DB_an_port", this);
+    an_port = new("an_port", this);
 
     DB_t  = new("DB_current");
 

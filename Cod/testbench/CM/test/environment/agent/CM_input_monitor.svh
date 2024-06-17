@@ -1,23 +1,23 @@
-class DB_monitor extends uvm_monitor;
-    `uvm_component_utils(DB_monitor)
+class CM_input_monitor extends uvm_monitor;
+    `uvm_component_utils(CM_input_monitor)
     
-    virtual DB_VIF i;
+    virtual CM_input_VIF i;
     
-    uvm_analysis_port #(DB_item) an_port;
+    uvm_analysis_port #(CM_input_item) an_port;
     
-    DB_item item, item_prev;
+    CM_input_item item, item_prev;
     
-    function new (string name = "DB_monitor", uvm_component parent = null);
+    function new (string name = "CM_input_monitor", uvm_component parent = null);
         super.new(name, parent);
     endfunction : new
     
     extern function void build_phase (uvm_phase phase);
     extern task run_phase(uvm_phase phase);
-endclass : DB_monitor
+endclass : CM_input_monitor
 
 
 
-function void DB_monitor::build_phase (uvm_phase phase);
+function void CM_input_monitor::build_phase (uvm_phase phase);
     super.build_phase(phase);  
     `uvm_info(get_name(), $sformatf("---> ENTER PHASE: --> BUILD <--"), UVM_DEBUG);
     
@@ -27,13 +27,13 @@ function void DB_monitor::build_phase (uvm_phase phase);
 
     item_prev.setDefault();
     
-    if(!uvm_config_db#(virtual DB_VIF)::get(this, "", "DB_VIF", i))
+    if(!uvm_config_db#(virtual CM_input_VIF)::get(this, "", "CM_input_VIF", i))
         `uvm_fatal(this.get_name(), "Failed to get interface");  
 
     `uvm_info(get_name(), $sformatf("<--- EXIT PHASE: --> BUILD <--"), UVM_DEBUG); 
 endfunction : build_phase
 
-task DB_monitor::run_phase(uvm_phase phase);
+task CM_input_monitor::run_phase(uvm_phase phase);
     `uvm_info(get_name(), $sformatf("---> ENTER PHASE: --> RUN <--"), UVM_DEBUG);
 
     forever begin : forever_monitor

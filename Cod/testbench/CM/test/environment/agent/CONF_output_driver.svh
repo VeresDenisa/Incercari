@@ -1,41 +1,38 @@
-class DB_driver extends uvm_driver #(DB_item);
-    `uvm_component_utils(DB_driver);
+class CONF_output_driver extends uvm_driver #(CONF_item);
+    `uvm_component_utils(CONF_output_driver);
 
-    virtual DB_VIF i;
+    virtual CONF_output_VIF i;
 
-    DB_item item;
+    CONF_item item;
 
-    function new (string name = "DB_driver", uvm_component parent = null);
+    function new (string name = "CONF_output_driver", uvm_component parent = null);
         super.new(name, parent);
     endfunction : new 
 
     extern function void build_phase (uvm_phase phase);
     extern task reset_phase(uvm_phase phase);
     extern task main_phase(uvm_phase phase);
-endclass : DB_driver
+endclass : CONF_output_driver
 
 
 
-function void DB_driver::build_phase (uvm_phase phase);
+function void CONF_output_driver::build_phase (uvm_phase phase);
     super.build_phase(phase);  
     `uvm_info(get_name(), $sformatf("---> ENTER PHASE: --> BUILD <--"), UVM_DEBUG);
 
-    if(!uvm_config_db#(virtual DB_VIF)::get(this, "", "DB_VIF", i))
+    if(!uvm_config_db#(virtual CONF_output_VIF)::get(this, "", "CONF_output_VIF", i))
         `uvm_fatal(this.get_name(), "Failed to get interface");
 
     `uvm_info(get_name(), $sformatf("<--- EXIT PHASE: --> BUILD <--"), UVM_DEBUG);
 endfunction : build_phase
 
-task DB_driver::reset_phase(uvm_phase phase);
+task CONF_output_driver::reset_phase(uvm_phase phase);
     super.reset_phase(phase);
     `uvm_info(get_name(), $sformatf("---> ENTER PHASE: --> RESET <--"), UVM_DEBUG);
     
     phase.raise_objection(this);
 
-    i.HS      <= 1'b0;
-    i.VS      <= 1'b0;
-    i.DF_UART <= 1'b0;
-    i.DF_VGA  <= 1'b0;
+    i.c_ready <= 'b0;
 
     @(i.driver);
     @(i.driver);
@@ -47,7 +44,7 @@ task DB_driver::reset_phase(uvm_phase phase);
     `uvm_info(get_name(), $sformatf("<--- EXIT PHASE: --> RESET <--"), UVM_DEBUG);
     endtask : reset_phase
 
-task DB_driver::main_phase(uvm_phase phase);
+task CONF_output_driver::main_phase(uvm_phase phase);
     super.main_phase(phase);  
     `uvm_info(get_name(), $sformatf("---> ENTER PHASE: --> MAIN <--"), UVM_DEBUG);
 

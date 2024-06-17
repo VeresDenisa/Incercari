@@ -1,8 +1,8 @@
 
 
-module Color_Manager_Counter
-	#(`include "../PARAM/Color_Manager_Width_Parameters.v") 
-	(input Clk,
+module CM_Counter
+	#(`include "../PARAM/CM_Width_Parameters.v") 
+	(input clk,
 	input rst_n,
 	input[BACKPORCH_WIDTH-1:0] BackPorch,
 	input[FRONTPORCH_WIDTH-1:0] FrontPorch,
@@ -15,7 +15,7 @@ module Color_Manager_Counter
 	reg [FRONTPORCH_WIDTH-1:0]    Count_intern_reg, Count_intern_nxt;
 	
 	
-	always@(posedge Clk or negedge rst_n)
+	always@(posedge clk or negedge rst_n)
 	begin
 		if(~rst_n)
 		begin

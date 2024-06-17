@@ -1,10 +1,10 @@
 
 
-module Color_Manager_Config_Manager
-	#(`include "../PARAM/Color_Manager_Width_Parameters.v",
-	  `include "../PARAM/Color_Manager_Addr_Parameters.v",
-	  `include "../PARAM/Color_Manager_Parameters.v")
-	(input Clk, 
+module CM_Config_Manager
+	#(`include "../PARAM/CM_Width_Parameters.v",
+	  `include "../PARAM/CM_Addr_Parameters.v",
+	  `include "../PARAM/CM_Parameters.v")
+	(input clk, 
 	input rst_n,
 	input Empty,
 	input C_Rdy,
@@ -32,7 +32,7 @@ module Color_Manager_Config_Manager
 	reg [CONFIG_ERROR_WIDTH-1:0] Config_Error_reg, Config_Error_nxt;
 	reg Error_Valid_reg, Error_Valid_nxt;
 	
-	always@(posedge Clk or negedge rst_n)
+	always@(posedge clk or negedge rst_n)
 	begin
 		if(~rst_n)
 		begin

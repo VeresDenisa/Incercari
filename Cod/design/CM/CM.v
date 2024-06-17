@@ -1,7 +1,7 @@
  
-module Color_Manager
-#(`include "../PARAM/Color_Manager_Width_Parameters.v")
-   (input Clk,
+module CM
+#(`include "../PARAM/CM_Width_Parameters.v")
+   (input clk,
 	input rst_n,
 	input Empty,
 	input C_Rdy,
@@ -34,7 +34,7 @@ module Color_Manager
 	wire [COUNTER_WIDTH-1:0]	Counter_Y;
 	wire 					    C_Rdy_Assign;
 	
-	Color_Manager_Config_Manager configCM(.Clk(Clk),
+	CM_Config_Manager configCM(.clk(clk),
 							.rst_n(rst_n),
 							.Empty(Empty),
 							.C_Rdy(C_Rdy & C_Rdy_Assign),
@@ -48,7 +48,7 @@ module Color_Manager
 							.Config_Error(Config_Error),
 							.Error_Valid(Error_Valid));
 							
-	Color_Manager_Assign_Data assignCM(.Clk(Clk),
+	CM_Assign_Data assignCM(.clk(clk),
 						.rst_n(rst_n),
 						.C_Addr(C_Addr),
 						.C_Data(C_Data),
@@ -70,7 +70,7 @@ module Color_Manager
 						.V_FrontPorch(V_FrontPorch));
 					
 							
-	Color_Manager_Counter counterH(.Clk(Clk),
+	CM_Counter counterH(.clk(clk),
 				 .rst_n(rst_n),
 				 .BackPorch(H_BackPorch),
 				 .FrontPorch(H_FrontPorch), 
@@ -78,7 +78,7 @@ module Color_Manager
 				 .Counter_Valid(Counter_X_Valid),
 				 .CounterP(Counter_X));
 				 
-	Color_Manager_Counter counterV(.Clk(Clk),
+	CM_Counter counterV(.clk(clk),
 				 .rst_n(rst_n),
 				 .BackPorch(V_BackPorch),
 				 .FrontPorch(V_FrontPorch), 

@@ -83,7 +83,7 @@ wire [3:0] VGA_Notification;
 wire VGA_Notification_Valid;
 wire [11:0] Data_VGA;
 
-Color_Manager cm  (.Clk(clk), .rst_n(rst_n),
+CM cm  (.clk(clk), .rst_n(rst_n),
 		.Empty(UART_out_CM_data_empty), .RXD_Data(UART_out_CM_data),
 		.C_Rdy(&c_ready), .C_Addr(c_addr),
 		.C_Data(c_data), .C_Valid(c_valid),
@@ -96,7 +96,7 @@ Color_Manager cm  (.Clk(clk), .rst_n(rst_n),
 		.VGA_Notification(VGA_Notification), .VGA_Notification_Valid(VGA_Notification_Valid),
 	  .Data_VGA(Data_VGA));
 
-VGA_Control vga(.Clk(clk), .rst_n(rst_n),
+VGA_Control vga(.clk(clk), .rst_n(rst_n),
   .Data_in(Data_VGA),
 	.C_valid(c_valid), .C_addr(c_addr[3:2]), 
 	.C_data(c_data[1:0]), .C_rdy(c_ready[0]),

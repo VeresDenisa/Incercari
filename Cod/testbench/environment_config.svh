@@ -1,6 +1,6 @@
 typedef enum bit { CLUSTER = 1'b1, UNIT   = 1'b0 } cluster_unit_enum;
 
-class DB_environment_config;
+class environment_config;
     protected cluster_unit_enum is_cluster;
     
     function new ( cluster_unit_enum is_cluster );
@@ -10,4 +10,4 @@ class DB_environment_config;
     function cluster_unit_enum get_is_cluster();
         return is_cluster;
     endfunction : get_is_cluster  
-endclass : DB_environment_config
+endclass : environment_config

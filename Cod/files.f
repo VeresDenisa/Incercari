@@ -1,7 +1,7 @@
-design/CM/Color_Manager.v
-design/CM/Color_Manager_Assign_Data.v
-design/CM/Color_Manager_Config_Manager.v
-design/CM/Color_Manager_Counter.v
+design/CM/CM.v
+design/CM/CM_Assign_Data.v
+design/CM/CM_Config_Manager.v
+design/CM/CM_Counter.v
 design/CS/CS.v
 design/DB/DB.v
 design/DB/DB_debouncer.v
@@ -20,7 +20,7 @@ design/CD/CD.v
 design/CD/CD_config.v
 design/CD/CD_counter.v
 
-design/TB/Color_Manager_tb.v
+design/TB/CM_tb.v
 design/TB/tb_CD.v
 design/TB/tb_CS.v
 design/TB/tb_DB.v
@@ -29,11 +29,11 @@ design/TB/tb_Sync_Reg.v
 design/TB/tb_UART.v
 design/TB/VGA_Control_tb.v
 
-testbench/pack/DB_item_pack.sv
-testbench/pack/DB_sequence_pack.sv
+testbench/pack/item_pack.sv
+testbench/pack/sequence_pack.sv
 testbench/DB/interface/DB_VIF.sv
-testbench/pack/DB_agent_pack.sv
-testbench/pack/DB_coverage_pack.sv
-testbench/pack/DB_environment_pack.sv
-testbench/pack/DB_test_pack.sv
+testbench/pack/agent_pack.sv
+testbench/pack/coverage_pack.sv
+testbench/pack/environment_pack.sv
+testbench/pack/test_pack.sv
 testbench/DB/testbench_DB.sv

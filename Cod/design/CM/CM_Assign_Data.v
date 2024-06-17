@@ -1,11 +1,11 @@
  
 `define ACTIVE 1'b0
 
-module Color_Manager_Assign_Data
-	#(`include "../PARAM/Color_Manager_Width_Parameters.v",
-	  `include "../PARAM/Color_Manager_Parameters.v",
-	  `include "../PARAM/Color_Manager_Addr_Parameters.v")
-	(input Clk,
+module CM_Assign_Data
+	#(`include "../PARAM/CM_Width_Parameters.v",
+	  `include "../PARAM/CM_Parameters.v",
+	  `include "../PARAM/CM_Addr_Parameters.v")
+	(input clk,
 	input rst_n,
 	input [C_ADDR_WIDTH-1:0] C_Addr,
 	input [C_DATA_WIDTH-1:0] C_Data,
@@ -50,7 +50,7 @@ module Color_Manager_Assign_Data
 	
 
 	
-	always@(posedge Clk or negedge rst_n)
+	always@(posedge clk or negedge rst_n)
 	begin
 		if(~rst_n)
 		begin		

@@ -7,7 +7,7 @@ VGA_Control.
 
 module VGA_Assign_color
 	#(`include "../PARAM/VGA_Width_Parameters.v")
-	(input Clk,
+	(input clk,
 	input rst_n,
 	input  [DATA_WIDTH-1:0]     	Data,
 	input  [REZ_MAX_WIDTH-1:0]  	Count_h,
@@ -22,7 +22,7 @@ module VGA_Assign_color
 	
 	reg   Active_reg, Active_nxt;
 
-	always@(posedge Clk or negedge rst_n)
+	always@(posedge clk or negedge rst_n)
 	begin
 		if(~rst_n)
 		begin

@@ -1,7 +1,7 @@
  
-//The testbench for the Color_Manager module.
-module Color_Manager_tb
-#(`include "../PARAM/Color_Manager_Width_Parameters.v");
+//The testbench for the CM module.
+module CM_tb
+#(`include "../PARAM/CM_Width_Parameters.v");
 
 	parameter CLK_F     	 = 2;
 	parameter RST_DURATION 	 = 4;
@@ -12,7 +12,7 @@ module Color_Manager_tb
 	parameter VSYNC_F			 = 7000; 
 	
 	
-	reg Clk;
+	reg clk;
 	reg rst_n;
 	reg Empty;
 	reg C_Rdy;
@@ -34,7 +34,7 @@ module Color_Manager_tb
 	wire 							  VGA_Notification_Valid;
 	wire [DATA_WIDTH-1:0]   Data_VGA;
 	
-	Color_Manager colorCM  (.Clk(Clk),
+	CM colorCM  (.clk(clk),
 							.rst_n(rst_n),
 							.Empty(Empty),
 							.C_Rdy(C_Rdy),
@@ -60,8 +60,8 @@ module Color_Manager_tb
 	
 	initial 
 	begin
-		Clk = 1'b1;
-		forever #CLK_F Clk = ~Clk;
+		clk = 1'b1;
+		forever #CLK_F clk = ~clk;
 	end
 	
 	initial 

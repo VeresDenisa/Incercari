@@ -75,7 +75,7 @@
 #         rsp_port           uvm_analysis_port       -     @661 
 #         seq_item_port      uvm_seq_item_pull_port  -     @653 
 #       DB_monitor           DB_monitor              -     @671 
-#         DB_an_port         uvm_analysis_port       -     @688 
+#         an_port         uvm_analysis_port       -     @688 
 #       DB_seqr              uvm_sequencer           -     @537 
 #         rsp_export         uvm_analysis_export     -     @544 
 #         seq_item_export    uvm_seq_item_pull_imp   -     @638 
@@ -85,9 +85,9 @@
 #         num_last_rsps      integral                32    'd1  
 #     DB_agent_output_h      DB_agent                -     @508 
 #       DB_monitor           DB_monitor              -     @705 
-#         DB_an_port         uvm_analysis_port       -     @722 
+#         an_port         uvm_analysis_port       -     @722 
 #     cov                    DB_coverage             -     @515 
-#       DB_an_port           uvm_analysis_imp        -     @522 
+#       an_port           uvm_analysis_imp        -     @522 
 # --------------------------------------------------------------
 # 
 # UVM_INFO testbench/DB/test/environment/coverage/DB_coverage.svh(37) @ 335: uvm_test_top.env.cov [cov] DB coverage:  100.00%

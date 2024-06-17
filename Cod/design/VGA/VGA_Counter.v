@@ -10,7 +10,7 @@ Count_max value.
 
 module VGA_Counter
 	#(`include "../PARAM/VGA_Width_Parameters.v")
-	(input Clk,
+	(input clk,
 	input rst_n,
 	input [PULSE_WIDTH-1:0] Sync_pulse,
 	input [REZ_MAX_WIDTH-1:0] Count_max,
@@ -20,7 +20,7 @@ module VGA_Counter
 	reg							Sync_State_reg, Sync_State_nxt;	
 	reg	[REZ_MAX_WIDTH-1:0]  	Count_reg, Count_nxt;
 	
-	always@(posedge Clk or negedge rst_n)
+	always@(posedge clk or negedge rst_n)
 	begin
 		if(~rst_n)
 		begin

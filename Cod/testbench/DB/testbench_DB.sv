@@ -5,7 +5,7 @@ import DB_test_pack::*;
 
 `define CLOCK 10
 
-module testbench;  
+module testbench_DB;  
     bit clk;
     bit rst_n;
     
@@ -36,7 +36,7 @@ module testbench;
         .DF_VGA(DB_output_i.DF_VGA)
         );
 
-    /*bind testbench.DB_DUT DB_DUT_ASS (
+    /*bind testbench_DB.DB_DUT DB_DUT_ASS (
         .clk(clk),
         .rst_n(rst_n),
         .btnHS(DB_input_i.HS),
@@ -61,4 +61,4 @@ module testbench;
     initial begin 
         $dumpfile("dump.vcd"); $dumpvars;
     end
-endmodule : testbench
+endmodule : testbench_DB

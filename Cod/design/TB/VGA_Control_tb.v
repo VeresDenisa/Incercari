@@ -9,7 +9,7 @@ module VGA_Control_tb
 	parameter WAIT 		     = 100;
 	parameter WAIT_CONFIG 	 = 600;
 	
-	reg Clk, rst_n, C_valid;
+	reg clk, rst_n, C_valid;
 	reg [CONFIG_WIDTH-1:0] C_addr, C_data;
 	reg [DATA_WIDTH-1:0] Data_in;
 	
@@ -21,7 +21,7 @@ module VGA_Control_tb
 	wire [COLOR_WIDTH-1:0]  Blue;
 
 	
-	VGA_Control vga(.Clk(Clk),
+	VGA_Control vga(.clk(clk),
 					.rst_n(rst_n),
 					.C_valid(C_valid), 
 					.C_addr(C_addr), 
@@ -46,8 +46,8 @@ module VGA_Control_tb
 	initial 
 	begin
 		//making the Clock signal
-		Clk = 1'b1;
-		forever #CLK_F Clk = ~Clk;
+		clk = 1'b1;
+		forever #CLK_F clk = ~clk;
 	end
 				
 	initial
