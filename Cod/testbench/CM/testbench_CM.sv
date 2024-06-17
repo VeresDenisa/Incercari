@@ -51,7 +51,7 @@ module testbench_CM;
     initial begin
         uvm_config_db#(virtual CM_input_VIF)   ::set(null, "uvm_test_top.env.CM_input_agent_h*",    "CM_input_VIF",    CM_input_i);
         uvm_config_db#(virtual CM_output_VIF)  ::set(null, "uvm_test_top.env.CM_output_agent_h*",   "CM_output_VIF",   CM_output_i);
-        uvm_config_db#(virtual CONF_output_VIF)::set(null, "uvm_test_top.env.CONF_output_agent_h*", "CONF_output_VIF", CONF_output_i);
+        uvm_config_db#(virtual CONF_output_VIF)::set(null, "uvm_test_top.env.CONF_agent_h*", "CONF_output_VIF", CONF_output_i);
     end
     
     initial begin

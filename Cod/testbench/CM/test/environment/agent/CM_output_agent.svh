@@ -30,7 +30,7 @@ function void CM_output_agent::build_phase(uvm_phase phase);
         `uvm_fatal(this.get_name(), "Failed to get interface");
     
     if(CM_output_config_h.get_is_active() == UVM_ACTIVE) begin
-        seqr = uvm_sequencer#(CM_output_item)::type_id::create("CM_output_seqr", this);
+        seqr = uvm_sequencer#(CM_output_item)::type_id::create("CONF_output_seqr", this);
         drv  = CM_output_driver::type_id::create("CM_output_driver",  this); 
         uvm_config_db#(virtual CM_output_VIF)::set(this, "CM_output_driver*", "CM_output_VIF", i);
     end
