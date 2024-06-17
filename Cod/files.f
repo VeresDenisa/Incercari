@@ -55,3 +55,6 @@ testbench/DB/testbench_DB.sv
 testbench/LM/testbench_LM.sv
 testbench/UART/testbench_UART.sv
 testbench/VGA/testbench_VGA.sv
+
+testbench/DB/assertion_DB.sv
+testbench/CD/assertion_CD.sv

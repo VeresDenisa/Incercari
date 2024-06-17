@@ -23,7 +23,7 @@ module testbench_DB;
     DB_VIF DB_input_i(clk);
     DB_VIF DB_output_i(clk);
     
-    DB DB_DUT (
+    DB #(.LIMIT(4)) DB_DUT (
         .clk(clk),
         .rst_n(rst_n),
         .btnHS(DB_input_i.HS),
@@ -36,7 +36,7 @@ module testbench_DB;
         .DF_VGA(DB_output_i.DF_VGA)
         );
 
-    /*bind testbench_DB.DB_DUT DB_DUT_ASS (
+    bind testbench_DB.DB_DUT #(.LIMIT(4)) DB_DUT_ASS (
         .clk(clk),
         .rst_n(rst_n),
         .btnHS(DB_input_i.HS),
@@ -47,7 +47,7 @@ module testbench_DB;
         .VS(DB_output_i.VS),
         .DF_UART(DB_output_i.DF_UART),
         .DF_VGA(DB_output_i.DF_VGA)
-        );*/
+        );
     
     initial begin
         uvm_config_db#(virtual DB_VIF)::set(null, "uvm_test_top.env.DB_agent_input_h*",  "DB_VIF", DB_input_i);

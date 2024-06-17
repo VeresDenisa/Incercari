@@ -12,7 +12,8 @@ package sequence_pack;
     `include "testbench/DB/test/sequence/DB_sequence.svh"
 
     `include "testbench/UART/test/sequence/UART_input_sequence.svh"
+    `include "testbench/UART/test/sequence/UART_valid_sequence.svh"
     `include "testbench/UART/test/sequence/UART_output_sequence.svh"
-    
+
     `include "testbench/VGA/test/sequence/VGA_input_sequence.svh"
   endpackage : sequence_pack

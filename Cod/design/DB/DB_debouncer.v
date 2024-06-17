@@ -1,6 +1,6 @@
 
 
-module DB_debouncer #(parameter LIMIT = 2)(
+module DB_debouncer #(parameter LIMIT = 4)(
   input clk,
   input rst_n,
   input button,
