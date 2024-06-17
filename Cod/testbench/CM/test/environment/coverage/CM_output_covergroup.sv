@@ -1,7 +1,7 @@
 covergroup CM_output_covergroup (ref CM_output_item item);
     Config_Notification_Valid_cvp : coverpoint item.Config_Notification_Valid { bins value_binary[2] = {0, 1}; } 
-    Error_Valid_cvp               : coverpoint item.Error_Valid               { bins value_binary[2] = {0, 1}; }  
     VGA_Notification_Valid_cvp    : coverpoint item.VGA_Notification_Valid    { bins value_binary[2] = {0, 1}; }  
+    Error_Valid_cvp               : coverpoint item.Error_Valid               { bins value_binary[2] = {0, 1}; }  
 
     Data_VGA_cvp : coverpoint item.Data_VGA { 
         bins values05[8] = {'h000, 'h005, 'h050, 'h055, 'h500, 'h505, 'h550, 'h555}; 
