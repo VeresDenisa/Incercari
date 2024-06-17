@@ -32,28 +32,32 @@ function void CM_environment::build_phase(uvm_phase phase);
     if(!uvm_config_db #(environment_config)::get(this, "", "CM_config_db", env_config_h))
         `uvm_fatal(this.get_name(), "Failed to get CM environment config");
 
-    v_seqr = virtual_sequencer::type_id::create("CM_virtual_sequencer", this);
+    if(env_config_h.get_is_cluster() == UNIT) begin
+        v_seqr = virtual_sequencer::type_id::create("CM_virtual_sequencer", this);
 
-    CM_config_input_h    = new(.is_active(UVM_ACTIVE));
-    CM_config_output_h   = new(.is_active(UVM_PASSIVE));
-    CONF_config_output_h = new(.is_active(UVM_ACTIVE));
+        CM_config_input_h    = new(.is_active(UVM_ACTIVE));
+        CM_config_output_h   = new(.is_active(UVM_PASSIVE));
+        CONF_config_output_h = new(.is_active(UVM_ACTIVE));
+            
+        uvm_config_db #(agent_config)::set(this, "CM_input_agent_h*",    "CM_config_db", CM_config_input_h);
+        uvm_config_db #(agent_config)::set(this, "CM_output_agent_h*",   "CM_config_db", CM_config_output_h);
+        uvm_config_db #(agent_config)::set(this, "CONF_output_agent_h*", "CM_config_db", CONF_config_output_h);
         
-    uvm_config_db #(agent_config)::set(this, "CM_input_agent_h*",    "CM_config_db", CM_config_input_h);
-    uvm_config_db #(agent_config)::set(this, "CM_output_agent_h*",   "CM_config_db", CM_config_output_h);
-    uvm_config_db #(agent_config)::set(this, "CONF_output_agent_h*", "CM_config_db", CONF_config_output_h);
-    
-    CM_input_agent_h    = CM_agent::type_id::create("CM_input_agent_h",    this);
-    CM_output_agent_h   = CM_agent::type_id::create("CM_output_agent_h",   this);
-    CONF_output_agent_h = CM_agent::type_id::create("CONF_output_agent_h", this);
-    
-    cov = CM_coverage::type_id::create("cov", this); 
+        CM_input_agent_h    = CM_agent::type_id::create("CM_input_agent_h",    this);
+        CM_output_agent_h   = CM_agent::type_id::create("CM_output_agent_h",   this);
+        CONF_output_agent_h = CM_agent::type_id::create("CONF_output_agent_h", this);
+        
+        cov = CM_coverage::type_id::create("cov", this); 
+    end
         
     `uvm_info(get_name(), $sformatf("<--- EXIT PHASE: --> BUILD <--"), UVM_DEBUG);
 endfunction : build_phase
 
 function void CM_environment::connect_phase(uvm_phase phase);
-    v_seqr.CM_output_seqr = CONF_output_agent_h.seqr;
-    CM_input_agent_h.mon.an_port.connect(cov.an_port);
-    CM_output_agent_h.mon.an_port.connect(cov.an_port);
-    CONF_output_agent_h.mon.an_port.connect(cov.an_port);
+    if(env_config_h.get_is_cluster() == UNIT) begin
+        v_seqr.CM_output_seqr = CONF_output_agent_h.seqr;
+        CM_input_agent_h.mon.an_port.connect(cov.an_port);
+        CM_output_agent_h.mon.an_port.connect(cov.an_port);
+        CONF_output_agent_h.mon.an_port.connect(cov.an_port);
+    end
 endfunction : connect_phase

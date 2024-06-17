@@ -29,19 +29,29 @@ function void DB_environment::build_phase(uvm_phase phase);
         `uvm_fatal(this.get_name(), "Failed to get DB environment config");
 
     DB_config_input_h = new(.is_active(UVM_ACTIVE));
-    DB_config_output_h = new(.is_active(UVM_PASSIVE));
+
+    uvm_config_db #(agent_config)::set(this, "DB_agent_input_h*", "DB_config_db", DB_config_input_h);
+
+    DB_agent_input_h = DB_agent::type_id::create("DB_agent_input_h",  this);
+
+
+    if(env_config_h.get_is_cluster() == UNIT) begin
+        DB_config_output_h = new(.is_active(UVM_PASSIVE));
+            
+        uvm_config_db #(agent_config)::set(this, "DB_agent_output_h*", "DB_config_db", DB_config_output_h);
         
-    uvm_config_db #(agent_config)::set(this, "DB_agent_input_h*",  "DB_config_db", DB_config_input_h);
-    uvm_config_db #(agent_config)::set(this, "DB_agent_output_h*", "DB_config_db", DB_config_output_h);
-    
-    DB_agent_input_h  = DB_agent::type_id::create("DB_agent_input_h",  this);
-    DB_agent_output_h = DB_agent::type_id::create("DB_agent_output_h", this);
-    
+        DB_agent_output_h = DB_agent::type_id::create("DB_agent_output_h", this);
+    end 
+
     cov = DB_coverage::type_id::create("cov", this); 
         
     `uvm_info(get_name(), $sformatf("<--- EXIT PHASE: --> BUILD <--"), UVM_DEBUG);
 endfunction : build_phase
 
 function void DB_environment::connect_phase(uvm_phase phase);
-    DB_agent_output_h.mon.an_port.connect(cov.an_port);
+    if(env_config_h.get_is_cluster() == UNIT) begin 
+        DB_agent_output_h.mon.an_port.connect(cov.an_port);
+    end else begin
+        DB_agent_input_h.mon.an_port.connect(cov.an_port);
+    end
 endfunction : connect_phase
