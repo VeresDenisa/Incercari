@@ -85,8 +85,8 @@ wire [11:0] Data_VGA;
 
 CM cm  (.clk(clk), .rst_n(rst_n),
 		.Empty(UART_out_CM_data_empty), .RXD_Data(UART_out_CM_data),
-		.C_Rdy(&c_ready), .C_Addr(c_addr),
-		.C_Data(c_data), .C_Valid(c_valid),
+		.c_ready(&c_ready), .c_addr(c_addr),
+		.c_data(c_data), .c_valid(c_valid),
 		.Vertical_Split(button_signal_VS), .Horizontal_Split(button_signal_HS),
 	  .VGA_debug(button_signal_DEBUG_VGA),
 		.HSync(HSYNC), .VSync(VSYNC),
@@ -96,11 +96,11 @@ CM cm  (.clk(clk), .rst_n(rst_n),
 		.VGA_Notification(VGA_Notification), .VGA_Notification_Valid(VGA_Notification_Valid),
 	  .Data_VGA(Data_VGA));
 
-VGA_Control vga(.clk(clk), .rst_n(rst_n),
-  .Data_in(Data_VGA),
-	.C_valid(c_valid), .C_addr(c_addr[3:2]), 
-	.C_data(c_data[1:0]), .C_rdy(c_ready[0]),
-	.Red(RED), .Green(GREEN), .Blue(BLUE), 
+VGA vga(.clk(clk), .rst_n(rst_n),
+  .data_in(Data_VGA),
+	.c_valid(c_valid), .c_addr(c_addr[3:2]), 
+	.c_data(c_data[1:0]), .c_ready(c_ready[0]),
+	.RED(RED), .GREEN(GREEN), .BLUE(BLUE), 
 	.HSync(HSYNC), .VSync(VSYNC));
 		
 

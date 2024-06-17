@@ -7,9 +7,9 @@ module CM_Assign_Data
 	  `include "../PARAM/CM_Addr_Parameters.v")
 	(input clk,
 	input rst_n,
-	input [C_ADDR_WIDTH-1:0] C_Addr,
-	input [C_DATA_WIDTH-1:0] C_Data,
-	input 					 C_Valid,
+	input [c_addr_WIDTH-1:0] c_addr,
+	input [c_data_WIDTH-1:0] c_data,
+	input 					 c_valid,
 	input Vertical_Split,
 	input Horizontal_Split,
 	input VGA_debug,
@@ -17,7 +17,7 @@ module CM_Assign_Data
 	input [COUNTER_WIDTH-1:0] 	Counter_X,
 	input 					 	Counter_Y_Valid,
 	input [COUNTER_WIDTH-1:0]	Counter_Y,
-	output 					  C_Rdy,
+	output 					  c_ready,
 	output [VGA_NOTIFICATION_WIDTH-1:0] VGA_Notification,
 	output 								VGA_Notification_Valid,
 	output [DATA_WIDTH-1:0]   Data_VGA,
@@ -26,7 +26,7 @@ module CM_Assign_Data
 	output [BACKPORCH_WIDTH-1:0]  V_BackPorch,
 	output [FRONTPORCH_WIDTH-1:0] V_FrontPorch);
 	
-	reg C_Rdy_reg, C_Rdy_nxt;
+	reg c_ready_reg, c_ready_nxt;
 	
 	reg	VGA_Notification_Valid_reg, VGA_Notification_Valid_nxt;
 	reg [VGA_NOTIFICATION_WIDTH-1:0] VGA_Notification_reg, VGA_Notification_nxt;
@@ -54,7 +54,7 @@ module CM_Assign_Data
 	begin
 		if(~rst_n)
 		begin		
-			C_Rdy_reg <= 1; 
+			c_ready_reg <= 1; 
 			VGA_Notification_Valid_reg <= 0;
 			VGA_Notification_reg   <= 0;
 			Data_VGA_reg 	 <= 0;
@@ -72,7 +72,7 @@ module CM_Assign_Data
 			HalfY_reg <= V_FrontPorch_RD>>1;
 		end
 		else begin
-			C_Rdy_reg <= C_Rdy_nxt;
+			c_ready_reg <= c_ready_nxt;
 			VGA_Notification_Valid_reg <= VGA_Notification_Valid_nxt;
 			VGA_Notification_reg   <= VGA_Notification_nxt;
 			Data_VGA_reg 	 <= Data_VGA_nxt;
@@ -93,7 +93,7 @@ module CM_Assign_Data
 	
 	always@*
 	begin
-		C_Rdy_nxt = 1;
+		c_ready_nxt = 1;
 		VGA_Notification_Valid_nxt  = 0;
 		VGA_Notification_nxt    = VGA_Notification_reg;
 		Data_VGA_nxt 	  = Data_VGA_reg;
@@ -141,9 +141,9 @@ module CM_Assign_Data
 		end
 		else begin
 			//2.When a new valid configuration comes, update parameters
-			if(C_Addr == ADDR_VGA_CONFIG && C_Valid == `ACTIVE) 
+			if(c_addr == ADDR_VGA_CONFIG && c_valid == `ACTIVE) 
 			begin	
-				case (C_Data[C_DATA_CONFIG_WIDTH-1:0])	
+				case (c_data[c_data_CONFIG_WIDTH-1:0])	
 					R6X4: begin
 						//bring proper parameters 
 						H_BackPorch_nxt  = H_BackPorch_RD;
@@ -152,7 +152,7 @@ module CM_Assign_Data
 						V_FrontPorch_nxt = V_FrontPorch_RD;
 						HalfX_nxt = H_FrontPorch_RD>>1;
 						HalfY_nxt = V_FrontPorch_RD>>1;
-						C_Rdy_nxt = 0;
+						c_ready_nxt = 0;
 					end
 					R8X6: begin
 						//bring proper parameters
@@ -162,7 +162,7 @@ module CM_Assign_Data
 						V_FrontPorch_nxt = V_FrontPorch_R8x6;
 						HalfX_nxt = H_FrontPorch_R8x6>>1;
 						HalfY_nxt = V_FrontPorch_R8x6>>1;
-						C_Rdy_nxt = 0;
+						c_ready_nxt = 0;
 					end
 					R10X7: begin
 						//bring proper parameters 
@@ -172,28 +172,28 @@ module CM_Assign_Data
 						V_FrontPorch_nxt = V_FrontPorch_R10x7;
 						HalfX_nxt = H_FrontPorch_R10x7>>1;
 						HalfY_nxt = V_FrontPorch_R10x7>>1;
-						C_Rdy_nxt = 0;
+						c_ready_nxt = 0;
 					end	
 				endcase
 			end
 			//3.When a new color comes, it will be saved in the dedicated register
-			if(C_Addr == ADDR_VGA_COLOR && C_Valid == `ACTIVE) 
+			if(c_addr == ADDR_VGA_COLOR && c_valid == `ACTIVE) 
 			begin
-				case(C_Data[C_DATA_WIDTH-1:C_DATA_WIDTH-2]) //the first 2 bits are to identify the quadran
+				case(c_data[c_data_WIDTH-1:c_data_WIDTH-2]) //the first 2 bits are to identify the quadran
 					QLEFTUP: begin
-						Left_UP_nxt = C_Data[C_DATA_WIDTH-3:0];
+						Left_UP_nxt = c_data[c_data_WIDTH-3:0];
 					end					
 					QRIGHTUP: begin
-						Right_UP_nxt = C_Data[C_DATA_WIDTH-3:0]; 
+						Right_UP_nxt = c_data[c_data_WIDTH-3:0]; 
 					end
 					QLEFTDOWN: begin
-						Left_DOWN_nxt = C_Data[C_DATA_WIDTH-3:0]; 
+						Left_DOWN_nxt = c_data[c_data_WIDTH-3:0]; 
 					end
 					QRIGHTDOWN: begin
-						Right_DOWN_nxt = C_Data[C_DATA_WIDTH-3:0]; 
+						Right_DOWN_nxt = c_data[c_data_WIDTH-3:0]; 
 					end
 				endcase
-				C_Rdy_nxt = 0;
+				c_ready_nxt = 0;
 			end
 			//4. Test switches and Save New Quadran Config from Config Buss only if both split switches are not active 
 			if(Horizontal_Split | Vertical_Split)
@@ -202,11 +202,11 @@ module CM_Assign_Data
 				Previous_Qudran_Config_nxt = Current_Qudran_Config_reg;
 			end
 			else begin
-				if((C_Addr == ADDR_VGA_QUADRAN) & (C_Valid == `ACTIVE)) 
+				if((c_addr == ADDR_VGA_QUADRAN) & (c_valid == `ACTIVE)) 
 				begin
-					Current_Qudran_Config_nxt = C_Data[C_DATA_CONFIG_WIDTH-1:0];
+					Current_Qudran_Config_nxt = c_data[c_data_CONFIG_WIDTH-1:0];
 					Previous_Qudran_Config_nxt = Current_Qudran_Config_reg;
-					C_Rdy_nxt = 0;
+					c_ready_nxt = 0;
 				end
 			end
 			//5.Send VGA_Notifications 
@@ -281,7 +281,7 @@ module CM_Assign_Data
 		end
 	end
 	
-	assign C_Rdy = C_Rdy_reg;
+	assign c_ready = c_ready_reg;
 	assign VGA_Notification_Valid = VGA_Notification_Valid_reg;
 	assign VGA_Notification = VGA_Notification_reg;
 	assign Data_VGA = Data_VGA_reg;

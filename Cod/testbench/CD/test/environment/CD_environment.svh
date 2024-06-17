@@ -4,7 +4,6 @@ class CD_environment extends uvm_env;
     CD_input_agent   CD_agent_h;
     CONF_input_agent CONF_agent_h;
 
-    agent_config CD_config_h;
     agent_config CONF_config_h;
     
     environment_config env_config_h;
@@ -33,10 +32,8 @@ function void CD_environment::build_phase(uvm_phase phase);
     if(env_config_h.get_is_cluster() == UNIT) begin
         v_seqr = CONF_input_virtual_sequencer::type_id::create("CONF_input_virtual_sequencer", this);
 
-        CD_config_h   = new(.is_active(UVM_PASSIVE));
         CONF_config_h = new(.is_active(UVM_ACTIVE));
             
-        uvm_config_db #(agent_config)::set(this, "CD_agent_h*",   "CD_config_db", CD_config_h);
         uvm_config_db #(agent_config)::set(this, "CONF_agent_h*", "CD_config_db", CONF_config_h);
         
         CD_agent_h   = CD_agent        ::type_id::create("CD_agent_h",   this);

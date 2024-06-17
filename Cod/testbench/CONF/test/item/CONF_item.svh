@@ -2,8 +2,8 @@ class CONF_item extends uvm_sequence_item;
     `uvm_object_utils(CONF_item);
 
     rand logic c_ready;
-	rand logic [C_ADDR_WIDTH-1:0] c_addr;
-	rand logic [C_DATA_WIDTH-1:0] c_data;
+	rand logic [c_addr_WIDTH-1:0] c_addr;
+	rand logic [c_data_WIDTH-1:0] c_data;
 	rand logic c_valid;
     
     function new(string name = "CONF_item");

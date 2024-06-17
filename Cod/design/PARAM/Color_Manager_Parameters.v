@@ -88,7 +88,7 @@
 	parameter WAIT			= 3'b101,
 	parameter ERR 		    = 3'b111,
 	
-	//parameters for the C_Data use
+	//parameters for the c_data use
 	parameter FIRST_HALF_WORD_START  = 15,
 	parameter FIRST_HALF_WORD_STOP 	 = 8,
 	parameter SECOND_HALF_WORD_START = 7,

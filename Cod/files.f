@@ -14,7 +14,7 @@ design/UART/UART_sampler.v
 design/UART/UART_state.v
 design/VGA/VGA_Assign_color.v
 design/VGA/VGA_Config.v
-design/VGA/VGA_Control.v
+design/VGA/VGA.v
 design/VGA/VGA_Counter.v
 design/CD/CD.v
 design/CD/CD_config.v
@@ -27,7 +27,7 @@ design/TB/tb_DB.v
 design/TB/tb_LM.v
 design/TB/tb_Sync_Reg.v
 design/TB/tb_UART.v
-design/TB/VGA_Control_tb.v
+design/TB/VGA_tb.v
 
 testbench/pack/item_pack.sv
 testbench/pack/sequence_pack.sv

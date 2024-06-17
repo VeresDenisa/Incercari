@@ -1,28 +1,28 @@
   
 /*
-	Module Name: VGA_Control 
+	Module Name: VGA 
  	This is a configurable module, a controller for the the VGA.
 
-	VGA will respond to the configuration bus only at C_valid active, C_addr = 10, C_data can be:
+	VGA will respond to the configuration bus only at c_valid active, c_addr = 10, c_data can be:
 	00(640x480-default);
 	01 (800x600);
 	10(1024x768).
 */
 
-module VGA_Control
+module VGA
 	#(`include "../PARAM/VGA_Width_Parameters.v")
 	(input clk,
 	input rst_n,
-	input C_valid,
-	input [CONFIG_WIDTH-1:0] C_addr,
-	input [CONFIG_WIDTH-1:0] C_data,
-	input [DATA_WIDTH-1:0]  Data_in,
-	output 	C_rdy,
+	input c_valid,
+	input [CONFIG_WIDTH-1:0] c_addr,
+	input [CONFIG_WIDTH-1:0] c_data,
+	input [DATA_WIDTH-1:0]  data_in,
+	output 	c_ready,
 	output  HSync,
 	output  VSync,
-	output [COLOR_WIDTH-1:0] Red,
-	output [COLOR_WIDTH-1:0] Green,
-	output [COLOR_WIDTH-1:0] Blue);
+	output [COLOR_WIDTH-1:0] RED,
+	output [COLOR_WIDTH-1:0] GREEN,
+	output [COLOR_WIDTH-1:0] BLUE);
 	
 	
 	
@@ -43,9 +43,9 @@ module VGA_Control
 	
 	VGA_Config config1(	.clk(clk), 
 					.rst_n(rst_n),
-					.Valid(C_valid),
-					.Addr(C_addr),
-					.Data(C_data),
+					.Valid(c_valid),
+					.Addr(c_addr),
+					.Data(c_data),
 					.Load_config(Load_config),
 					.H_left_margin(H_left_margin),
 					.H_right_margin(H_right_margin),
@@ -73,18 +73,18 @@ module VGA_Control
 					
 	VGA_Assign_color assgncolor(.clk(clk),
 							.rst_n(rst_n),
-							.Data(Data_in),
+							.Data(data_in),
 							.Count_h(Count_h),
 							.Count_v(Count_v),
 							.H_left_margin(H_left_margin),
 							.H_right_margin(H_right_margin),
 							.V_left_margin(V_left_margin),
 							.V_right_margin(V_right_margin),
-							.Red(Red),
-							.Green(Green),
-							.Blue(Blue));
+							.RED(RED),
+							.GREEN(GREEN),
+							.BLUE(BLUE));
 					
 	
-    assign C_rdy = ~Load_config;
+    assign c_ready = ~Load_config;
 	
 endmodule

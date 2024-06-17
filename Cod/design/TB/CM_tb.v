@@ -15,16 +15,16 @@ module CM_tb
 	reg clk;
 	reg rst_n;
 	reg Empty;
-	reg C_Rdy;
+	reg c_ready;
 	reg [UART_DATA_WIDTH-1:0] RXD_Data;
 	reg Vertical_Split;
 	reg Horizontal_Split;
 	reg VGA_debug;
 	reg HSync;
 	reg VSync;
-	wire [C_ADDR_WIDTH-1:0] C_Addr;
-	wire [C_DATA_WIDTH-1:0] C_Data;
-	wire C_Valid;
+	wire [c_addr_WIDTH-1:0] c_addr;
+	wire [c_data_WIDTH-1:0] c_data;
+	wire c_valid;
 	wire [CONFIG_STATUS_WIDTH-1:0] Config_Status;
 	wire [CONFIG_NOTIFICATION_WIDTH-1:0] Config_Notification;
 	wire Config_Notification_Valid;
@@ -37,16 +37,16 @@ module CM_tb
 	CM colorCM  (.clk(clk),
 							.rst_n(rst_n),
 							.Empty(Empty),
-							.C_Rdy(C_Rdy),
+							.c_ready(c_ready),
 							.RXD_Data(RXD_Data),
 							.Vertical_Split(Vertical_Split),
 							.Horizontal_Split(Horizontal_Split),
 							.VGA_debug(VGA_debug),
 							.HSync(HSync),
 							.VSync(VSync),
-							.C_Addr(C_Addr),
-							.C_Data(C_Data),
-							.C_Valid(C_Valid),
+							.c_addr(c_addr),
+							.c_data(c_data),
+							.c_valid(c_valid),
 							.Config_Status(Config_Status),
 							.Config_Notification(Config_Notification),
 							.Config_Notification_Valid(Config_Notification_Valid),
@@ -92,7 +92,7 @@ module CM_tb
 		//HSync=0;
 		//VSync=0;
 		Empty=1;
-		C_Rdy=0;
+		c_ready=0;
 		RXD_Data=8'b00000000;
 		
 		//color left up
@@ -113,17 +113,17 @@ module CM_tb
 		Empty=1;
 		
 		#WAIT
-		C_Rdy=1;
+		c_ready=1;
 	
 		//color right up
 		#WAIT2
-		C_Rdy=0;
+		c_ready=0;
 		Empty=0;
 		RXD_Data=8'b00011010;
 		
 		#CLOCK_CYCLE
 		Empty=1;
-		C_Rdy=1;
+		c_ready=1;
 		
 		
 		#WAIT
@@ -135,13 +135,13 @@ module CM_tb
 		
 		///color right down
 		#WAIT2
-		C_Rdy=0;
+		c_ready=0;
 		Empty=0;
 		RXD_Data=8'b00111010;
 		
 		#CLOCK_CYCLE
 		Empty=1;
-		C_Rdy=1;
+		c_ready=1;
 		
 		
 		#WAIT
@@ -153,13 +153,13 @@ module CM_tb
 		
 		//color left down
 		#WAIT2
-		C_Rdy=0;
+		c_ready=0;
 		Empty=0;
 		RXD_Data=8'b00101010;
 		
 		#CLOCK_CYCLE
 		Empty=1;
-		C_Rdy=1;
+		c_ready=1;
 		
 		
 		#WAIT

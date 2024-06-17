@@ -14,10 +14,10 @@ endclass : UART_input_sequence
 task UART_input_sequence::body();
     item = UART_input_item::type_id::create("UART_input_item");
 
-    `uvm_info(get_name(), $sformatf("Create CM input sequence."), UVM_MEDIUM);
+    `uvm_info(get_name(), $sformatf("Create UART input sequence."), UVM_MEDIUM);
 
     start_item(item);
     assert(item.randomize());
-    `uvm_info(get_name(), $sformatf("Create CM input item: %s", item.convert2string), UVM_FULL);
+    `uvm_info(get_name(), $sformatf("Create UART input item: %s", item.convert2string), UVM_FULL);
     finish_item(item);
 endtask : body
