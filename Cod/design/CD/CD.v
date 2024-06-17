@@ -38,8 +38,8 @@ wire c_UART_ready;
 wire [WIDTH_UART_CLK_LIMIT-1:0]baudrate;
 wire [WIDTH_VGA_CLK_LIMIT-1:0] resolution;
 
-CD_counter #(.WIDTH(WIDTH_VGA_CLK_LIMIT)) CNT_VGA(.clk(clk), .rst_n(~c_VGA_ready|rst_n), .limit(resolution), .clkout(clk_VGA));	
-CD_counter #(.WIDTH(WIDTH_UART_CLK_LIMIT)) CNT_UART(.clk(clk), .rst_n(~c_UART_ready|rst_n), .limit(baudrate), .clkout(clk_UART));	
+CD_counter #(.WIDTH(WIDTH_VGA_CLK_LIMIT)) CNT_VGA(.clk(clk), .rst_n(~(c_VGA_ready&rst_n)), .limit(resolution), .clkout(clk_VGA));	
+CD_counter #(.WIDTH(WIDTH_UART_CLK_LIMIT)) CNT_UART(.clk(clk), .rst_n(~(c_UART_ready&rst_n)), .limit(baudrate), .clkout(clk_UART));	
 CD_counter #(.WIDTH(WIDTH_LED_MANAGER_CLK_LIMIT)) CNT_LM(.clk(clk), .rst_n(rst_n), .limit(CLK_LED_MANAGER), .clkout(clk_LM));	
 CD_counter #(.WIDTH(WIDTH_DEBOUNCER_CLK_LIMIT)) CNT_DB(.clk(clk), .rst_n(rst_n), .limit(CLK_DEBOUNCER), .clkout(clk_DB));	
 

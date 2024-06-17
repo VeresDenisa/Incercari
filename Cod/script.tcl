@@ -10,6 +10,11 @@
 # set the testcases names and verbosity to check
 set testlist {
      DB_test
+     CM_test
+     CD_test
+     LM_test
+     UART_test
+     VGA_test
 }
 set verblist {NONE LOW MEDIUM HIGH FULL DEBUG}
 

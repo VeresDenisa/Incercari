@@ -45,7 +45,7 @@ UART_config UART_CONFIG(.clk(clkinVGA), .rst_n(rst_n),
 					.c_data(c_data), .c_ready(c_ready),
 					.parity_bit_config(paritybit), .stop_bit_config(stopbit));	
 
-UART_state UART_STATE(.clk(clk), .rst_n(rst_n|~c_ready),
+UART_state UART_STATE(.clk(clk), .rst_n(~(rst_n&c_ready)),
 					.data(data), .valid_data(valid_data),
 					.error(error), .valid_error(valid_error),
 					.out(out), .valid_out(valid_out),
