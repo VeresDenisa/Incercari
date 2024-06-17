@@ -1,4 +1,4 @@
-import UART_item_pack::*;
+import item_pack::*;
 
 interface UART_output_VIF(input bit clk);
     logic [WIDTH_ERROR-1:0] error;

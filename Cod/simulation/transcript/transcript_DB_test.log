@@ -17,7 +17,7 @@
 # //
 # Loading sv_std.std
 # Loading mtiUvm.uvm_pkg
-# Loading work.DB_item_pack(fast)
+# Loading work.item_pack(fast)
 # Loading work.DB_coverage_pack(fast)
 # Loading work.DB_VIF(fast)
 # Loading work.DB_agent_pack(fast)

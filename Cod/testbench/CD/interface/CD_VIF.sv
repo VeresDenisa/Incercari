@@ -1,4 +1,4 @@
-import CD_item_pack::*;
+import item_pack::*;
 
 interface CD_VIF(input bit clk);
     logic clk_VGA;

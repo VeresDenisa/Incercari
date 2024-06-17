@@ -1,4 +1,4 @@
-import CONF_item_pack::*;
+import item_pack::*;
 
 interface CONF_input_VIF(input bit clk);
 

@@ -1,4 +1,4 @@
-import UART_item_pack::*;
+import item_pack::*;
 
 interface UART_input_VIF(input bit clk);
     logic in;

@@ -1,4 +1,4 @@
-import VGA_item_pack::*;
+import item_pack::*;
 
 interface VGA_output_VIF(input bit clk);
     logic HSync;

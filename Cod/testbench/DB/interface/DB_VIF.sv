@@ -1,4 +1,4 @@
-import DB_item_pack::*;
+import item_pack::*;
 
 interface DB_VIF(input bit clk);
     logic HS;

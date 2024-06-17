@@ -1,4 +1,4 @@
-import VGA_item_pack::*;
+import item_pack::*;
 
 interface VGA_input_VIF(input bit clk);
     logic [DATA_WIDTH-1:0] data_in;

@@ -1,4 +1,4 @@
-import CM_item_pack::*;
+import item_pack::*;
 
 interface CM_input_VIF(input bit clk);
 
