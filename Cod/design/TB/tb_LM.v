@@ -115,6 +115,8 @@ wire [15:0]leds;
 		rst_n = 1'b1;
 		#250;
 		rst_n = 1'b0;
+		#250;
+		rst_n = 1'b1;
 	end
 
 	initial begin

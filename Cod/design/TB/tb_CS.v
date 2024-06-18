@@ -93,11 +93,11 @@ module tb_CS;
 	endtask
 	
 	initial begin
-		rst_n = 1'b0;
-		#200;
 		rst_n = 1'b1;
-		#1000;
+		#200;
 		rst_n = 1'b0;
+		#1000;
+		rst_n = 1'b1;
 	end
 
 	initial begin

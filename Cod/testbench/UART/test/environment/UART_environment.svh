@@ -59,7 +59,6 @@ endfunction : build_phase
 function void UART_environment::connect_phase(uvm_phase phase);
     if(env_config_h.get_is_cluster() == UNIT) begin
         v_seqr.CONF_input_seqr = CONF_agent_h.seqr;
-        UART_agent_output_h.mon.an_port.connect(cov.an_port_UART);
-        CONF_agent_h.mon.an_port.connect(cov.an_port_CONF);
+        UART_agent_output_h.mon.an_port.connect(cov.an_port);
     end
 endfunction : connect_phase

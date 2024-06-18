@@ -90,6 +90,8 @@ module tb_UART;
 		rst_n = 1'b1;
 		#7;
 		rst_n = 1'b0;
+		#7;
+		rst_n = 1'b1;
 	end
 
 	initial begin

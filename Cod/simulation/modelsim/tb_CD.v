@@ -59,6 +59,8 @@ module tb_CD;
 		rst_n = 1'b1;
 		#8;
 		rst_n = 1'b0;
+		#8;
+		rst_n = 1'b1;
 	end
 
 	initial begin

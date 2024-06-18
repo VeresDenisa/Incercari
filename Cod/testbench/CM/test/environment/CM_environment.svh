@@ -58,6 +58,5 @@ function void CM_environment::connect_phase(uvm_phase phase);
         v_seqr.CONF_output_seqr = CONF_agent_h.seqr;
         CM_agent_input_h.mon.an_port.connect(cov.an_port_CM_input);
         CM_agent_output_h.mon.an_port.connect(cov.an_port_CM_output);
-        CONF_agent_h.mon.an_port.connect(cov.an_port_CONF);
     end
 endfunction : connect_phase

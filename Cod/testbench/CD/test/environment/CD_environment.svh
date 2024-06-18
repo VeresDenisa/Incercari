@@ -48,7 +48,6 @@ endfunction : build_phase
 function void CD_environment::connect_phase(uvm_phase phase);
     if(env_config_h.get_is_cluster() == UNIT) begin
         v_seqr.CD_input_seqr = CONF_agent_h.seqr;
-        CD_agent_h.mon.an_port.connect(cov.an_port_CD);
-        CONF_agent_h.mon.an_port.connect(cov.an_port_CONF);
+        CD_agent_h.mon.an_port.connect(cov.an_port);
     end
 endfunction : connect_phase

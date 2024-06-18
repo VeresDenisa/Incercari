@@ -3,7 +3,7 @@
 module CM_tb
 #(`include "CM_Width_Parameters.v");
 
-	parameter CLK_F     	 = 2;
+
 	parameter RST_DURATION 	 = 4;
 	parameter CLOCK_CYCLE    = 4;
 	parameter WAIT 		     = 20;
@@ -61,7 +61,7 @@ module CM_tb
 	initial 
 	begin
 		clk = 1'b1;
-		forever #CLK_F clk = ~clk;
+		forever #2 clk = ~clk;
 	end
 	
 	initial 
@@ -79,8 +79,10 @@ module CM_tb
 	initial
 	begin
 		rst_n = 1'b1;
-		#RST_DURATION 
+		#4; 
 		rst_n = 1'b0;
+		#4; 
+		rst_n = 1'b1;
 	end
 	
 	

@@ -4,8 +4,7 @@ module VGA_tb
 	#(`include "VGA_Width_Parameters.v");
 	
 	 
-	parameter CLK_F     	 = 2;
-	parameter RST_DURATION 	 = 3;
+
 	parameter WAIT 		     = 100;
 	parameter WAIT_CONFIG 	 = 600;
 	
@@ -47,15 +46,17 @@ module VGA_tb
 	begin
 		//making the Clock signal
 		clk = 1'b1;
-		forever #CLK_F clk = ~clk;
+		forever #2 clk = ~clk;
 	end
 				
 	initial
 	begin
 		//1 clock cicle reset
 		rst_n = 1'b1;
-		#RST_DURATION 
+		#4; 
 		rst_n = 1'b0;
+		#4; 
+		rst_n = 1'b1;
 	end
 	
 	
