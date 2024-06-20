@@ -58,7 +58,7 @@ task CS_test::main_phase(uvm_phase phase);
     phase.raise_objection(this);
     fork
         UART_input_seq.start(UART_env.UART_input_agent_h.seqr);
-        DB_seq.start(DB_env.DB_agent_h.seqr);
+        DB_seq.start(DB_env.DB_input_agent_h.seqr);
     join
     phase.drop_objection(this);  
 

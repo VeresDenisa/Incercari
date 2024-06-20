@@ -15,15 +15,17 @@ set testlist {
      LM_test
      UART_test
      VGA_test
+     CS_test
 }
+
 set verblist {NONE LOW MEDIUM HIGH FULL DEBUG}
 
-if { $argc < 2 } { 
-     puts "Not enough arguments. At least 2 arguments nedded. First argument: verbosity. Following arguments: testcase names."
+if { $argc < 3 } { 
+     puts "Not enough arguments. At least 2 arguments nedded. First argument: verbosity. Next argument: unit. Following arguments: testcase names."
      exit 2 
 }
 
-puts "Number of testcases found: [incr argc -1]" 
+puts "Number of testcases found: [incr argc -2]" 
 
 # set a variable to memorise the current testcase number
 set i 0
@@ -31,13 +33,15 @@ set i 0
 # get the verbosity from the arguments; if the verbosity is not correct, the MEDIUM verbosity level will be used
 set verbosity [lindex $argv 0]
 
+set unit [lindex $argv 1]
+
 if { [lsearch $verblist $verbosity] <= 0 } {
      puts "Verbosity level not valid. The default MEDIUM verbosity level will be used instead."
      set verbosity {MEDIUM}
 }
 
 # get the testcases names from the arguments 
-set testargv [lreplace $argv 0 0]
+set testargv [lreplace $argv 0 1]
 
 # go to through each testcase given as argument
 foreach {test} $testargv {
@@ -57,7 +61,7 @@ foreach {test} $testargv {
           puts "[clock format [clock seconds] -format "%d/%m/%Y %H:%M:%S"] $test: Testcase found. Executing..."  
 
           # compile in the order specified by files.f
-          exec sh -c "vlog +define+FIFO_SIZE=64 +define+NUM_SW_INST=5 -f files.f"
+          exec sh -c "vlog -f files_$unit.f"
 
           puts "[clock format [clock seconds] -format "%d/%m/%Y %H:%M:%S"] $test: Compilation success. Running ..."
           
@@ -71,7 +75,7 @@ foreach {test} $testargv {
           # simulate the testcase and save the ucdb and wlf file
           # -voptargs=+acc=rnbpc este echivalent cu -voptargs=+acc -> toata vizibilitatea e enabled
           # vsim -voptargs=+acc +UVM_TESTNAME=test_no_3_1 +UVM_VERBOSITY=LOW work.testbench
-          exec sh -c "vsim -c -voptargs=+acc +UVM_TESTNAME=$test +UVM_VERBOSITY=$verbosity -wlf simulation/wave/wave_$test.wlf work.testbench -do \"log -r /*; coverage save -onexit simulation/ucdb/ucdb_$test.ucdb; run -all; quit -f; exit\""      
+          exec sh -c "vsim -c -voptargs=+acc +UVM_TESTNAME=$test +UVM_VERBOSITY=$verbosity -wlf simulation/wave/wave_$test.wlf work.testbench_$unit -do \"log -r /*; coverage save -onexit simulation/ucdb/ucdb_$test.ucdb; run -all; quit -f; exit\""      
 
           # copy the transcipt file which contains the entire simulation as a transcript file
           file copy -force transcript simulation/transcript/transcript_$test.log

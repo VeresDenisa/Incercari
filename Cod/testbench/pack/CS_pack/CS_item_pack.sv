@@ -1,4 +1,4 @@
-package item_pack;
+package CS_item_pack;
     import uvm_pkg::*;
     `include "uvm_macros.svh"
   
@@ -18,4 +18,4 @@ package item_pack;
     
     `include "testbench/VGA/test/item/VGA_input_item.svh"
     `include "testbench/VGA/test/item/VGA_output_item.svh"
-  endpackage : item_pack
+  endpackage : CS_item_pack

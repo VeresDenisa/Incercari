@@ -1,7 +1,7 @@
 class VGA_input_item extends uvm_sequence_item;
     `uvm_object_utils(VGA_input_item);
 
-    rand logic [DATA_WIDTH-1:0] data_in;
+    rand logic [11:0] data_in;
     
     function new(string name = "VGA_input_item");
         super.new(name);

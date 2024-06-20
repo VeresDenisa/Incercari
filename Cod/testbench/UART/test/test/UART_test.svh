@@ -47,7 +47,7 @@ task UART_test::main_phase(uvm_phase phase);
     phase.raise_objection(this);
     fork
         v_seq.start(env.v_seqr);
-        UART_input_seq.start(env.UART_agent_input_h.seqr);
+        UART_input_seq.start(env.UART_input_agent_h.seqr);
     join
     phase.drop_objection(this);  
 

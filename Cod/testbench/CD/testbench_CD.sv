@@ -2,6 +2,7 @@ import uvm_pkg::*;
 `include "uvm_macros.svh"
  
 import test_pack::*;
+`include "assertion_CD.sv"
 
 `define CLOCK 10
 
@@ -32,7 +33,7 @@ module testbench_CD;
     CD CD_DUT (
         .clk(clk),
         .rst_n(rst_n),
-        .clkinVGA(clkinVGA)
+        .clkinVGA(clkinVGA),
         .c_ready(CONF_input_i.c_ready),
         .c_addr(CONF_input_i.c_addr),
         .c_data(CONF_input_i.c_data),
@@ -43,10 +44,10 @@ module testbench_CD;
         .clk_DB(CD_i.clk_DB)
         );
 
-    bind testbench_CD.CD_DUT CD_DUT_ASS (
+    bind testbench_CD.CD_DUT assertion_CD ass_CD (
         .clk(clk),
         .rst_n(rst_n),
-        .clkinVGA(clkinVGA)
+        .clkinVGA(clkinVGA),
         .c_ready(CONF_input_i.c_ready),
         .c_addr(CONF_input_i.c_addr),
         .c_data(CONF_input_i.c_data),
@@ -58,7 +59,7 @@ module testbench_CD;
         );
 
     initial begin
-        uvm_config_db#(virtual CD_VIF)        ::set(null, "uvm_test_top.env.CD_agent_h*",         "CD_VIF",         CD_i);
+        uvm_config_db#(virtual CD_VIF)        ::set(null, "uvm_test_top.env.CD_agent_h*",   "CD_VIF",         CD_i);
         uvm_config_db#(virtual CONF_input_VIF)::set(null, "uvm_test_top.env.CONF_agent_h*", "CONF_input_VIF", CONF_input_i);
     end
     

@@ -3,7 +3,7 @@ import item_pack::*;
 interface CM_input_VIF(input bit clk);
 
     logic Empty;
-	logic [UART_DATA_WIDTH-1:0] RXD_Data;
+	logic [7:0] RXD_Data;
 	logic Vertical_Split;
 	logic Horizontal_Split;
 	logic VGA_debug;

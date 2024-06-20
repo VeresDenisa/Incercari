@@ -1,18 +1,18 @@
 class CM_output_item extends uvm_sequence_item;
     `uvm_object_utils(CM_output_item);
 
-    rand logic [CONFIG_STATUS_WIDTH-1:0] Config_Status;
+    rand logic [7:0] Config_Status;
 
-	rand logic [CONFIG_NOTIFICATION_WIDTH-1:0] Config_Notification;
+	rand logic [3:0] Config_Notification;
 	rand logic Config_Notification_Valid;
 
-	rand logic [CONFIG_ERROR_WIDTH-1:0] Config_Error;
+	rand logic [3:0] Config_Error;
 	rand logic Error_Valid;
 
-	rand logic [VGA_NOTIFICATION_WIDTH-1:0] VGA_Notification;
+	rand logic [3:0] VGA_Notification;
 	rand logic VGA_Notification_Valid;
 
-	rand logic [DATA_WIDTH-1:0] Data_VGA;
+	rand logic [11:0] Data_VGA;
     
     function new(string name = "CM_output_item");
         super.new(name);

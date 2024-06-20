@@ -3,9 +3,9 @@ import item_pack::*;
 interface VGA_output_VIF(input bit clk);
     logic HSync;
 	logic VSync;
-	logic [COLOR_WIDTH-1:0] RED;
-	logic [COLOR_WIDTH-1:0] GREEN;
-	logic [COLOR_WIDTH-1:0] BLUE;
+	logic [3:0] RED;
+	logic [3:0] GREEN;
+	logic [3:0] BLUE;
 
     clocking monitor@(posedge clk);
         input HSync;

@@ -1,6 +1,6 @@
-# vsim -c -voptargs="+acc" "+UVM_TESTNAME=DB_test" "+UVM_VERBOSITY=LOW" -wlf simulation/wave/wave_DB_test.wlf work.testbench -do "log -r /*; coverage save -onexit simulation/ucdb/ucdb_DB_test.ucdb; run -all; quit -f; exit" 
-# Start time: 12:03:31 on Jun 15,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# vsim -c -voptargs="+acc" "+UVM_TESTNAME=DB_test" "+UVM_VERBOSITY=LOW" -wlf simulation/wave/wave_DB_test.wlf work.testbench_DB -do "log -r /*; coverage save -onexit simulation/ucdb/ucdb_DB_test.ucdb; run -all; quit -f; exit" 
+# Start time: 00:06:36 on Jun 21,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt
 # //  Questa Sim-64
 # //  Version 10.7c linux_x86_64 Aug 17 2018
 # //
@@ -18,27 +18,28 @@
 # Loading sv_std.std
 # Loading mtiUvm.uvm_pkg
 # Loading work.item_pack(fast)
-# Loading work.DB_coverage_pack(fast)
+# Loading work.coverage_pack(fast)
 # Loading work.DB_VIF(fast)
-# Loading work.DB_agent_pack(fast)
-# Loading work.DB_sequence_pack(fast)
-# Loading work.DB_environment_pack(fast)
-# Loading work.DB_test_pack(fast)
+# Loading work.agent_pack(fast)
+# Loading work.sequence_pack(fast)
+# Loading work.environment_pack(fast)
+# Loading work.test_pack(fast)
 # Loading work.testbench_DB_sv_unit(fast)
-# Loading work.testbench(fast)
+# Loading work.testbench_DB(fast)
 # Loading work.DB_VIF_sv_unit(fast)
 # Loading work.DB_VIF(fast)
 # Loading work.DB(fast)
 # Loading work.DB_debouncer(fast)
+# Loading work.assertion_DB(fast)
 # Loading mtiUvm.questa_uvm_pkg(fast)
-# ** Warning: (vsim-3839) Variable '/testbench/DB_output_i/HS', driven via a port connection, is multiply driven. See testbench/DB/testbench_DB.sv(26).
-#    Time: 0 ns  Iteration: 0  Instance: /testbench/DB_output_i File: testbench/DB/interface/DB_VIF.sv Line: 4
-# ** Warning: (vsim-3839) Variable '/testbench/DB_output_i/VS', driven via a port connection, is multiply driven. See testbench/DB/testbench_DB.sv(26).
-#    Time: 0 ns  Iteration: 0  Instance: /testbench/DB_output_i File: testbench/DB/interface/DB_VIF.sv Line: 5
-# ** Warning: (vsim-3839) Variable '/testbench/DB_output_i/DF_UART', driven via a port connection, is multiply driven. See testbench/DB/testbench_DB.sv(26).
-#    Time: 0 ns  Iteration: 0  Instance: /testbench/DB_output_i File: testbench/DB/interface/DB_VIF.sv Line: 6
-# ** Warning: (vsim-3839) Variable '/testbench/DB_output_i/DF_VGA', driven via a port connection, is multiply driven. See testbench/DB/testbench_DB.sv(26).
-#    Time: 0 ns  Iteration: 0  Instance: /testbench/DB_output_i File: testbench/DB/interface/DB_VIF.sv Line: 7
+# ** Warning: (vsim-3839) Variable '/testbench_DB/DB_output_i/HS', driven via a port connection, is multiply driven. See testbench/DB/testbench_DB.sv(27).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_DB/DB_output_i File: testbench/DB/interface/DB_VIF.sv Line: 4
+# ** Warning: (vsim-3839) Variable '/testbench_DB/DB_output_i/VS', driven via a port connection, is multiply driven. See testbench/DB/testbench_DB.sv(27).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_DB/DB_output_i File: testbench/DB/interface/DB_VIF.sv Line: 5
+# ** Warning: (vsim-3839) Variable '/testbench_DB/DB_output_i/DF_UART', driven via a port connection, is multiply driven. See testbench/DB/testbench_DB.sv(27).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_DB/DB_output_i File: testbench/DB/interface/DB_VIF.sv Line: 6
+# ** Warning: (vsim-3839) Variable '/testbench_DB/DB_output_i/DF_VGA', driven via a port connection, is multiply driven. See testbench/DB/testbench_DB.sv(27).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_DB/DB_output_i File: testbench/DB/interface/DB_VIF.sv Line: 7
 # Loading /opt/questa/questasim/uvm-1.1d/linux_x86_64/uvm_dpi.so
 # log -r /*
 #  coverage save -onexit simulation/ucdb/ucdb_DB_test.ucdb
@@ -70,12 +71,12 @@
 # --------------------------------------------------------------
 # uvm_test_top               DB_test                 -     @474 
 #   env                      DB_environment          -     @485 
-#     DB_agent_input_h       DB_agent                -     @501 
+#     DB_input_agent_h       DB_agent                -     @500 
 #       DB_driver            DB_driver               -     @646 
 #         rsp_port           uvm_analysis_port       -     @661 
 #         seq_item_port      uvm_seq_item_pull_port  -     @653 
 #       DB_monitor           DB_monitor              -     @671 
-#         an_port         uvm_analysis_port       -     @688 
+#         an_port            uvm_analysis_port       -     @688 
 #       DB_seqr              uvm_sequencer           -     @537 
 #         rsp_export         uvm_analysis_export     -     @544 
 #         seq_item_export    uvm_seq_item_pull_imp   -     @638 
@@ -83,14 +84,68 @@
 #         lock_queue         array                   0     -    
 #         num_last_reqs      integral                32    'd1  
 #         num_last_rsps      integral                32    'd1  
-#     DB_agent_output_h      DB_agent                -     @508 
+#     DB_output_agent_h      DB_agent                -     @508 
 #       DB_monitor           DB_monitor              -     @705 
-#         an_port         uvm_analysis_port       -     @722 
+#         an_port            uvm_analysis_port       -     @722 
 #     cov                    DB_coverage             -     @515 
-#       an_port           uvm_analysis_imp        -     @522 
+#       an_port              uvm_analysis_imp        -     @522 
 # --------------------------------------------------------------
 # 
-# UVM_INFO testbench/DB/test/environment/coverage/DB_coverage.svh(37) @ 335: uvm_test_top.env.cov [cov] DB coverage:  100.00%
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_6_DISABLE_btnDF_UART: ASSERTION 6: DISABLE_btnDF_UART!
+#    Time: 75 ns Started: 25 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_6_DISABLE_btnDF_UART File: testbench/DB/assertion_DB.sv Line: 74
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_7_ENABLE_btnDF_VGA: ASSERTION 7: ENABLE_btnDF_VGA!
+#    Time: 135 ns Started: 85 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_7_ENABLE_btnDF_VGA File: testbench/DB/assertion_DB.sv Line: 77
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_6_DISABLE_btnDF_UART: ASSERTION 6: DISABLE_btnDF_UART!
+#    Time: 155 ns Started: 105 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_6_DISABLE_btnDF_UART File: testbench/DB/assertion_DB.sv Line: 74
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_2_DISABLE_btnHS: ASSERTION 2: DISABLE_btnHS!
+#    Time: 185 ns Started: 135 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_2_DISABLE_btnHS File: testbench/DB/assertion_DB.sv Line: 62
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_2_DISABLE_btnHS: ASSERTION 2: DISABLE_btnHS!
+#    Time: 195 ns Started: 145 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_2_DISABLE_btnHS File: testbench/DB/assertion_DB.sv Line: 62
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_2_DISABLE_btnHS: ASSERTION 2: DISABLE_btnHS!
+#    Time: 205 ns Started: 155 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_2_DISABLE_btnHS File: testbench/DB/assertion_DB.sv Line: 62
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_5_ENABLE_btnDF_UART: ASSERTION 5: ENABLE_btnDF_UART!
+#    Time: 275 ns Started: 225 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_5_ENABLE_btnDF_UART File: testbench/DB/assertion_DB.sv Line: 71
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_2_DISABLE_btnHS: ASSERTION 2: DISABLE_btnHS!
+#    Time: 275 ns Started: 225 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_2_DISABLE_btnHS File: testbench/DB/assertion_DB.sv Line: 62
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_5_ENABLE_btnDF_UART: ASSERTION 5: ENABLE_btnDF_UART!
+#    Time: 285 ns Started: 235 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_5_ENABLE_btnDF_UART File: testbench/DB/assertion_DB.sv Line: 71
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_2_DISABLE_btnHS: ASSERTION 2: DISABLE_btnHS!
+#    Time: 285 ns Started: 235 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_2_DISABLE_btnHS File: testbench/DB/assertion_DB.sv Line: 62
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_3_ENABLE_btnVS: ASSERTION 3: ENABLE_btnVS!
+#    Time: 285 ns Started: 235 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_3_ENABLE_btnVS File: testbench/DB/assertion_DB.sv Line: 65
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_8_DISABLE_btnDF_VGA: ASSERTION 8: DISABLE_btnDF_VGA!
+#    Time: 295 ns Started: 245 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_8_DISABLE_btnDF_VGA File: testbench/DB/assertion_DB.sv Line: 80
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_5_ENABLE_btnDF_UART: ASSERTION 5: ENABLE_btnDF_UART!
+#    Time: 295 ns Started: 245 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_5_ENABLE_btnDF_UART File: testbench/DB/assertion_DB.sv Line: 71
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_2_DISABLE_btnHS: ASSERTION 2: DISABLE_btnHS!
+#    Time: 295 ns Started: 245 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_2_DISABLE_btnHS File: testbench/DB/assertion_DB.sv Line: 62
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_3_ENABLE_btnVS: ASSERTION 3: ENABLE_btnVS!
+#    Time: 295 ns Started: 245 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_3_ENABLE_btnVS File: testbench/DB/assertion_DB.sv Line: 65
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_8_DISABLE_btnDF_VGA: ASSERTION 8: DISABLE_btnDF_VGA!
+#    Time: 305 ns Started: 255 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_8_DISABLE_btnDF_VGA File: testbench/DB/assertion_DB.sv Line: 80
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_5_ENABLE_btnDF_UART: ASSERTION 5: ENABLE_btnDF_UART!
+#    Time: 305 ns Started: 255 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_5_ENABLE_btnDF_UART File: testbench/DB/assertion_DB.sv Line: 71
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_2_DISABLE_btnHS: ASSERTION 2: DISABLE_btnHS!
+#    Time: 305 ns Started: 255 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_2_DISABLE_btnHS File: testbench/DB/assertion_DB.sv Line: 62
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_3_ENABLE_btnVS: ASSERTION 3: ENABLE_btnVS!
+#    Time: 305 ns Started: 255 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_3_ENABLE_btnVS File: testbench/DB/assertion_DB.sv Line: 65
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_8_DISABLE_btnDF_VGA: ASSERTION 8: DISABLE_btnDF_VGA!
+#    Time: 315 ns Started: 265 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_8_DISABLE_btnDF_VGA File: testbench/DB/assertion_DB.sv Line: 80
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_5_ENABLE_btnDF_UART: ASSERTION 5: ENABLE_btnDF_UART!
+#    Time: 315 ns Started: 265 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_5_ENABLE_btnDF_UART File: testbench/DB/assertion_DB.sv Line: 71
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_2_DISABLE_btnHS: ASSERTION 2: DISABLE_btnHS!
+#    Time: 315 ns Started: 265 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_2_DISABLE_btnHS File: testbench/DB/assertion_DB.sv Line: 62
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_3_ENABLE_btnVS: ASSERTION 3: ENABLE_btnVS!
+#    Time: 315 ns Started: 265 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_3_ENABLE_btnVS File: testbench/DB/assertion_DB.sv Line: 65
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_8_DISABLE_btnDF_VGA: ASSERTION 8: DISABLE_btnDF_VGA!
+#    Time: 325 ns Started: 275 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_8_DISABLE_btnDF_VGA File: testbench/DB/assertion_DB.sv Line: 80
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_5_ENABLE_btnDF_UART: ASSERTION 5: ENABLE_btnDF_UART!
+#    Time: 325 ns Started: 275 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_5_ENABLE_btnDF_UART File: testbench/DB/assertion_DB.sv Line: 71
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_2_DISABLE_btnHS: ASSERTION 2: DISABLE_btnHS!
+#    Time: 325 ns Started: 275 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_2_DISABLE_btnHS File: testbench/DB/assertion_DB.sv Line: 62
+# ** Info: PASS ASSERTION: testbench_DB.DB_DUT.ass_DB.ASSERTION_3_ENABLE_btnVS: ASSERTION 3: ENABLE_btnVS!
+#    Time: 325 ns Started: 275 ns  Scope: testbench_DB.DB_DUT.ass_DB.ASSERTION_3_ENABLE_btnVS File: testbench/DB/assertion_DB.sv Line: 65
+# UVM_INFO testbench/DB/test/environment/coverage/DB_coverage.svh(37) @ 335: uvm_test_top.env.cov [cov] DB coverage:  83.33%
 # 
 # --- UVM Report Summary ---
 # 
@@ -104,7 +159,7 @@
 # [UVMTOP]     1
 # [cov]     1
 # ** Note: $finish    : /opt/questa/questasim/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 335 ns  Iteration: 96  Instance: /testbench
+#    Time: 335 ns  Iteration: 96  Instance: /testbench_DB
 # Saving coverage database on exit...
-# End time: 12:03:35 on Jun 15,2024, Elapsed time: 0:00:04
+# End time: 00:06:41 on Jun 21,2024, Elapsed time: 0:00:05
 # Errors: 0, Warnings: 4

@@ -1,8 +1,9 @@
 class UART_output_item extends uvm_sequence_item;
     `uvm_object_utils(UART_output_item);
-    rand logic [WIDTH_ERROR-1:0] error;
+
+    rand logic [1:0] error;
     rand logic valid_error;
-    rand logic [WIDTH_DATABITS-1:0] out;
+    rand logic [7:0] out;
     rand logic valid_out;
     
     function new(string name = "UART_output_item");

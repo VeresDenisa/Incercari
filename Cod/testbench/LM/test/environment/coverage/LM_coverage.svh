@@ -1,15 +1,15 @@
 `uvm_analysis_imp_decl(_LM)
 `uvm_analysis_imp_decl(_UART)
-`uvm_analysis_imp_decl(_CM_output)
+`uvm_analysis_imp_decl(_LM_CM_output)
 
 class LM_coverage extends uvm_component;
   `uvm_component_utils(LM_coverage);
   
-  uvm_analysis_imp_LM       #(LM_output_item,   LM_coverage) an_port_LM;
+  uvm_analysis_imp_LM       #(LM_item,          LM_coverage) an_port_LM;
   uvm_analysis_imp_UART     #(UART_output_item, LM_coverage) an_port_UART;
-  uvm_analysis_imp_CM_output#(CM_output_item,   LM_coverage) an_port_CM_output;
+  uvm_analysis_imp_LM_CM_output#(CM_output_item,   LM_coverage) an_port_LM_CM_output;
    
-  LM_output_item   LM_t; 
+  LM_item   LM_t; 
   UART_output_item UART_t;
   CM_output_item   CM_output_t;
 
@@ -22,7 +22,7 @@ class LM_coverage extends uvm_component;
 
     an_port_LM        = new("an_port_LM",        this);
     an_port_UART      = new("an_port_UART",      this);
-    an_port_CM_output = new("an_port_CM_output", this);
+    an_port_LM_CM_output = new("an_port_LM_CM_output", this);
     
     LM_t        = new("LM_t");
     UART_t      = new("UART_t");
@@ -33,16 +33,16 @@ class LM_coverage extends uvm_component;
     CM_output_cvg = new(CM_output_t);      
   endfunction : new
   
-  extern function void write_LM(LM_output_item t);    
+  extern function void write_LM(LM_item t);    
   extern function void write_UART(UART_output_item t);   
-  extern function void write_CM_output(CM_output_item t);  
+  extern function void write_LM_CM_output(CM_output_item t);  
     
   extern function void report_phase(uvm_phase phase);
 endclass : LM_coverage
 
     
     
-function void LM_coverage::write_LM(LM_output_item t);
+function void LM_coverage::write_LM(LM_item t);
   LM_t.copy(t);
   `uvm_info(get_name(), $sformatf("Coverage item: %s", LM_t.convert2string), UVM_FULL);
   LM_cvg.sample();
@@ -54,11 +54,11 @@ function void LM_coverage::write_UART(UART_output_item t);
   UART_cvg.sample();
 endfunction : write_UART
     
-function void LM_coverage::write_CM_output(CM_output_item t);
+function void LM_coverage::write_LM_CM_output(CM_output_item t);
   CM_output_t.copy(t);
   `uvm_info(get_name(), $sformatf("Coverage item: %s", UART_t.convert2string), UVM_FULL);
   CM_output_cvg.sample();
-endfunction : write_CM_output
+endfunction : write_LM_CM_output
 
 function void LM_coverage::report_phase(uvm_phase phase);
   `uvm_info(get_name(), $sformatf("---> EXIT PHASE: --> REPORT <--"), UVM_DEBUG);

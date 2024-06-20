@@ -4,10 +4,8 @@ class CD_coverage extends uvm_component;
   uvm_analysis_imp #(CD_item, CD_coverage) an_port;
    
   CD_item   CD_t; 
-  CONF_item CONF_t;
 
   CD_covergroup   CD_cvg;
-  CONF_covergroup CONF_cvg;
     
   function new(string name = "CD_coverage", uvm_component parent = null);
     super.new(name, parent);
@@ -19,7 +17,7 @@ class CD_coverage extends uvm_component;
     CD_cvg   = new(CD_t);     
   endfunction : new
   
-  extern function void write_CD(CD_item t);     
+  extern function void write(CD_item t);     
     
   extern function void report_phase(uvm_phase phase);
 endclass : CD_coverage

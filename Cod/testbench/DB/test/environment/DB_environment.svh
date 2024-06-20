@@ -1,8 +1,8 @@
 class DB_environment extends uvm_env;
     `uvm_component_utils(DB_environment);
         
-    DB_agent DB_agent_input_h;
-    DB_agent DB_agent_output_h;
+    DB_agent DB_input_agent_h;
+    DB_agent DB_output_agent_h;
 
     agent_config DB_config_input_h;
     agent_config DB_config_output_h;
@@ -30,17 +30,17 @@ function void DB_environment::build_phase(uvm_phase phase);
 
     DB_config_input_h = new(.is_active(UVM_ACTIVE));
 
-    uvm_config_db #(agent_config)::set(this, "DB_agent_input_h*", "DB_config_db", DB_config_input_h);
+    uvm_config_db #(agent_config)::set(this, "DB_input_agent_h*", "DB_config_db", DB_config_input_h);
 
-    DB_agent_input_h = DB_agent::type_id::create("DB_agent_input_h",  this);
+    DB_input_agent_h = DB_agent::type_id::create("DB_input_agent_h",  this);
 
 
     if(env_config_h.get_is_cluster() == UNIT) begin
         DB_config_output_h = new(.is_active(UVM_PASSIVE));
             
-        uvm_config_db #(agent_config)::set(this, "DB_agent_output_h*", "DB_config_db", DB_config_output_h);
+        uvm_config_db #(agent_config)::set(this, "DB_output_agent_h*", "DB_config_db", DB_config_output_h);
         
-        DB_agent_output_h = DB_agent::type_id::create("DB_agent_output_h", this);
+        DB_output_agent_h = DB_agent::type_id::create("DB_output_agent_h", this);
     end 
 
     cov = DB_coverage::type_id::create("cov", this); 
@@ -50,8 +50,8 @@ endfunction : build_phase
 
 function void DB_environment::connect_phase(uvm_phase phase);
     if(env_config_h.get_is_cluster() == UNIT) begin 
-        DB_agent_output_h.mon.an_port.connect(cov.an_port);
+        DB_output_agent_h.mon.an_port.connect(cov.an_port);
     end else begin
-        DB_agent_input_h.mon.an_port.connect(cov.an_port);
+        DB_input_agent_h.mon.an_port.connect(cov.an_port);
     end
 endfunction : connect_phase

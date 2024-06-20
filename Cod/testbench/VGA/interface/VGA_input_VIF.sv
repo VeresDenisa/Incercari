@@ -1,7 +1,7 @@
 import item_pack::*;
 
 interface VGA_input_VIF(input bit clk);
-    logic [DATA_WIDTH-1:0] data_in;
+    logic [11:0] data_in;
 
     clocking driver@(posedge clk);
         output data_in;

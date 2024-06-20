@@ -4,8 +4,8 @@ interface CONF_output_VIF(input bit clk);
 
     logic c_ready;
 
-	logic [c_addr_WIDTH-1:0] c_addr;
-	logic [c_data_WIDTH-1:0] c_data;
+	logic [3:0] c_addr;
+	logic [13:0] c_data;
 	logic c_valid;
 
     clocking driver@(posedge clk);

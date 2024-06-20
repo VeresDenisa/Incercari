@@ -29,13 +29,13 @@ module DB_debouncer #(parameter LIMIT = 4)(
     button_nxt = button;
  
     if(button == button_ff) begin
-      if(ctr_ff < LIMIT)
+      if(ctr_ff < LIMIT - 1)
         ctr_nxt = ctr_ff + 1;
     end else begin
       ctr_nxt = 'd0;
     end
 
-    if(ctr_ff >= LIMIT) sync_nxt = button_ff;
+    if(ctr_ff >= LIMIT - 1) sync_nxt = button_ff;
   end
   
   assign signal = sync_ff;

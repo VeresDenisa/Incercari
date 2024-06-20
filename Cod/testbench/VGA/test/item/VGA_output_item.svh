@@ -3,9 +3,9 @@ class VGA_output_item extends uvm_sequence_item;
 
     rand logic HSync;
 	rand logic VSync;
-	rand logic [COLOR_WIDTH-1:0] RED;
-	rand logic [COLOR_WIDTH-1:0] GREEN;
-	rand logic [COLOR_WIDTH-1:0] BLUE;
+	rand logic [3:0] RED;
+	rand logic [3:0] GREEN;
+	rand logic [3:0] BLUE;
     
     function new(string name = "VGA_output_item");
         super.new(name);

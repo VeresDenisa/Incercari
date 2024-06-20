@@ -1,7 +1,7 @@
 class LM_item extends uvm_sequence_item;
     `uvm_object_utils(LM_item);
 
-    logic [WIDTH_LEDS-1:0] leds;
+    logic [7:0] leds;
     
     function new(string name = "LM_item");
         super.new(name);

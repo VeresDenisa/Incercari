@@ -47,7 +47,7 @@ task VGA_test::main_phase(uvm_phase phase);
     phase.raise_objection(this);
     fork
         v_seq.start(env.v_seqr);
-        VGA_input_seq.start(env.VGA_agent_input_h.seqr);
+        VGA_input_seq.start(env.VGA_input_agent_h.seqr);
     join
     phase.drop_objection(this);  
 

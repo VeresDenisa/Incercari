@@ -2,7 +2,7 @@ class CM_input_item extends uvm_sequence_item;
     `uvm_object_utils(CM_input_item);
 
     rand logic Empty;
-	rand logic [UART_DATA_WIDTH-1:0] RXD_Data;
+	rand logic [7:0] RXD_Data;
 	rand logic Vertical_Split;
 	rand logic Horizontal_Split;
 	rand logic VGA_debug;

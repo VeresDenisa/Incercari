@@ -1,9 +1,9 @@
 import item_pack::*;
 
 interface UART_output_VIF(input bit clk);
-    logic [WIDTH_ERROR-1:0] error;
+    logic [1:0] error;
     logic valid_error;
-    logic [WIDTH_DATABITS-1:0] out;
+    logic [7:0] out;
     logic valid_out;
 
     clocking driver@(posedge clk);

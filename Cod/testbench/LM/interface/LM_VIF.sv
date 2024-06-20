@@ -1,7 +1,7 @@
 import item_pack::*;
 
 interface LM_VIF(input bit clk);
-    logic [WIDTH_LEDS-1:0] leds;
+    logic [7:0] leds;
 
     clocking monitor@(posedge clk);
         input leds;

@@ -40,8 +40,8 @@ module testbench_VGA;
         );
 
     initial begin
-        uvm_config_db#(virtual VGA_input_VIF) ::set(null, "uvm_test_top.env.VGA_agent_input_h*",  "VGA_input_VIF",  VGA_input_i);
-        uvm_config_db#(virtual VGA_output_VIF)::set(null, "uvm_test_top.env.VGA_agent_output_h*", "VGA_output_VIF", VGA_output_i);
+        uvm_config_db#(virtual VGA_input_VIF) ::set(null, "uvm_test_top.env.VGA_input_agent_h*",  "VGA_input_VIF",  VGA_input_i);
+        uvm_config_db#(virtual VGA_output_VIF)::set(null, "uvm_test_top.env.VGA_output_agent_h*", "VGA_output_VIF", VGA_output_i);
         uvm_config_db#(virtual CONF_input_VIF)::set(null, "uvm_test_top.env.CONF_agent_h*",       "CONF_input_VIF", CONF_input_i);
     end
     

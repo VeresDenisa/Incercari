@@ -46,8 +46,8 @@ module testbench_UART;
         );
 
     initial begin
-        uvm_config_db#(virtual UART_input_VIF) ::set(null, "uvm_test_top.env.UART_agent_input_h*",  "UART_input_VIF",  UART_input_i);
-        uvm_config_db#(virtual UART_output_VIF)::set(null, "uvm_test_top.env.UART_agent_output_h*", "UART_output_VIF", UART_output_i);
+        uvm_config_db#(virtual UART_input_VIF) ::set(null, "uvm_test_top.env.UART_input_agent_h*",  "UART_input_VIF",  UART_input_i);
+        uvm_config_db#(virtual UART_output_VIF)::set(null, "uvm_test_top.env.UART_output_agent_h*", "UART_output_VIF", UART_output_i);
         uvm_config_db#(virtual CONF_input_VIF) ::set(null, "uvm_test_top.env.CONF_agent_h*",        "CONF_input_VIF",  CONF_input_i);
     end
     

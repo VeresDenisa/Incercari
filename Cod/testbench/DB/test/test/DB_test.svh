@@ -45,7 +45,7 @@ task DB_test::main_phase(uvm_phase phase);
 
     phase.raise_objection(this);
     fork
-        DB_seq.start(env.DB_agent_input_h.seqr);
+        DB_seq.start(env.DB_input_agent_h.seqr);
     join
     phase.drop_objection(this);  
 

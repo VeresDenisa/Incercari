@@ -2,18 +2,18 @@ import item_pack::*;
 
 interface CM_output_VIF(input bit clk);
 
-    logic [CONFIG_STATUS_WIDTH-1:0] Config_Status;
+    logic [7:0] Config_Status;
 
-	logic [CONFIG_NOTIFICATION_WIDTH-1:0] Config_Notification;
+	logic [3:0] Config_Notification;
 	logic Config_Notification_Valid;
 
-	logic [CONFIG_ERROR_WIDTH-1:0] Config_Error;
+	logic [3:0] Config_Error;
 	logic Error_Valid;
 
-	logic [VGA_NOTIFICATION_WIDTH-1:0] VGA_Notification;
+	logic [3:0] VGA_Notification;
 	logic VGA_Notification_Valid;
 
-	logic [DATA_WIDTH-1:0] Data_VGA;
+	logic [11:0] Data_VGA;
 
     clocking driver@(posedge clk);
         output Config_Status;

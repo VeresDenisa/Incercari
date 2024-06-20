@@ -46,8 +46,8 @@ task LM_test::main_phase(uvm_phase phase);
 
     phase.raise_objection(this);
     fork
-        UART_output_seq.start(env.UART_agent_output_h.seqr);
-        CM_output_seq.start(env.CM_agent_output_h.seqr);
+        UART_output_seq.start(env.UART_output_agent_h.seqr);
+        CM_output_seq.start(env.CM_output_agent_h.seqr);
     join
     phase.drop_objection(this);  
 

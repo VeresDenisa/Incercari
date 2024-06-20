@@ -1,9 +1,9 @@
 class LM_environment extends uvm_env;
     `uvm_component_utils(LM_environment);
         
-    CM_output_agent CM_agent_output_h;
+    CM_output_agent CM_output_agent_h;
     LM_agent LM_agent_h;
-    UART_output_agent UART_agent_output_h;
+    UART_output_agent UART_output_agent_h;
 
     agent_config CM_config_output_h;
     agent_config UART_config_output_h;
@@ -35,11 +35,11 @@ function void LM_environment::build_phase(uvm_phase phase);
         CM_config_output_h   = new(.is_active(UVM_ACTIVE));
         UART_config_output_h = new(.is_active(UVM_ACTIVE));
             
-        uvm_config_db #(agent_config)::set(this, "CM_agent_output_h*",   "LM_config_db", CM_config_output_h);
-        uvm_config_db #(agent_config)::set(this, "UART_agent_output_h*", "LM_config_db", UART_config_output_h);
+        uvm_config_db #(agent_config)::set(this, "CM_output_agent_h*",   "LM_config_db", CM_config_output_h);
+        uvm_config_db #(agent_config)::set(this, "UART_output_agent_h*", "LM_config_db", UART_config_output_h);
         
-        CM_agent_output_h   = LM_input_agent   ::type_id::create("CM_agent_output_h",   this);
-        UART_agent_output_h = UART_output_agent::type_id::create("UART_agent_output_h", this);
+        CM_output_agent_h   = LM_agent   ::type_id::create("CM_output_agent_h",   this);
+        UART_output_agent_h = UART_output_agent::type_id::create("UART_output_agent_h", this);
     end
 
     cov = LM_coverage::type_id::create("cov", this); 
@@ -49,9 +49,8 @@ endfunction : build_phase
 
 function void LM_environment::connect_phase(uvm_phase phase);
     if(env_config_h.get_is_cluster() == UNIT) begin
-        v_seqr.CONF_input_seqr = UART_agent_output_h.seqr;
-        UART_agent_output_h.mon.an_port.connect(cov.an_port_UART);
-        CM_agent_output_h.mon.an_port.connect(cov.an_port_CM_output);
+        UART_output_agent_h.mon.an_port.connect(cov.an_port_UART);
+        CM_output_agent_h.mon.an_port.connect(cov.an_port_LM_CM_output);
     end else begin
         LM_agent_h.mon.an_port.connect(cov.an_port_LM);
     end

@@ -45,8 +45,8 @@ module testbench_LM;
         
     initial begin
         uvm_config_db#(virtual LM_VIF)         ::set(null, "uvm_test_top.env.LM_agent_h*",          "LM_VIF",          LM_i);
-        uvm_config_db#(virtual CM_output_VIF)  ::set(null, "uvm_test_top.env.CM_agent_output_h*",   "CM_output_VIF",   CM_output_i);
-        uvm_config_db#(virtual UART_output_VIF)::set(null, "uvm_test_top.env.UART_agent_output_h*", "UART_output_VIF", UART_output_i);
+        uvm_config_db#(virtual CM_output_VIF)  ::set(null, "uvm_test_top.env.CM_output_agent_h*",   "CM_output_VIF",   CM_output_i);
+        uvm_config_db#(virtual UART_output_VIF)::set(null, "uvm_test_top.env.UART_output_agent_h*", "UART_output_VIF", UART_output_i);
     end
     
     initial begin

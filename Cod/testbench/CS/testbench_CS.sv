@@ -46,8 +46,8 @@ module testbench_CS;
         );
 
     initial begin
-        uvm_config_db#(virtual UART_input_VIF)::set(null, "uvm_test_top.env.UART_agent_input_h*", "UART_input_VIF", UART_input_i);
-        uvm_config_db#(virtual VGA_output_VIF)::set(null, "uvm_test_top.env.VGA_agent_output_h*", "VGA_output_VIF", VGA_output_i);
+        uvm_config_db#(virtual UART_input_VIF)::set(null, "uvm_test_top.env.UART_input_agent_h*", "UART_input_VIF", UART_input_i);
+        uvm_config_db#(virtual VGA_output_VIF)::set(null, "uvm_test_top.env.VGA_output_agent_h*", "VGA_output_VIF", VGA_output_i);
         uvm_config_db#(virtual DB_VIF)::set(null, "uvm_test_top.env.DB_agent_h*", "DB_VIF", DB_i);
         uvm_config_db#(virtual LM_VIF)::set(null, "uvm_test_top.env.LM_agent_h*", "LM_VIF", LM_i);
     end

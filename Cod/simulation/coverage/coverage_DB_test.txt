@@ -3,63 +3,63 @@ COVERGROUP COVERAGE:
 Covergroup                                             Metric       Goal    Status               
                                                                                               
 -----------------------------------------------------------------------------------------------
- TYPE /DB_coverage_pack/DB_covergroup                 100.00%        100    CoveRED              
-    coveRED/total bins:                                    16         16                      
-    missing/total bins:                                     0         16                      
-    % Hit:                                            100.00%        100                      
+ TYPE /coverage_pack/DB_covergroup                     83.33%        100    Uncovered            
+    covered/total bins:                                    13         16                      
+    missing/total bins:                                     3         16                      
+    % Hit:                                             81.25%        100                      
     type_option.weight=1
     type_option.goal=100
     type_option.comment=
     type_option.strobe=0
     type_option.merge_instances=auto(0)
-    Coverpoint DB_covergroup::HS_cvp                  100.00%        100    CoveRED              
-        coveRED/total bins:                                 2          2                      
+    Coverpoint DB_covergroup::HS_cvp                   50.00%        100    Uncovered            
+        covered/total bins:                                 1          2                      
+        missing/total bins:                                 1          2                      
+        % Hit:                                         50.00%        100                      
+        type_option.weight=1
+        type_option.goal=100
+        type_option.comment=
+    Coverpoint DB_covergroup::VS_cvp                  100.00%        100    Covered              
+        covered/total bins:                                 2          2                      
         missing/total bins:                                 0          2                      
         % Hit:                                        100.00%        100                      
         type_option.weight=1
         type_option.goal=100
         type_option.comment=
-    Coverpoint DB_covergroup::VS_cvp                  100.00%        100    CoveRED              
-        coveRED/total bins:                                 2          2                      
+    Coverpoint DB_covergroup::DF_UART_cvp             100.00%        100    Covered              
+        covered/total bins:                                 2          2                      
         missing/total bins:                                 0          2                      
         % Hit:                                        100.00%        100                      
         type_option.weight=1
         type_option.goal=100
         type_option.comment=
-    Coverpoint DB_covergroup::DF_UART_cvp             100.00%        100    CoveRED              
-        coveRED/total bins:                                 2          2                      
+    Coverpoint DB_covergroup::DF_VGA_cvp              100.00%        100    Covered              
+        covered/total bins:                                 2          2                      
         missing/total bins:                                 0          2                      
         % Hit:                                        100.00%        100                      
         type_option.weight=1
         type_option.goal=100
         type_option.comment=
-    Coverpoint DB_covergroup::DF_VGA_cvp              100.00%        100    CoveRED              
-        coveRED/total bins:                                 2          2                      
-        missing/total bins:                                 0          2                      
-        % Hit:                                        100.00%        100                      
+    Cross DB_covergroup::HS_VS_cross                   50.00%        100    Uncovered            
+        covered/total bins:                                 2          4                      
+        missing/total bins:                                 2          4                      
+        % Hit:                                         50.00%        100                      
         type_option.weight=1
         type_option.goal=100
         type_option.comment=
-    Cross DB_covergroup::HS_VS_cross                  100.00%        100    CoveRED              
-        coveRED/total bins:                                 4          4                      
+    Cross DB_covergroup::UART_VGA_cross               100.00%        100    Covered              
+        covered/total bins:                                 4          4                      
         missing/total bins:                                 0          4                      
         % Hit:                                        100.00%        100                      
         type_option.weight=1
         type_option.goal=100
         type_option.comment=
-    Cross DB_covergroup::DF_UART_DF_VGA_cross         100.00%        100    CoveRED              
-        coveRED/total bins:                                 4          4                      
-        missing/total bins:                                 0          4                      
-        % Hit:                                        100.00%        100                      
-        type_option.weight=1
-        type_option.goal=100
-        type_option.comment=
- Covergroup instance \/DB_coverage_pack::DB_coverage::DB_cvg  
-                                                      100.00%        100    CoveRED              
-    coveRED/total bins:                                    16         16                      
-    missing/total bins:                                     0         16                      
-    % Hit:                                            100.00%        100                      
-    option.name=\/DB_coverage_pack::DB_coverage::DB_cvg 
+ Covergroup instance \/coverage_pack::DB_coverage::DB_cvg  
+                                                       83.33%        100    Uncovered            
+    covered/total bins:                                    13         16                      
+    missing/total bins:                                     3         16                      
+    % Hit:                                             81.25%        100                      
+    option.name=\/coverage_pack::DB_coverage::DB_cvg 
     option.weight=1
     option.goal=100
     option.comment=
@@ -69,8 +69,20 @@ Covergroup                                             Metric       Goal    Stat
     option.detect_overlap=0
     option.per_instance=0
     option.get_inst_coverage=0
-    Coverpoint HS_cvp                                 100.00%        100    CoveRED              
-        coveRED/total bins:                                 2          2                      
+    Coverpoint HS_cvp                                  50.00%        100    Uncovered            
+        covered/total bins:                                 1          2                      
+        missing/total bins:                                 1          2                      
+        % Hit:                                         50.00%        100                      
+        option.weight=1
+        option.goal=100
+        option.comment=
+        option.at_least=1
+        option.auto_bin_max=64
+        option.detect_overlap=0
+        bin value_binary[0]                                21          1    Covered              
+        bin value_binary[1]                                 0          1    ZERO                 
+    Coverpoint VS_cvp                                 100.00%        100    Covered              
+        covered/total bins:                                 2          2                      
         missing/total bins:                                 0          2                      
         % Hit:                                        100.00%        100                      
         option.weight=1
@@ -79,10 +91,10 @@ Covergroup                                             Metric       Goal    Stat
         option.at_least=1
         option.auto_bin_max=64
         option.detect_overlap=0
-        bin value_binary[0]                                21          1    CoveRED              
-        bin value_binary[1]                                 4          1    CoveRED              
-    Coverpoint VS_cvp                                 100.00%        100    CoveRED              
-        coveRED/total bins:                                 2          2                      
+        bin value_binary[0]                                16          1    Covered              
+        bin value_binary[1]                                 5          1    Covered              
+    Coverpoint DF_UART_cvp                            100.00%        100    Covered              
+        covered/total bins:                                 2          2                      
         missing/total bins:                                 0          2                      
         % Hit:                                        100.00%        100                      
         option.weight=1
@@ -91,10 +103,10 @@ Covergroup                                             Metric       Goal    Stat
         option.at_least=1
         option.auto_bin_max=64
         option.detect_overlap=0
-        bin value_binary[0]                                16          1    CoveRED              
-        bin value_binary[1]                                 9          1    CoveRED              
-    Coverpoint DF_UART_cvp                            100.00%        100    CoveRED              
-        coveRED/total bins:                                 2          2                      
+        bin value_binary[0]                                15          1    Covered              
+        bin value_binary[1]                                 6          1    Covered              
+    Coverpoint DF_VGA_cvp                             100.00%        100    Covered              
+        covered/total bins:                                 2          2                      
         missing/total bins:                                 0          2                      
         % Hit:                                        100.00%        100                      
         option.weight=1
@@ -103,22 +115,23 @@ Covergroup                                             Metric       Goal    Stat
         option.at_least=1
         option.auto_bin_max=64
         option.detect_overlap=0
-        bin value_binary[0]                                14          1    CoveRED              
-        bin value_binary[1]                                11          1    CoveRED              
-    Coverpoint DF_VGA_cvp                             100.00%        100    CoveRED              
-        coveRED/total bins:                                 2          2                      
-        missing/total bins:                                 0          2                      
-        % Hit:                                        100.00%        100                      
+        bin value_binary[0]                                 5          1    Covered              
+        bin value_binary[1]                                16          1    Covered              
+    Cross HS_VS_cross                                  50.00%        100    Uncovered            
+        covered/total bins:                                 2          4                      
+        missing/total bins:                                 2          4                      
+        % Hit:                                         50.00%        100                      
         option.weight=1
         option.goal=100
         option.comment=
         option.at_least=1
-        option.auto_bin_max=64
-        option.detect_overlap=0
-        bin value_binary[0]                                14          1    CoveRED              
-        bin value_binary[1]                                11          1    CoveRED              
-    Cross HS_VS_cross                                 100.00%        100    CoveRED              
-        coveRED/total bins:                                 4          4                      
+        option.cross_num_print_missing=0
+        bin <value_binary[0],value_binary[0]>              16          1    Covered              
+        bin <value_binary[0],value_binary[1]>               5          1    Covered              
+        bin <value_binary[1],value_binary[0]>               0          1    ZERO                 
+        bin <value_binary[1],value_binary[1]>               0          1    ZERO                 
+    Cross UART_VGA_cross                              100.00%        100    Covered              
+        covered/total bins:                                 4          4                      
         missing/total bins:                                 0          4                      
         % Hit:                                        100.00%        100                      
         option.weight=1
@@ -126,22 +139,9 @@ Covergroup                                             Metric       Goal    Stat
         option.comment=
         option.at_least=1
         option.cross_num_print_missing=0
-        bin <value_binary[0],value_binary[0]>              14          1    CoveRED              
-        bin <value_binary[1],value_binary[0]>               2          1    CoveRED              
-        bin <value_binary[0],value_binary[1]>               7          1    CoveRED              
-        bin <value_binary[1],value_binary[1]>               2          1    CoveRED              
-    Cross DF_UART_DF_VGA_cross                        100.00%        100    CoveRED              
-        coveRED/total bins:                                 4          4                      
-        missing/total bins:                                 0          4                      
-        % Hit:                                        100.00%        100                      
-        option.weight=1
-        option.goal=100
-        option.comment=
-        option.at_least=1
-        option.cross_num_print_missing=0
-        bin <value_binary[0],value_binary[0]>               8          1    CoveRED              
-        bin <value_binary[1],value_binary[0]>               6          1    CoveRED              
-        bin <value_binary[0],value_binary[1]>               6          1    CoveRED              
-        bin <value_binary[1],value_binary[1]>               5          1    CoveRED              
+        bin <value_binary[0],value_binary[0]>               1          1    Covered              
+        bin <value_binary[1],value_binary[0]>               4          1    Covered              
+        bin <value_binary[0],value_binary[1]>              14          1    Covered              
+        bin <value_binary[1],value_binary[1]>               2          1    Covered              
 
-TOTAL COVERGROUP COVERAGE: 100.00%  COVERGROUP TYPES: 1
+TOTAL COVERGROUP COVERAGE: 83.33%  COVERGROUP TYPES: 1

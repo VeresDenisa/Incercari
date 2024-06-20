@@ -1,7 +1,7 @@
 class CD_environment extends uvm_env;
     `uvm_component_utils(CD_environment);
         
-    CD_input_agent   CD_agent_h;
+    CD_agent         CD_agent_h;
     CONF_input_agent CONF_agent_h;
 
     agent_config CONF_config_h;

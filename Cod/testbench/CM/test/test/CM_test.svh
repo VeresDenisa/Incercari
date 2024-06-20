@@ -47,7 +47,7 @@ task CM_test::main_phase(uvm_phase phase);
     phase.raise_objection(this);
     fork
         v_seq.start(env.v_seqr);
-        CM_input_seq.start(env.CM_agent_input_h.seqr);
+        CM_input_seq.start(env.CM_input_agent_h.seqr);
     join
     phase.drop_objection(this);  
 

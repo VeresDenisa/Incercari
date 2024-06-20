@@ -2,6 +2,7 @@ import uvm_pkg::*;
 `include "uvm_macros.svh"
  
 import test_pack::*;
+`include "assertion_DB.sv"
 
 `define CLOCK 10
 
@@ -36,7 +37,7 @@ module testbench_DB;
         .DF_VGA(DB_output_i.DF_VGA)
         );
 
-    bind testbench_DB.DB_DUT #(.LIMIT(4)) DB_DUT_ASS (
+    bind testbench_DB.DB_DUT assertion_DB #(.LIMIT(4)) ass_DB (
         .clk(clk),
         .rst_n(rst_n),
         .btnHS(DB_input_i.HS),
@@ -50,8 +51,8 @@ module testbench_DB;
         );
     
     initial begin
-        uvm_config_db#(virtual DB_VIF)::set(null, "uvm_test_top.env.DB_agent_input_h*",  "DB_VIF", DB_input_i);
-        uvm_config_db#(virtual DB_VIF)::set(null, "uvm_test_top.env.DB_agent_output_h*", "DB_VIF", DB_output_i);
+        uvm_config_db#(virtual DB_VIF)::set(null, "uvm_test_top.env.DB_input_agent_h*",  "DB_VIF", DB_input_i);
+        uvm_config_db#(virtual DB_VIF)::set(null, "uvm_test_top.env.DB_output_agent_h*", "DB_VIF", DB_output_i);
     end
     
     initial begin
