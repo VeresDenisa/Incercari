@@ -7,7 +7,7 @@ class UART_input_agent extends uvm_agent;
     UART_input_driver    drv;
     UART_input_monitor   mon;
     
-    agent_config UART_input_config_h;
+    agent_config UART_config_h;
     
     function new (string name = "UART_input_agent", uvm_component parent = null);
         super.new(name, parent);
@@ -23,13 +23,13 @@ function void UART_input_agent::build_phase(uvm_phase phase);
     super.build_phase(phase);
     `uvm_info(get_name(), $sformatf("---> ENTER PHASE: --> BUILD <--"), UVM_DEBUG);
 
-    if(!uvm_config_db#(agent_config)::get(this, "", "UART_input_config_db", UART_input_config_h))
+    if(!uvm_config_db#(agent_config)::get(this, "", "UART_config_db", UART_config_h))
         `uvm_fatal(this.get_name(), "Failed to get config object");
     
     if(!uvm_config_db#(virtual UART_input_VIF)::get(this, "", "UART_input_VIF", i))
         `uvm_fatal(this.get_name(), "Failed to get interface");
     
-    if(UART_input_config_h.get_is_active() == UVM_ACTIVE) begin
+    if(UART_config_h.get_is_active() == UVM_ACTIVE) begin
         seqr = uvm_sequencer#(UART_input_item)::type_id::create("UART_input_seqr", this);
         drv  = UART_input_driver::type_id::create("UART_input_driver",  this); 
         uvm_config_db#(virtual UART_input_VIF)::set(this, "UART_input_driver*", "UART_input_VIF", i);
@@ -45,7 +45,7 @@ endfunction : build_phase
 function void UART_input_agent::connect_phase(uvm_phase phase);
     `uvm_info(get_name(), $sformatf("---> ENTER PHASE: --> CONNECT <--"), UVM_DEBUG);
 
-    if(UART_input_config_h.get_is_active() == UVM_ACTIVE) begin
+    if(UART_config_h.get_is_active() == UVM_ACTIVE) begin
         drv.seq_item_port.connect(seqr.seq_item_export);
     end
 

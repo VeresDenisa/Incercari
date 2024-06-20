@@ -22,8 +22,8 @@ design/CD/CD_counter.v
 
 
 
-testbench/pack/CM_pack/CM_item_pack.sv
-testbench/pack/CM_pack/CM_sequence_pack.sv
+testbench/pack/item_pack.sv
+testbench/pack/CM_sequence_pack.sv
 
 testbench/CD/interface/CD_VIF.sv
 testbench/CM/interface/CM_input_VIF.sv
@@ -37,9 +37,9 @@ testbench/UART/interface/UART_output_VIF.sv
 testbench/VGA/interface/VGA_input_VIF.sv
 testbench/VGA/interface/VGA_output_VIF.sv
 
-testbench/pack/CM_pack/CM_agent_pack.sv
-testbench/pack/CM_pack/CM_coverage_pack.sv
-testbench/pack/CM_pack/CM_environment_pack.sv
-testbench/pack/CM_pack/CM_test_pack.sv
+testbench/pack/CM_agent_pack.sv
+testbench/pack/CM_coverage_pack.sv
+testbench/pack/CM_environment_pack.sv
+testbench/pack/CM_test_pack.sv
 
 testbench/CM/testbench_CM.sv

@@ -1,7 +1,7 @@
 import uvm_pkg::*;
 `include "uvm_macros.svh"
  
-import test_pack::*;
+import CD_test_pack::*;
 `include "assertion_CD.sv"
 
 `define CLOCK 10
@@ -28,7 +28,7 @@ module testbench_CD;
     end
     
     CD_VIF         CD_i(clk);
-    CONF_input_VIF CONF_input_i(clk);
+    CONF_input_VIF CONF_input_i(clkinVGA);
     
     CD CD_DUT (
         .clk(clk),

@@ -27,7 +27,7 @@ function void DB_test::build_phase(uvm_phase phase);
     env = DB_environment::type_id::create("env", this); 
 
     DB_seq = DB_sequence::type_id::create("DB_seq");
-    DB_seq.set_parameters(.number_of_items(20));
+    DB_seq.set_parameters(.number_of_items(100));
         
     `uvm_info(get_name(), $sformatf("<--- EXIT PHASE: --> BUILD <--"), UVM_DEBUG);
 endfunction : build_phase

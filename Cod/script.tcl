@@ -1,11 +1,9 @@
 #!/usr/bin/tclsh
 
-# Run from terminal with: ./script.tcl VERBOSITY testcase1 testcase2 etc.
-# Ex. ./script.tcl DEBUG test test_no_1 test_no_2 test_no_3 test_no_4 test_no_5 test_no_6 test_no_7 test_no_8 test_no_9 test_no_10 test_no_11 test_no_12
+# Run from terminal with: ./script.tcl VERBOSITY UNIT testcase1 testcase2 etc.
+# Ex. ./script.tcl DEBUG CD test test_no_1 test_no_2 test_no_3 
 # First argument is verbosity: NONE, LOW, MEDIUM, HIGH, FULL, DEBUG
 # Following arguments are testcase names.
-
-# Recommended test order: test_no_1 test_no_2_1 test_no_3_1 test_no_7_1_0 test_no_7_1_1 test_no_3_2 test_no_3_3 test_no_2_2 test_no_2_3 test_no_4_1 test_no_4_2 test_no_4_3 test_no_7_2_0 test_no_7_2_1 test_no_5_1 test_no_5_2 test_no_5_3 test_no_7_3_0 test_no_7_3_1 test_no_8 test_no_10
 
 # set the testcases names and verbosity to check
 set testlist {
@@ -73,7 +71,6 @@ foreach {test} $testargv {
           if { ![file exists simulation/coverage] } { file mkdir simulation/coverage }
 
           # simulate the testcase and save the ucdb and wlf file
-          # -voptargs=+acc=rnbpc este echivalent cu -voptargs=+acc -> toata vizibilitatea e enabled
           # vsim -voptargs=+acc +UVM_TESTNAME=test_no_3_1 +UVM_VERBOSITY=LOW work.testbench
           exec sh -c "vsim -c -voptargs=+acc +UVM_TESTNAME=$test +UVM_VERBOSITY=$verbosity -wlf simulation/wave/wave_$test.wlf work.testbench_$unit -do \"log -r /*; coverage save -onexit simulation/ucdb/ucdb_$test.ucdb; run -all; quit -f; exit\""      
 

@@ -1,7 +1,7 @@
 import uvm_pkg::*;
 `include "uvm_macros.svh"
  
-import test_pack::*;
+import UART_test_pack::*;
 
 `define CLOCK 10
 
@@ -28,7 +28,7 @@ module testbench_UART;
     
     UART_input_VIF  UART_input_i(clk);
     UART_output_VIF UART_output_i(clk);
-    CONF_input_VIF  CONF_input_i(clk);
+    CONF_input_VIF  CONF_input_i(clkinVGA);
     
     UART UART_DUT (
         .clk(clk),
