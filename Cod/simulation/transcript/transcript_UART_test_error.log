@@ -1,6 +1,6 @@
-# vsim -c -voptargs="+acc" "+UVM_TESTNAME=UART_test" "+UVM_VERBOSITY=LOW" -wlf simulation/wave/wave_UART_test.wlf work.testbench_UART -do "log -r /*; coverage save -onexit simulation/ucdb/ucdb_UART_test.ucdb; run -all; quit -f; exit" 
-# Start time: 12:18:30 on Jun 21,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# vsim -c -voptargs="+acc" "+UVM_TESTNAME=UART_test_error" "+UVM_VERBOSITY=LOW" -wlf simulation/wave/wave_UART_test_error.wlf work.testbench_UART -do "log -r /*; coverage save -onexit simulation/ucdb/ucdb_UART_test_error.ucdb; run -all; quit -f; exit" 
+# Start time: 12:19:36 on Jun 21,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
 # //  Questa Sim-64
 # //  Version 10.7c linux_x86_64 Aug 17 2018
 # //
@@ -43,16 +43,15 @@
 #    Time: 0 ns  Iteration: 0  Instance: /testbench_UART/UART_DUT File: testbench/UART/testbench_UART.sv Line: 33
 # ** Warning: (vsim-3839) Variable '/testbench_UART/UART_output_i/error', driven via a port connection, is multiply driven. See testbench/UART/testbench_UART.sv(33).
 #    Time: 0 ns  Iteration: 0  Instance: /testbench_UART/UART_output_i File: testbench/UART/interface/UART_output_VIF.sv Line: 4
-# ** Warning: (vsim-3839) Variable '/testbench_UART/UART_output_i/valid_error', driven via a port conne# ** Note: (vish-4074) File /home/denisa/Desktop/Git/Incercari/Cod/simulation/wave/wave_UART_test.wlf is still open, viewing file in live viewing mode.
-# 
-add wave wave_UART_test3:/testbench_UART/UART_DUT/*
-ing: (vsim-3839) Variable '/testbench_UART/UART_output_i/out', driven via a port connection, is multiply driven. See testbench/UART/testbench_UART.sv(33).
+# ** Warning: (vsim-3839) Variable '/testbench_UART/UART_output_i/valid_error', driven via a port connection, is multiply driven. See testbench/UART/testbench_UART.sv(33).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_UART/UART_output_i File: testbench/UART/interface/UART_output_VIF.sv Line: 5
+# ** Warning: (vsim-3839) Variable '/testbench_UART/UART_output_i/out', driven via a port connection, is multiply driven. See testbench/UART/testbench_UART.sv(33).
 #    Time: 0 ns  Iteration: 0  Instance: /testbench_UART/UART_output_i File: testbench/UART/interface/UART_output_VIF.sv Line: 6
 # ** Warning: (vsim-3839) Variable '/testbench_UART/UART_output_i/valid_out', driven via a port connection, is multiply driven. See testbench/UART/testbench_UART.sv(33).
 #    Time: 0 ns  Iteration: 0  Instance: /testbench_UART/UART_output_i File: testbench/UART/interface/UART_output_VIF.sv Line: 7
 # Loading /opt/questa/questasim/uvm-1.1d/linux_x86_64/uvm_dpi.so
 # log -r /*
-#  coverage save -onexit simulation/ucdb/ucdb_UART_test.ucdb
+#  coverage save -onexit simulation/ucdb/ucdb_UART_test_error.ucdb
 #  run -all
 # ----------------------------------------------------------------
 # UVM-1.1d
@@ -74,61 +73,61 @@ ing: (vsim-3839) Variable '/testbench_UART/UART_output_i/out', driven via a port
 # 
 #       (Specify +UVM_NO_RELNOTES to turn off this notice)
 # 
-# UVM_INFO @ 0: reporter [RNTST] Running test UART_test...
+# UVM_INFO @ 0: reporter [RNTST] Running test UART_test_error...
 # UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
 # ---------------------------------------------------------------------------
 # Name                              Type                          Size  Value
 # ---------------------------------------------------------------------------
-# uvm_test_top                      UART_test                     -     @483 
+# uvm_test_top                      UART_test_error               -     @483 
 #   env                             UART_environment              -     @494 
-#     CONF_agent_h                  CONF_input_agent              -     @639 
-#       CONF_input_driver           CONF_input_driver             -     @832 
-#         rsp_port                  uvm_analysis_port             -     @847 
-#         seq_item_port             uvm_seq_item_pull_port        -     @839 
-#       CONF_input_monitor          CONF_input_monitor            -     @857 
-#         an_port                   uvm_analysis_port             -     @874 
-#       CONF_input_seqr             CONF_input_sequencer          -     @668 
-#         export_port               uvm_analysis_export           -     @777 
-#         fifo                      uvm_tlm_analysis_fifo #(T)    -     @785 
-#           analysis_export         uvm_analysis_imp              -     @824 
-#           get_ap                  uvm_analysis_port             -     @816 
-#           get_peek_export         uvm_get_peek_imp              -     @800 
-#           put_ap                  uvm_analysis_port             -     @808 
-#           put_export              uvm_put_imp                   -     @792 
-#         rsp_export                uvm_analysis_export           -     @675 
-#         seq_item_export           uvm_seq_item_pull_imp         -     @769 
+#     CONF_agent_h                  CONF_input_agent              -     @647 
+#       CONF_input_driver           CONF_input_driver             -     @840 
+#         rsp_port                  uvm_analysis_port             -     @855 
+#         seq_item_port             uvm_seq_item_pull_port        -     @847 
+#       CONF_input_monitor          CONF_input_monitor            -     @865 
+#         an_port                   uvm_analysis_port             -     @882 
+#       CONF_input_seqr             CONF_input_sequencer          -     @676 
+#         export_port               uvm_analysis_export           -     @785 
+#         fifo                      uvm_tlm_analysis_fifo #(T)    -     @793 
+#           analysis_export         uvm_analysis_imp              -     @832 
+#           get_ap                  uvm_analysis_port             -     @824 
+#           get_peek_export         uvm_get_peek_imp              -     @808 
+#           put_ap                  uvm_analysis_port             -     @816 
+#           put_export              uvm_put_imp                   -     @800 
+#         rsp_export                uvm_analysis_export           -     @683 
+#         seq_item_export           uvm_seq_item_pull_imp         -     @777 
 #         arbitration_queue         array                         0     -    
 #         lock_queue                array                         0     -    
 #         num_last_reqs             integral                      32    'd1  
 #         num_last_rsps             integral                      32    'd1  
-#     CONF_input_virtual_sequencer  CONF_input_virtual_sequencer  -     @520 
-#       rsp_export                  uvm_analysis_export           -     @527 
-#       seq_item_export             uvm_seq_item_pull_imp         -     @621 
+#     CONF_input_virtual_sequencer  CONF_input_virtual_sequencer  -     @528 
+#       rsp_export                  uvm_analysis_export           -     @535 
+#       seq_item_export             uvm_seq_item_pull_imp         -     @629 
 #       arbitration_queue           array                         0     -    
 #       lock_queue                  array                         0     -    
 #       num_last_reqs               integral                      32    'd1  
 #       num_last_rsps               integral                      32    'd1  
-#     UART_input_agent_h            UART_input_agent              -     @513 
-#       UART_input_driver           UART_input_driver             -     @1005
-#         rsp_port                  uvm_analysis_port             -     @1020
-#         seq_item_port             uvm_seq_item_pull_port        -     @1012
-#       UART_input_monitor          UART_input_monitor            -     @1030
-#         an_port                   uvm_analysis_port             -     @1047
-#       UART_input_seqr             uvm_sequencer                 -     @896 
-#         rsp_export                uvm_analysis_export           -     @903 
-#         seq_item_export           uvm_seq_item_pull_imp         -     @997 
+#     UART_input_agent_h            UART_input_agent              -     @521 
+#       UART_input_driver           UART_input_driver             -     @1013
+#         rsp_port                  uvm_analysis_port             -     @1028
+#         seq_item_port             uvm_seq_item_pull_port        -     @1020
+#       UART_input_monitor          UART_input_monitor            -     @1038
+#         an_port                   uvm_analysis_port             -     @1055
+#       UART_input_seqr             uvm_sequencer                 -     @904 
+#         rsp_export                uvm_analysis_export           -     @911 
+#         seq_item_export           uvm_seq_item_pull_imp         -     @1005
 #         arbitration_queue         array                         0     -    
 #         lock_queue                array                         0     -    
 #         num_last_reqs             integral                      32    'd1  
 #         num_last_rsps             integral                      32    'd1  
-#     UART_output_agent_h           UART_output_agent             -     @632 
-#       UART_output_monitor         UART_output_monitor           -     @1064
-#         an_port                   uvm_analysis_port             -     @1081
-#     cov                           UART_coverage                 -     @646 
-#       an_port                     uvm_analysis_imp              -     @653 
+#     UART_output_agent_h           UART_output_agent             -     @640 
+#       UART_output_monitor         UART_output_monitor           -     @1072
+#         an_port                   uvm_analysis_port             -     @1089
+#     cov                           UART_coverage                 -     @654 
+#       an_port                     uvm_analysis_imp              -     @661 
 # ---------------------------------------------------------------------------
 # 
-# UVM_INFO testbench/UART/test/environment/coverage/UART_coverage.svh(35) @ 3089560: uvm_test_top.env.cov [cov] UART coverage: 77.78%
+# UVM_INFO testbench/UART/test/environment/coverage/UART_coverage.svh(35) @ 927960: uvm_test_top.env.cov [cov] UART coverage: 73.02%
 # 
 # --- UVM Report Summary ---
 # 
@@ -142,7 +141,7 @@ ing: (vsim-3839) Variable '/testbench_UART/UART_output_i/out', driven via a port
 # [UVMTOP]     1
 # [cov]     1
 # ** Note: $finish    : /opt/questa/questasim/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 3089560 ns  Iteration: 96  Instance: /testbench_UART
+#    Time: 927960 ns  Iteration: 96  Instance: /testbench_UART
 # Saving coverage database on exit...
-# End time: 12:18:49 on Jun 21,2024, Elapsed time: 0:00:19
+# End time: 12:19:43 on Jun 21,2024, Elapsed time: 0:00:07
 # Errors: 0, Warnings: 5

@@ -11,7 +11,7 @@ set testlist {
      CM_test
      CD_test CD_test_no_config
      LM_test
-     UART_test
+     UART_test UART_test_no_config UART_test_error
      VGA_test VGA_test_no_config VGA_test_no_data
      CS_test
 }

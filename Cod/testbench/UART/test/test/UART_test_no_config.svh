@@ -1,5 +1,5 @@
-class UART_test extends uvm_test;
-    `uvm_component_utils(UART_test);
+class UART_test_no_config extends uvm_test;
+    `uvm_component_utils(UART_test_no_config);
 
     environment_config env_config;
     UART_environment env; 
@@ -7,18 +7,18 @@ class UART_test extends uvm_test;
     CONF_input_virtual_sequence v_seq;
     UART_input_sequence UART_input_seq;
     
-    function new (string name = "UART_test", uvm_component parent = null);
+    function new (string name = "UART_test_no_config", uvm_component parent = null);
         super.new(name, parent);
     endfunction : new
     
     extern function void build_phase(uvm_phase phase);
     extern function void start_of_simulation_phase(uvm_phase phase);
     extern task main_phase(uvm_phase phase);
-endclass : UART_test
+endclass : UART_test_no_config
     
     
 
-function void UART_test::build_phase(uvm_phase phase);
+function void UART_test_no_config::build_phase(uvm_phase phase);
     super.build_phase(phase);
     `uvm_info(get_name(), $sformatf("---> ENTER PHASE: --> BUILD <--"), UVM_DEBUG);
 
@@ -30,18 +30,19 @@ function void UART_test::build_phase(uvm_phase phase);
     v_seq          = CONF_input_virtual_sequence::type_id::create("v_seq");
     UART_input_seq = UART_input_sequence        ::type_id::create("UART_input_seq");
 
+    v_seq.set_parameters(0, 0, 1);
     UART_input_seq.set_parameters(0, 0, 100);
         
     `uvm_info(get_name(), $sformatf("<--- EXIT PHASE: --> BUILD <--"), UVM_DEBUG);
 endfunction : build_phase
     
-function void UART_test::start_of_simulation_phase(uvm_phase phase);
+function void UART_test_no_config::start_of_simulation_phase(uvm_phase phase);
     `uvm_info(get_name(), $sformatf("---> ENTER PHASE: --> START OF SIMULATION <--"), UVM_DEBUG);
     uvm_top.print_topology();
     `uvm_info(get_name(), $sformatf("<--- EXIT PHASE: --> START OF SIMULATION <--"), UVM_DEBUG);
 endfunction : start_of_simulation_phase
 
-task UART_test::main_phase(uvm_phase phase);
+task UART_test_no_config::main_phase(uvm_phase phase);
     `uvm_info(get_name(), $sformatf("---> ENTER PHASE: --> MAIN <--"), UVM_DEBUG);
 
     phase.phase_done.set_drain_time(this, `CLOCK * 100);
