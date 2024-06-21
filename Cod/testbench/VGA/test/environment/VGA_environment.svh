@@ -54,7 +54,6 @@ endfunction : build_phase
 function void VGA_environment::connect_phase(uvm_phase phase);
     if(env_config_h.get_is_cluster() == UNIT) begin
         v_seqr.CONF_input_seqr = CONF_agent_h.seqr;
-    end else begin
-        VGA_output_agent_h.mon.an_port.connect(cov.an_port);
     end
+    VGA_output_agent_h.mon.an_port.connect(cov.an_port);
 endfunction : connect_phase

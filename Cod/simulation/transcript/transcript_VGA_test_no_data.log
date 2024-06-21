@@ -1,6 +1,6 @@
-# vsim -c -voptargs="+acc" "+UVM_TESTNAME=VGA_test" "+UVM_VERBOSITY=LOW" -wlf simulation/wave/wave_VGA_test.wlf work.testbench_VGA -do "log -r /*; coverage save -onexit simulation/ucdb/ucdb_VGA_test.ucdb; run -all; quit -f; exit" 
-# Start time: 10:56:03 on Jun 21,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# vsim -c -voptargs="+acc" "+UVM_TESTNAME=VGA_test_no_data" "+UVM_VERBOSITY=LOW" -wlf simulation/wave/wave_VGA_test_no_data.wlf work.testbench_VGA -do "log -r /*; coverage save -onexit simulation/ucdb/ucdb_VGA_test_no_data.ucdb; run -all; quit -f; exit" 
+# Start time: 10:56:59 on Jun 21,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt
 # //  Questa Sim-64
 # //  Version 10.7c linux_x86_64 Aug 17 2018
 # //
@@ -45,7 +45,7 @@
 #    Time: 0 ns  Iteration: 0  Instance: /testbench_VGA/VGA_DUT File: testbench/VGA/testbench_VGA.sv Line: 27
 # Loading /opt/questa/questasim/uvm-1.1d/linux_x86_64/uvm_dpi.so
 # log -r /*
-#  coverage save -onexit simulation/ucdb/ucdb_VGA_test.ucdb
+#  coverage save -onexit simulation/ucdb/ucdb_VGA_test_no_data.ucdb
 #  run -all
 # ----------------------------------------------------------------
 # UVM-1.1d
@@ -67,61 +67,61 @@
 # 
 #       (Specify +UVM_NO_RELNOTES to turn off this notice)
 # 
-# UVM_INFO @ 0: reporter [RNTST] Running test VGA_test...
+# UVM_INFO @ 0: reporter [RNTST] Running test VGA_test_no_data...
 # UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
 # ---------------------------------------------------------------------------
 # Name                              Type                          Size  Value
 # ---------------------------------------------------------------------------
-# uvm_test_top                      VGA_test                      -     @483 
+# uvm_test_top                      VGA_test_no_data              -     @483 
 #   env                             VGA_environment               -     @494 
-#     CONF_agent_h                  CONF_input_agent              -     @638 
-#       CONF_input_driver           CONF_input_driver             -     @831 
-#         rsp_port                  uvm_analysis_port             -     @846 
-#         seq_item_port             uvm_seq_item_pull_port        -     @838 
-#       CONF_input_monitor          CONF_input_monitor            -     @856 
-#         an_port                   uvm_analysis_port             -     @873 
-#       CONF_input_seqr             CONF_input_sequencer          -     @667 
-#         export_port               uvm_analysis_export           -     @776 
-#         fifo                      uvm_tlm_analysis_fifo #(T)    -     @784 
-#           analysis_export         uvm_analysis_imp              -     @823 
-#           get_ap                  uvm_analysis_port             -     @815 
-#           get_peek_export         uvm_get_peek_imp              -     @799 
-#           put_ap                  uvm_analysis_port             -     @807 
-#           put_export              uvm_put_imp                   -     @791 
-#         rsp_export                uvm_analysis_export           -     @674 
-#         seq_item_export           uvm_seq_item_pull_imp         -     @768 
+#     CONF_agent_h                  CONF_input_agent              -     @634 
+#       CONF_input_driver           CONF_input_driver             -     @827 
+#         rsp_port                  uvm_analysis_port             -     @842 
+#         seq_item_port             uvm_seq_item_pull_port        -     @834 
+#       CONF_input_monitor          CONF_input_monitor            -     @852 
+#         an_port                   uvm_analysis_port             -     @869 
+#       CONF_input_seqr             CONF_input_sequencer          -     @663 
+#         export_port               uvm_analysis_export           -     @772 
+#         fifo                      uvm_tlm_analysis_fifo #(T)    -     @780 
+#           analysis_export         uvm_analysis_imp              -     @819 
+#           get_ap                  uvm_analysis_port             -     @811 
+#           get_peek_export         uvm_get_peek_imp              -     @795 
+#           put_ap                  uvm_analysis_port             -     @803 
+#           put_export              uvm_put_imp                   -     @787 
+#         rsp_export                uvm_analysis_export           -     @670 
+#         seq_item_export           uvm_seq_item_pull_imp         -     @764 
 #         arbitration_queue         array                         0     -    
 #         lock_queue                array                         0     -    
 #         num_last_reqs             integral                      32    'd1  
 #         num_last_rsps             integral                      32    'd1  
-#     CONF_input_virtual_sequencer  CONF_input_virtual_sequencer  -     @517 
-#       rsp_export                  uvm_analysis_export           -     @524 
-#       seq_item_export             uvm_seq_item_pull_imp         -     @618 
+#     CONF_input_virtual_sequencer  CONF_input_virtual_sequencer  -     @513 
+#       rsp_export                  uvm_analysis_export           -     @520 
+#       seq_item_export             uvm_seq_item_pull_imp         -     @614 
 #       arbitration_queue           array                         0     -    
 #       lock_queue                  array                         0     -    
 #       num_last_reqs               integral                      32    'd1  
 #       num_last_rsps               integral                      32    'd1  
-#     VGA_input_agent_h             VGA_input_agent               -     @631 
-#       VGA_input_driver            VGA_input_driver              -     @1004
-#         rsp_port                  uvm_analysis_port             -     @1019
-#         seq_item_port             uvm_seq_item_pull_port        -     @1011
-#       VGA_input_monitor           VGA_input_monitor             -     @1029
-#         an_port                   uvm_analysis_port             -     @1046
-#       VGA_input_seqr              uvm_sequencer                 -     @895 
-#         rsp_export                uvm_analysis_export           -     @902 
-#         seq_item_export           uvm_seq_item_pull_imp         -     @996 
+#     VGA_input_agent_h             VGA_input_agent               -     @627 
+#       VGA_input_driver            VGA_input_driver              -     @1000
+#         rsp_port                  uvm_analysis_port             -     @1015
+#         seq_item_port             uvm_seq_item_pull_port        -     @1007
+#       VGA_input_monitor           VGA_input_monitor             -     @1025
+#         an_port                   uvm_analysis_port             -     @1042
+#       VGA_input_seqr              uvm_sequencer                 -     @891 
+#         rsp_export                uvm_analysis_export           -     @898 
+#         seq_item_export           uvm_seq_item_pull_imp         -     @992 
 #         arbitration_queue         array                         0     -    
 #         lock_queue                array                         0     -    
 #         num_last_reqs             integral                      32    'd1  
 #         num_last_rsps             integral                      32    'd1  
-#     VGA_output_agent_h            VGA_output_agent              -     @510 
-#       VGA_output_monitor          VGA_output_monitor            -     @1062
-#         an_port                   uvm_analysis_port             -     @1079
-#     cov                           VGA_coverage                  -     @645 
-#       an_port                     uvm_analysis_imp              -     @652 
+#     VGA_output_agent_h            VGA_output_agent              -     @506 
+#       VGA_output_monitor          VGA_output_monitor            -     @1058
+#         an_port                   uvm_analysis_port             -     @1075
+#     cov                           VGA_coverage                  -     @641 
+#       an_port                     uvm_analysis_imp              -     @648 
 # ---------------------------------------------------------------------------
 # 
-# UVM_INFO testbench/VGA/test/environment/coverage/VGA_coverage.svh(35) @ 4000135: uvm_test_top.env.cov [cov] VGA coverage:  100.00%
+# UVM_INFO testbench/VGA/test/environment/coverage/VGA_coverage.svh(35) @ 30000035: uvm_test_top.env.cov [cov] VGA coverage:  57.14%
 # 
 # --- UVM Report Summary ---
 # 
@@ -135,7 +135,7 @@
 # [UVMTOP]     1
 # [cov]     1
 # ** Note: $finish    : /opt/questa/questasim/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 4000135 ns  Iteration: 96  Instance: /testbench_VGA
+#    Time: 30000035 ns  Iteration: 96  Instance: /testbench_VGA
 # Saving coverage database on exit...
-# End time: 10:56:29 on Jun 21,2024, Elapsed time: 0:00:26
+# End time: 11:01:18 on Jun 21,2024, Elapsed time: 0:04:19
 # Errors: 0, Warnings: 2

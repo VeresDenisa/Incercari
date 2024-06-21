@@ -72,13 +72,13 @@ Covergroup                                             Metric       Goal    Stat
         option.at_least=1
         option.auto_bin_max=64
         option.detect_overlap=0
-        bin limit_values[0]                            119508          1    Covered              
-        bin limit_values[1]                             42880          1    Covered              
-        bin limit_values[2]                             26880          1    Covered              
-        bin limit_values[3]                             18560          1    Covered              
-        bin inter_values[0]                            164932          1    Covered              
-        bin inter_values[1]                             68480          1    Covered              
-        bin inter_values[2]                             78089          1    Covered              
+        bin limit_values[0]                             39508          1    Covered              
+        bin limit_values[1]                              6400          1    Covered              
+        bin limit_values[2]                              3200          1    Covered              
+        bin limit_values[3]                              4480          1    Covered              
+        bin inter_values[0]                             48452          1    Covered              
+        bin inter_values[1]                              8969          1    Covered              
+        bin inter_values[2]                              8320          1    Covered              
     Coverpoint GREEN_cvp                              100.00%        100    Covered              
         covered/total bins:                                 7          7                      
         missing/total bins:                                 0          7                      
@@ -89,13 +89,13 @@ Covergroup                                             Metric       Goal    Stat
         option.at_least=1
         option.auto_bin_max=64
         option.detect_overlap=0
-        bin limit_values[0]                            123348          1    Covered              
-        bin limit_values[1]                             42880          1    Covered              
-        bin limit_values[2]                             23664          1    Covered              
-        bin limit_values[3]                             23680          1    Covered              
-        bin inter_values[0]                            173908          1    Covered              
-        bin inter_values[1]                             63369          1    Covered              
-        bin inter_values[2]                             72320          1    Covered              
+        bin limit_values[0]                             38868          1    Covered              
+        bin limit_values[1]                              6400          1    Covered              
+        bin limit_values[2]                              3184          1    Covered              
+        bin limit_values[3]                              1920          1    Covered              
+        bin inter_values[0]                             45268          1    Covered              
+        bin inter_values[1]                             14089          1    Covered              
+        bin inter_values[2]                              8960          1    Covered              
     Coverpoint BLUE_cvp                               100.00%        100    Covered              
         covered/total bins:                                 7          7                      
         missing/total bins:                                 0          7                      
@@ -106,13 +106,13 @@ Covergroup                                             Metric       Goal    Stat
         option.at_least=1
         option.auto_bin_max=64
         option.detect_overlap=0
-        bin limit_values[0]                            122068          1    Covered              
-        bin limit_values[1]                             38384          1    Covered              
-        bin limit_values[2]                             23680          1    Covered              
-        bin limit_values[3]                             21120          1    Covered              
-        bin inter_values[0]                            169428          1    Covered              
-        bin inter_values[1]                             60800          1    Covered              
-        bin inter_values[2]                             86409          1    Covered              
+        bin limit_values[0]                             40148          1    Covered              
+        bin limit_values[1]                              5104          1    Covered              
+        bin limit_values[2]                              4480          1    Covered              
+        bin limit_values[3]                              2560          1    Covered              
+        bin inter_values[0]                             45268          1    Covered              
+        bin inter_values[1]                             10880          1    Covered              
+        bin inter_values[2]                             11529          1    Covered              
     Coverpoint HSync_cvp                              100.00%        100    Covered              
         covered/total bins:                                 2          2                      
         missing/total bins:                                 0          2                      
@@ -123,8 +123,8 @@ Covergroup                                             Metric       Goal    Stat
         option.at_least=1
         option.auto_bin_max=64
         option.detect_overlap=0
-        bin value_binary[0]                             47810          1    Covered              
-        bin value_binary[1]                            352010          1    Covered              
+        bin value_binary[0]                              9410          1    Covered              
+        bin value_binary[1]                             70410          1    Covered              
     Coverpoint VSync_cvp                              100.00%        100    Covered              
         covered/total bins:                                 2          2                      
         missing/total bins:                                 0          2                      
@@ -136,6 +136,6 @@ Covergroup                                             Metric       Goal    Stat
         option.auto_bin_max=64
         option.detect_overlap=0
         bin value_binary[0]                               707          1    Covered              
-        bin value_binary[1]                            399113          1    Covered              
+        bin value_binary[1]                             79113          1    Covered              
 
 TOTAL COVERGROUP COVERAGE: 100.00%  COVERGROUP TYPES: 1

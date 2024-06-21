@@ -1,6 +1,6 @@
-# vsim -c -voptargs="+acc" "+UVM_TESTNAME=VGA_test" "+UVM_VERBOSITY=LOW" -wlf simulation/wave/wave_VGA_test.wlf work.testbench_VGA -do "log -r /*; coverage save -onexit simulation/ucdb/ucdb_VGA_test.ucdb; run -all; quit -f; exit" 
-# Start time: 10:56:03 on Jun 21,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# vsim -c -voptargs="+acc" "+UVM_TESTNAME=VGA_test_no_config" "+UVM_VERBOSITY=LOW" -wlf simulation/wave/wave_VGA_test_no_config.wlf work.testbench_VGA -do "log -r /*; coverage save -onexit simulation/ucdb/ucdb_VGA_test_no_config.ucdb; run -all; quit -f; exit" 
+# Start time: 10:56:39 on Jun 21,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt
 # //  Questa Sim-64
 # //  Version 10.7c linux_x86_64 Aug 17 2018
 # //
@@ -45,7 +45,7 @@
 #    Time: 0 ns  Iteration: 0  Instance: /testbench_VGA/VGA_DUT File: testbench/VGA/testbench_VGA.sv Line: 27
 # Loading /opt/questa/questasim/uvm-1.1d/linux_x86_64/uvm_dpi.so
 # log -r /*
-#  coverage save -onexit simulation/ucdb/ucdb_VGA_test.ucdb
+#  coverage save -onexit simulation/ucdb/ucdb_VGA_test_no_config.ucdb
 #  run -all
 # ----------------------------------------------------------------
 # UVM-1.1d
@@ -67,12 +67,12 @@
 # 
 #       (Specify +UVM_NO_RELNOTES to turn off this notice)
 # 
-# UVM_INFO @ 0: reporter [RNTST] Running test VGA_test...
+# UVM_INFO @ 0: reporter [RNTST] Running test VGA_test_no_config...
 # UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
 # ---------------------------------------------------------------------------
 # Name                              Type                          Size  Value
 # ---------------------------------------------------------------------------
-# uvm_test_top                      VGA_test                      -     @483 
+# uvm_test_top                      VGA_test_no_config            -     @483 
 #   env                             VGA_environment               -     @494 
 #     CONF_agent_h                  CONF_input_agent              -     @638 
 #       CONF_input_driver           CONF_input_driver             -     @831 
@@ -121,7 +121,7 @@
 #       an_port                     uvm_analysis_imp              -     @652 
 # ---------------------------------------------------------------------------
 # 
-# UVM_INFO testbench/VGA/test/environment/coverage/VGA_coverage.svh(35) @ 4000135: uvm_test_top.env.cov [cov] VGA coverage:  100.00%
+# UVM_INFO testbench/VGA/test/environment/coverage/VGA_coverage.svh(35) @ 800135: uvm_test_top.env.cov [cov] VGA coverage:  100.00%
 # 
 # --- UVM Report Summary ---
 # 
@@ -135,7 +135,7 @@
 # [UVMTOP]     1
 # [cov]     1
 # ** Note: $finish    : /opt/questa/questasim/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 4000135 ns  Iteration: 96  Instance: /testbench_VGA
+#    Time: 800135 ns  Iteration: 96  Instance: /testbench_VGA
 # Saving coverage database on exit...
-# End time: 10:56:29 on Jun 21,2024, Elapsed time: 0:00:26
+# End time: 10:56:50 on Jun 21,2024, Elapsed time: 0:00:11
 # Errors: 0, Warnings: 2
