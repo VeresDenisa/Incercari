@@ -34,9 +34,7 @@ end
 always @(*) begin
   leds_next = leds_reg;
   
-  if(fifo_empty) begin
-    leds_next = 'd0;
-  end else begin
+  if(!fifo_empty) begin
     leds_next = rd_data;
   end
 end

@@ -12,6 +12,7 @@ input btnUART,
 input btnVGA, 
 
 input in,
+output out,
 
 output HSYNC,
 output VSYNC,
@@ -22,6 +23,8 @@ output [3:0]RED,
 output [3:0]GREEN, 
 output [3:0]BLUE
 );
+
+assign out = 1'b1;
 
 // debounced switches
 wire button_signal_HS;
@@ -41,9 +44,11 @@ wire [2:0]c_ready;
 wire [13:0]c_data;
 wire [3:0]c_addr;
 
+UART_PLL basic_4OUT_PLL(.CLKI(clk), .CLKOP(clk_VGA), .CLKOS(), .CLKOS2(), .CLKOS3());
+
 CD cd(.clk(clk), .rst_n(rst_n), .clkinVGA(clk_VGA),
 					.c_valid(c_valid), .c_addr(c_addr), .c_data(c_data[7:0]), .c_ready(c_ready[2]), 
-					.clk_VGA(clk_VGA), .clk_UART(clk_UART), .clk_LM(clk_LM), .clk_DB(clk_DB));	
+					.clk_VGA(), .clk_UART(clk_UART), .clk_LM(clk_LM), .clk_DB(clk_DB));	
 
 DB db(.clk(clk_DB), .rst_n(rst_n),
   .btnHS(btnHS), .HS(button_signal_HS), 
