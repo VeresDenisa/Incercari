@@ -9,7 +9,6 @@ package CS_environment_pack;
     import CS_coverage_pack::*;
 
     `include "testbench/CONF/test/environment/sequencer/CONF_input_virtual_sequencer.svh"
-    `include "testbench/CONF/test/environment/sequencer/CONF_output_virtual_sequencer.svh"
 
     `include "testbench/environment_config.svh"
 
