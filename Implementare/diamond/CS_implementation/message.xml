@@ -1,9 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BaliMessageLog>
-    <Task name="PowerCal">
+    <Task name="Bitgen">
         <Message>
-            <ID>1171236</ID>
-            <Severity>Error</Severity>
+            <ID>1081328</ID>
+            <Severity>Warning</Severity>
+        </Message>
+        <Message>
+            <ID>1009992</ID>
+            <Severity>Info</Severity>
+            <Dynamic> SW_XO3D_SECURITY_ENCRYPTION *IS* controlled by se5c00.acd ###</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic> SW_XO3D_SECURITY_ENCRYPTION license_securityIP NONE</Dynamic>
+        </Message>
+    </Task>
+    <Task name="MapVerilogSimFile">
+        <Message>
+            <ID>35400250</ID>
+            <Severity>Info</Severity>
+            <Dynamic>0</Dynamic>
+        </Message>
+    </Task>
+    <Task name="IBIS">
+        <Message>
+            <ID>1191031</ID>
+            <Severity>Info</Severity>
+        </Message>
+    </Task>
+    <Task name="Map">
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Denisa/Desktop/GITHUB/Incercari/Implementare/diamond/CS_project.lpf(5): Semantic error in &quot;LOCATE COMP &quot;rst&quot; SITE &quot;B3&quot; ;&quot;: </Dynamic>
+            <Dynamic>rst</Dynamic>
+            <Navigation>C:/Users/Denisa/Desktop/GITHUB/Incercari/Implementare/diamond/CS_project.lpf</Navigation>
+            <Navigation>5</Navigation>
+        </Message>
+        <Message>
+            <ID>1100644</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Denisa/Desktop/GITHUB/Incercari/Implementare/diamond/CS_project.lpf(47): Semantic error in &quot;IOBUF PORT &quot;rst&quot; PULLMODE=UP IO_TYPE=LVCMOS33 ;&quot;: </Dynamic>
+            <Dynamic>rst</Dynamic>
+            <Navigation>C:/Users/Denisa/Desktop/GITHUB/Incercari/Implementare/diamond/CS_project.lpf</Navigation>
+            <Navigation>47</Navigation>
         </Message>
     </Task>
     <Task name="Lattice_Synthesis">
@@ -1226,6 +1267,30 @@
         <Message>
             <ID>35901018</ID>
             <Severity>Info</Severity>
+            <Dynamic>c:/users/denisa/desktop/github/incercari/implementare/diamond/uart_pll.v(8): </Dynamic>
+            <Dynamic>UART_PLL</Dynamic>
+            <Navigation>c:/users/denisa/desktop/github/incercari/implementare/diamond/uart_pll.v</Navigation>
+            <Navigation>8</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>D:/diamond/diamond/3.13/ispfpga/userware/NT/SYNTHESIS_HEADERS/machxo3d.v(1133): </Dynamic>
+            <Dynamic>VLO</Dynamic>
+            <Navigation>D:/diamond/diamond/3.13/ispfpga/userware/NT/SYNTHESIS_HEADERS/machxo3d.v</Navigation>
+            <Navigation>1133</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>D:/diamond/diamond/3.13/ispfpga/userware/NT/SYNTHESIS_HEADERS/machxo3d.v(1705): </Dynamic>
+            <Dynamic>EHXPLLJ(CLKFB_DIV=4,CLKOS_DIV=5,CLKOS2_DIV=3,CLKOS3_DIV=26,CLKOP_CPHASE=7,CLKOS_CPHASE=4,CLKOS2_CPHASE=2,CLKOS3_CPHASE=25,FEEDBK_PATH=&quot;INT_DIVA&quot;,PREDIVIDER_MUXD1=1)</Dynamic>
+            <Navigation>D:/diamond/diamond/3.13/ispfpga/userware/NT/SYNTHESIS_HEADERS/machxo3d.v</Navigation>
+            <Navigation>1705</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
             <Dynamic>c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/cd.v(15): </Dynamic>
             <Dynamic>CD</Dynamic>
             <Navigation>c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/cd.v</Navigation>
@@ -1565,10 +1630,10 @@
             <Dynamic>one-hot</Dynamic>
         </Message>
         <Message>
-            <ID>35935013</ID>
+            <ID>35935014</ID>
             <Severity>Warning</Severity>
             <Dynamic>c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/cm_assign_data.v(91): </Dynamic>
-            <Dynamic>\cm/assignCM/VGA_Notification_reg_i0_i2</Dynamic>
+            <Dynamic>\cm/assignCM/HalfX_reg_i0_i3</Dynamic>
             <Navigation>c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/cm_assign_data.v</Navigation>
             <Navigation>91</Navigation>
         </Message>
@@ -1576,29 +1641,42 @@
             <ID>35935013</ID>
             <Severity>Warning</Severity>
             <Dynamic>c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/cd_config.v(49): </Dynamic>
-            <Dynamic>\cd/CLOCK_DIVIDER_CONFIG/resolution_reg_i0_i31</Dynamic>
+            <Dynamic>\cd/CLOCK_DIVIDER_CONFIG/baudrate_reg_i0_i5</Dynamic>
             <Navigation>c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/cd_config.v</Navigation>
             <Navigation>49</Navigation>
         </Message>
         <Message>
-            <ID>35935014</ID>
+            <ID>35935013</ID>
             <Severity>Warning</Severity>
             <Dynamic>c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/cm_assign_data.v(91): </Dynamic>
-            <Dynamic>\cm/assignCM/H_BackPorch_reg_i0_i0</Dynamic>
+            <Dynamic>\cm/assignCM/V_BackPorch_reg_i0_i0</Dynamic>
             <Navigation>c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/cm_assign_data.v</Navigation>
             <Navigation>91</Navigation>
         </Message>
         <Message>
-            <ID>35935013</ID>
-            <Severity>Warning</Severity>
-            <Dynamic>c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/cm_config_manager.v(64): </Dynamic>
-            <Dynamic>\cm/configCM/Config_Error_reg_i3</Dynamic>
-            <Navigation>c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/cm_config_manager.v</Navigation>
-            <Navigation>64</Navigation>
-        </Message>
-        <Message>
             <ID>35001611</ID>
             <Severity>Warning</Severity>
+        </Message>
+        <Message>
+            <ID>50001000</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CLKOS3</Dynamic>
+            <Dynamic>FREQUENCY_PIN_CLKOS3</Dynamic>
+            <Dynamic>PLLInst_0</Dynamic>
+        </Message>
+        <Message>
+            <ID>50001000</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CLKOS2</Dynamic>
+            <Dynamic>FREQUENCY_PIN_CLKOS2</Dynamic>
+            <Dynamic>PLLInst_0</Dynamic>
+        </Message>
+        <Message>
+            <ID>50001000</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CLKOS</Dynamic>
+            <Dynamic>FREQUENCY_PIN_CLKOS</Dynamic>
+            <Dynamic>PLLInst_0</Dynamic>
         </Message>
     </Task>
     <Task name="PAR">
@@ -1610,21 +1688,63 @@
             <ID>66011008</ID>
             <Severity>Warning</Severity>
             <Dynamic>
+   Signal=clk_LM loads=3 clock_loads=1
    Signal=clk_DB loads=12 clock_loads=6
-   Signal=clk_VGA loads=10 clock_loads=5
-   Signal=clk_LM loads=13 clock_loads=4
-   Signal=cm/configCM/State_nxt_2__N_489 loads=3 clock_loads=3
-   Signal=c_data_1_derived_1 loads=6 clock_loads=1</Dynamic>
+   Signal=cm/configCM/State_nxt_2__N_486 loads=3 clock_loads=3
+   Signal=vga/config1/c_data_1_derived_1 loads=3 clock_loads=1</Dynamic>
         </Message>
         <Message>
             <ID>66011008</ID>
             <Severity>Warning</Severity>
             <Dynamic>
+   Signal=clk_LM loads=3 clock_loads=1
    Signal=clk_DB loads=12 clock_loads=6
-   Signal=clk_VGA loads=10 clock_loads=5
-   Signal=clk_LM loads=13 clock_loads=4
-   Signal=cm/configCM/State_nxt_2__N_489 loads=3 clock_loads=3
-   Signal=c_data_1_derived_1 loads=6 clock_loads=1</Dynamic>
+   Signal=cm/configCM/State_nxt_2__N_486 loads=3 clock_loads=3
+   Signal=vga/config1/c_data_1_derived_1 loads=3 clock_loads=1</Dynamic>
+        </Message>
+    </Task>
+    <Task name="TimingSimFileVHD">
+        <Message>
+            <ID>35400209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>DEFAULT</Dynamic>
+            <Dynamic>-1</Dynamic>
+            <Dynamic>Keyword</Dynamic>
+        </Message>
+        <Message>
+            <ID>35400209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>ASSERT</Dynamic>
+            <Dynamic>-1</Dynamic>
+            <Dynamic>Keyword</Dynamic>
+        </Message>
+        <Message>
+            <ID>35400250</ID>
+            <Severity>Info</Severity>
+            <Dynamic>0</Dynamic>
+        </Message>
+    </Task>
+    <Task name="Jedecgen">
+        <Message>
+            <ID>1081328</ID>
+            <Severity>Warning</Severity>
+        </Message>
+        <Message>
+            <ID>1009992</ID>
+            <Severity>Info</Severity>
+            <Dynamic> SW_XO3D_SECURITY_ENCRYPTION *IS* controlled by se5c00.acd ###</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic> SW_XO3D_SECURITY_ENCRYPTION license_securityIP NONE</Dynamic>
+        </Message>
+    </Task>
+    <Task name="TimingSimFileVlg">
+        <Message>
+            <ID>35400250</ID>
+            <Severity>Info</Severity>
+            <Dynamic>0</Dynamic>
         </Message>
     </Task>
 </BaliMessageLog>

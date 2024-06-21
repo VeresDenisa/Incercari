@@ -102,6 +102,12 @@
         <Source name="CS_implementation/source/CM_Width_Parameters.v" type="Verilog" type_short="Verilog" excluded="TRUE">
             <Options/>
         </Source>
+        <Source name="UART_PLL.v" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
+        <Source name="CS_implementation/CS_implementation.xcf" type="Programming Project File" type_short="Programming">
+            <Options/>
+        </Source>
         <Source name="CS_project.lpf" type="Logic Preference" type_short="LPF">
             <Options/>
         </Source>

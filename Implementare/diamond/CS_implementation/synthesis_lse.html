@@ -14,10 +14,10 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2023 Lattice Semiconductor Corporation,  All rights reserved.
-Mon Jun 17 23:26:44 2024
+Fri Jun 21 03:27:57 2024
 
 
-Command Line:  synthesis -f CS_project_CS_implementation_lattice.synproj -gui 
+Command Line:  synthesis -f CS_project_CS_implementation_lattice.synproj -gui -msgset C:/Users/Denisa/Desktop/GITHUB/Incercari/Implementare/diamond/promote.xml 
 
 Synthesis options:
 The -a option is MachXO3D.
@@ -95,6 +95,7 @@ Verilog design file = C:/Users/Denisa/Desktop/GITHUB/Incercari/Implementare/diam
 Verilog design file = C:/Users/Denisa/Desktop/GITHUB/Incercari/Implementare/diamond/CS_implementation/source/VGA_Assign_color.v
 Verilog design file = C:/Users/Denisa/Desktop/GITHUB/Incercari/Implementare/diamond/CS_implementation/source/VGA_Config.v
 Verilog design file = C:/Users/Denisa/Desktop/GITHUB/Incercari/Implementare/diamond/CS_implementation/source/VGA_Counter.v
+Verilog design file = C:/Users/Denisa/Desktop/GITHUB/Incercari/Implementare/diamond/UART_PLL.v
 NGD file = CS_project_CS_implementation.ngd
 -sdc option: SDC file input not used.
 -lpf option: Output file option is ON.
@@ -276,9 +277,13 @@ INFO - synthesis: c:/users/denisa/desktop/github/incercari/implementare/diamond/
 INFO - synthesis: c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/vga_config.v(24): analyzing included file c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/VGA_Addr_Parameters.v. VERI-1328
 Analyzing Verilog file c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/vga_counter.v. VERI-1482
 INFO - synthesis: c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/vga_counter.v(12): analyzing included file c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/VGA_Width_Parameters.v. VERI-1328
+Analyzing Verilog file c:/users/denisa/desktop/github/incercari/implementare/diamond/uart_pll.v. VERI-1482
 Analyzing Verilog file D:/diamond/diamond/3.13/ispfpga/userware/NT/SYNTHESIS_HEADERS/machxo3d.v. VERI-1482
 Top module name (Verilog): CS
 INFO - synthesis: c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/cs.v(3): compiling module CS. VERI-1018
+INFO - synthesis: c:/users/denisa/desktop/github/incercari/implementare/diamond/uart_pll.v(8): compiling module UART_PLL. VERI-1018
+INFO - synthesis: D:/diamond/diamond/3.13/ispfpga/userware/NT/SYNTHESIS_HEADERS/machxo3d.v(1133): compiling module VLO. VERI-1018
+INFO - synthesis: D:/diamond/diamond/3.13/ispfpga/userware/NT/SYNTHESIS_HEADERS/machxo3d.v(1705): compiling module EHXPLLJ(CLKFB_DIV=4,CLKOS_DIV=5,CLKOS2_DIV=3,CLKOS3_DIV=26,CLKOP_CPHASE=7,CLKOS_CPHASE=4,CLKOS2_CPHASE=2,CLKOS3_CPHASE=25,FEEDBK_PATH="INT_DIVA",PREDIVIDER_MUXD1=1). VERI-1018
 INFO - synthesis: c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/cd.v(15): compiling module CD. VERI-1018
 INFO - synthesis: c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/cd_counter.v(10): compiling module CD_counter(WIDTH=32). VERI-1018
 INFO - synthesis: c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/cd_counter.v(10): compiling module CD_counter(WIDTH=24). VERI-1018
@@ -343,13 +348,10 @@ original encoding -> new encoding (one-hot encoding)
 
 
 
-WARNING - synthesis: c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/cm_assign_data.v(91): Register \cm/assignCM/VGA_Notification_reg_i0_i2 is stuck at Zero. VDB-5013
-WARNING - synthesis: c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/cd_config.v(49): Register \cd/CLOCK_DIVIDER_CONFIG/resolution_reg_i0_i31 is stuck at Zero. VDB-5013
-WARNING - synthesis: c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/cm_assign_data.v(91): Register \cm/assignCM/H_BackPorch_reg_i0_i0 is stuck at One. VDB-5014
-WARNING - synthesis: c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/cm_config_manager.v(64): Register \cm/configCM/Config_Error_reg_i3 is stuck at Zero. VDB-5013
+WARNING - synthesis: c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/cm_assign_data.v(91): Register \cm/assignCM/HalfX_reg_i0_i3 is stuck at One. VDB-5014
+WARNING - synthesis: c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/cd_config.v(49): Register \cd/CLOCK_DIVIDER_CONFIG/baudrate_reg_i0_i5 is stuck at Zero. VDB-5013
+WARNING - synthesis: c:/users/denisa/desktop/github/incercari/implementare/diamond/cs_implementation/source/cm_assign_data.v(91): Register \cm/assignCM/V_BackPorch_reg_i0_i0 is stuck at Zero. VDB-5013
 GSR instance connected to net rst_n_c.
-Duplicate register/latch removal. \cd/CLOCK_DIVIDER_CONFIG/baudrate_reg_i0_i0 is a one-to-one match with \cd/CLOCK_DIVIDER_CONFIG/baudrate_reg_i0_i10.
-Duplicate register/latch removal. \cm/configCM/Config_Notification_reg_i3 is a one-to-one match with \cm/configCM/Config_Notification_reg_i2.
 Duplicate register/latch removal. \cm/assignCM/HalfY_reg_i0_i8 is a one-to-one match with \cm/assignCM/HalfX_reg_i0_i7.
 Duplicate register/latch removal. \cm/assignCM/HalfY_reg_i0_i7 is a one-to-one match with \cm/assignCM/V_FrontPorch_reg_i0_i8.
 Duplicate register/latch removal. \cm/assignCM/HalfY_reg_i0_i6 is a one-to-one match with \cm/assignCM/HalfY_reg_i0_i2.
@@ -378,31 +380,35 @@ Loading NGL library 'D:/diamond/diamond/3.13/ispfpga/xo2c00a/data/xo2alib.ngl'..
 Loading NGL library 'D:/diamond/diamond/3.13/ispfpga/xo2c00/data/xo2clib.ngl'...
 Loading NGL library 'D:/diamond/diamond/3.13/ispfpga/mg5g00/data/mg5glib.ngl'...
 Loading NGL library 'D:/diamond/diamond/3.13/ispfpga/or5g00/data/orc5glib.ngl'...
+WARNING - synthesis: Port 'CLKOS3' has no signal connected to it. Property 'FREQUENCY_PIN_CLKOS3' is ignored for instance 'PLLInst_0'.
+WARNING - synthesis: Port 'CLKOS2' has no signal connected to it. Property 'FREQUENCY_PIN_CLKOS2' is ignored for instance 'PLLInst_0'.
+WARNING - synthesis: Port 'CLKOS' has no signal connected to it. Property 'FREQUENCY_PIN_CLKOS' is ignored for instance 'PLLInst_0'.
 All blocks are expanded and NGD expansion is successful.
 Writing NGD file CS_project_CS_implementation.ngd.
 
 ################### Begin Area Report (CS)######################
-Number of register bits => 615 of 10021 (6 % )
-CCU2D => 243
-FD1P3AX => 161
-FD1P3AY => 11
+Number of register bits => 509 of 10021 (5 % )
+CCU2D => 205
+EHXPLLJ => 1
+FD1P3AX => 120
+FD1P3AY => 6
 FD1P3BX => 1
-FD1P3DX => 24
-FD1P3IX => 45
-FD1P3JX => 4
+FD1P3DX => 22
+FD1P3IX => 29
+FD1P3JX => 1
 FD1S1A => 52
 FD1S1D => 1
 FD1S1I => 27
-FD1S3AX => 67
-FD1S3AY => 25
-FD1S3DX => 84
-FD1S3IX => 109
+FD1S3AX => 66
+FD1S3AY => 22
+FD1S3DX => 51
+FD1S3IX => 107
 FD1S3JX => 4
 GSR => 1
 IB => 7
-LUT4 => 540
-OB => 22
-PFUMX => 26
+LUT4 => 403
+OB => 23
+PFUMX => 20
 ################### End Area Report ##################
 
 ################### Begin BlackBox Report ######################
@@ -412,40 +418,40 @@ TSALL => 1
 ################### Begin Clock Report ######################
 Clock Nets
 Number of Clocks: 9
-  Net : clk_c, loads : 496
-  Net : vga/config1/H_Left_Margin_nxt_8__N_970, loads : 76
-  Net : cd/CNT_UART/clk_UART, loads : 18
-  Net : cd/CNT_LM/clk_LM, loads : 13
+  Net : clk_c, loads : 389
+  Net : vga/config1/H_Left_Margin_nxt_8__N_967, loads : 76
+  Net : cd/CNT_UART/clk_UART, loads : 14
   Net : vga/CounterH/HSYNC_c, loads : 17
   Net : cd/CNT_DB/clk_DB, loads : 14
-  Net : cd/CNT_VGA/clk_VGA, loads : 10
-  Net : cm/configCM/State_nxt_2__N_489, loads : 3
-  Net : vga/config1/c_data_1_derived_1, loads : 6
+  Net : basic_4OUT_PLL/clk_VGA, loads : 12
+  Net : cm/configCM/State_nxt_2__N_486, loads : 3
+  Net : cd/CNT_LM/clk_LM, loads : 3
+  Net : vga/config1/c_data_1_derived_1, loads : 3
 Clock Enable Nets
-Number of Clock Enables: 62
+Number of Clock Enables: 42
 Top 10 highest fanout Clock Enables:
-  Net : cm/assignCM/clk_c_enable_159, loads : 19
-  Net : cm/configCM/clk_c_enable_80, loads : 16
-  Net : cd/CLOCK_DIVIDER_CONFIG/clk_c_enable_230, loads : 13
-  Net : cm/assignCM/clk_c_enable_125, loads : 12
-  Net : cm/assignCM/clk_c_enable_114, loads : 12
-  Net : cm/assignCM/clk_c_enable_147, loads : 12
-  Net : cm/assignCM/clk_c_enable_136, loads : 12
-  Net : cm/configCM/clk_c_enable_71, loads : 11
-  Net : FIFO_UART_info/clk_c_enable_189, loads : 8
-  Net : FIFO_UART_CM/clk_c_enable_198, loads : 8
+  Net : cm/assignCM/clk_c_enable_79, loads : 19
+  Net : cm/configCM/clk_c_enable_54, loads : 16
+  Net : cm/assignCM/clk_c_enable_139, loads : 12
+  Net : cm/assignCM/clk_c_enable_123, loads : 12
+  Net : cm/assignCM/clk_c_enable_112, loads : 12
+  Net : cm/assignCM/clk_c_enable_101, loads : 12
+  Net : cm/configCM/clk_c_enable_45, loads : 11
+  Net : FIFO_UART_CM/clk_c_enable_158, loads : 8
+  Net : cd/CLOCK_DIVIDER_CONFIG/clk_VGA_enable_9, loads : 8
+  Net : cm/configCM/clk_c_enable_157, loads : 8
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : vga/config1/n8865, loads : 74
-  Net : cm/configCM/c_data_1, loads : 73
-  Net : cm/configCM/c_data_0, loads : 62
-  Net : cd/CNT_UART/counter_23_N_180_14, loads : 40
-  Net : cd/CNT_LM/counter_31__N_87, loads : 39
-  Net : cd/CNT_DB/counter_31__N_87, loads : 36
-  Net : cd/CNT_VGA/counter_31__N_87, loads : 35
-  Net : cm/configCM/RXD_Data_reg_11, loads : 35
-  Net : cd/clk_VGA_N_18, loads : 33
-  Net : n1947, loads : 32
+  Net : vga/config1/n7362, loads : 75
+  Net : cm/configCM/c_data_1, loads : 69
+  Net : cm/configCM/c_data_0, loads : 61
+  Net : cd/CNT_UART/counter_23_N_178_9, loads : 43
+  Net : cd/CNT_DB/counter_31__N_85, loads : 36
+  Net : cd/CNT_LM/counter_31__N_85, loads : 32
+  Net : n1553, loads : 30
+  Net : vga/CounterV/Count_h_11__N_948, loads : 25
+  Net : cd/CNT_UART/clk_UART_N_18, loads : 25
+  Net : uart/UART_STATE/error_1__N_334, loads : 23
 ################### End Clock Report ##################
 
 <A name="lse_trs"></A><B><U><big>Timing Report Summary</big></U></B>
@@ -455,30 +461,30 @@ Constraint                              |   Constraint|       Actual|Levels
 --------------------------------------------------------------------------------
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk7 [get_nets clk_UART]                |  200.000 MHz|  212.495 MHz|     3  
+clk7 [get_nets                          |             |             |
+\cm/configCM/State_nxt_2__N_486]        |            -|            -|     0  
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk6 [get_nets                          |             |             |
-\cm/configCM/State_nxt_2__N_489]        |            -|            -|     0  
+clk6 [get_nets clk_LM]                  |            -|            -|     0  
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk5 [get_nets clk_DB]                  |  200.000 MHz|  606.796 MHz|     1  
+clk5 [get_nets                          |             |             |
+\vga/config1/H_Left_Margin_nxt_8__N_967]|            -|            -|     0  
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk4 [get_nets clk_VGA]                 |            -|            -|     0  
+clk4 [get_nets clk_UART]                |  200.000 MHz|  213.174 MHz|     3  
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk3 [get_nets                          |             |             |
-\vga/config1/H_Left_Margin_nxt_8__N_970]|            -|            -|     0  
+clk3 [get_nets HSYNC_c]                 |  200.000 MHz|  139.043 MHz|     6 *
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk2 [get_nets HSYNC_c]                 |  200.000 MHz|  139.043 MHz|     6 *
+clk2 [get_nets clk_DB]                  |  200.000 MHz|  606.796 MHz|     1  
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk1 [get_nets clk_LM]                  |            -|            -|     0  
+clk1 [get_nets clk_c]                   |  200.000 MHz|   87.742 MHz|    17 *
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk0 [get_nets clk_c]                   |  200.000 MHz|   68.695 MHz|    18 *
+clk0 [get_nets clk_VGA]                 |            -|            -|     0  
                                         |             |             |
 --------------------------------------------------------------------------------
 
@@ -486,10 +492,10 @@ clk0 [get_nets clk_c]                   |  200.000 MHz|   68.695 MHz|    18 *
 2 constraints not met.
 
 
-Peak Memory Usage: 87.895  MB
+Peak Memory Usage: 78.461  MB
 
 --------------------------------------------------------------
-Elapsed CPU time for LSE flow : 5.219  secs
+Elapsed CPU time for LSE flow : 4.453  secs
 --------------------------------------------------------------
 
 
