@@ -33,7 +33,7 @@ interface UART_input_VIF(input bit clk);
         repeat(16) @(driver);
 
         driver.in <= 1'b1;
-        repeat(16) @(driver);
+        repeat(48) @(driver);
     endtask : send
 
     function automatic void receive(ref UART_input_item t);

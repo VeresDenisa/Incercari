@@ -30,7 +30,7 @@ function void VGA_test::build_phase(uvm_phase phase);
     v_seq         = CONF_input_virtual_sequence::type_id::create("v_seq");
     VGA_input_seq = VGA_input_sequence         ::type_id::create("VGA_input_seq");
 
-    VGA_input_seq.set_parameters(500);
+    VGA_input_seq.set_parameters(200);
         
     `uvm_info(get_name(), $sformatf("<--- EXIT PHASE: --> BUILD <--"), UVM_DEBUG);
 endfunction : build_phase

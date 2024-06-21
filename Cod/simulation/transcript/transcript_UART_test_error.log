@@ -1,6 +1,6 @@
 # vsim -c -voptargs="+acc" "+UVM_TESTNAME=UART_test_error" "+UVM_VERBOSITY=LOW" -wlf simulation/wave/wave_UART_test_error.wlf work.testbench_UART -do "log -r /*; coverage save -onexit simulation/ucdb/ucdb_UART_test_error.ucdb; run -all; quit -f; exit" 
-# Start time: 12:19:36 on Jun 21,2024
-# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Start time: 23:24:00 on Jun 21,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt2
 # //  Questa Sim-64
 # //  Version 10.7c linux_x86_64 Aug 17 2018
 # //
@@ -40,14 +40,14 @@
 # Loading work.UART_sampler(fast)
 # Loading mtiUvm.questa_uvm_pkg(fast)
 # ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (14) for port 'c_data'. The port definition is at: design/UART/UART.v(24).
-#    Time: 0 ns  Iteration: 0  Instance: /testbench_UART/UART_DUT File: testbench/UART/testbench_UART.sv Line: 33
-# ** Warning: (vsim-3839) Variable '/testbench_UART/UART_output_i/error', driven via a port connection, is multiply driven. See testbench/UART/testbench_UART.sv(33).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_UART/UART_DUT File: testbench/UART/testbench_UART.sv Line: 34
+# ** Warning: (vsim-3839) Variable '/testbench_UART/UART_output_i/error', driven via a port connection, is multiply driven. See testbench/UART/testbench_UART.sv(34).
 #    Time: 0 ns  Iteration: 0  Instance: /testbench_UART/UART_output_i File: testbench/UART/interface/UART_output_VIF.sv Line: 4
-# ** Warning: (vsim-3839) Variable '/testbench_UART/UART_output_i/valid_error', driven via a port connection, is multiply driven. See testbench/UART/testbench_UART.sv(33).
+# ** Warning: (vsim-3839) Variable '/testbench_UART/UART_output_i/valid_error', driven via a port connection, is multiply driven. See testbench/UART/testbench_UART.sv(34).
 #    Time: 0 ns  Iteration: 0  Instance: /testbench_UART/UART_output_i File: testbench/UART/interface/UART_output_VIF.sv Line: 5
-# ** Warning: (vsim-3839) Variable '/testbench_UART/UART_output_i/out', driven via a port connection, is multiply driven. See testbench/UART/testbench_UART.sv(33).
+# ** Warning: (vsim-3839) Variable '/testbench_UART/UART_output_i/out', driven via a port connection, is multiply driven. See testbench/UART/testbench_UART.sv(34).
 #    Time: 0 ns  Iteration: 0  Instance: /testbench_UART/UART_output_i File: testbench/UART/interface/UART_output_VIF.sv Line: 6
-# ** Warning: (vsim-3839) Variable '/testbench_UART/UART_output_i/valid_out', driven via a port connection, is multiply driven. See testbench/UART/testbench_UART.sv(33).
+# ** Warning: (vsim-3839) Variable '/testbench_UART/UART_output_i/valid_out', driven via a port connection, is multiply driven. See testbench/UART/testbench_UART.sv(34).
 #    Time: 0 ns  Iteration: 0  Instance: /testbench_UART/UART_output_i File: testbench/UART/interface/UART_output_VIF.sv Line: 7
 # Loading /opt/questa/questasim/uvm-1.1d/linux_x86_64/uvm_dpi.so
 # log -r /*
@@ -127,7 +127,7 @@
 #       an_port                     uvm_analysis_imp              -     @661 
 # ---------------------------------------------------------------------------
 # 
-# UVM_INFO testbench/UART/test/environment/coverage/UART_coverage.svh(35) @ 927960: uvm_test_top.env.cov [cov] UART coverage: 73.02%
+# UVM_INFO testbench/UART/test/environment/coverage/UART_coverage.svh(35) @ 1081560: uvm_test_top.env.cov [cov] UART coverage: 80.16%
 # 
 # --- UVM Report Summary ---
 # 
@@ -141,7 +141,7 @@
 # [UVMTOP]     1
 # [cov]     1
 # ** Note: $finish    : /opt/questa/questasim/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 927960 ns  Iteration: 96  Instance: /testbench_UART
+#    Time: 1081560 ns  Iteration: 96  Instance: /testbench_UART
 # Saving coverage database on exit...
-# End time: 12:19:43 on Jun 21,2024, Elapsed time: 0:00:07
+# End time: 23:24:09 on Jun 21,2024, Elapsed time: 0:00:09
 # Errors: 0, Warnings: 5

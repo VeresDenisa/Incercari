@@ -1,5 +1,5 @@
 # vsim -c -voptargs="+acc" "+UVM_TESTNAME=UART_test" "+UVM_VERBOSITY=LOW" -wlf simulation/wave/wave_UART_test.wlf work.testbench_UART -do "log -r /*; coverage save -onexit simulation/ucdb/ucdb_UART_test.ucdb; run -all; quit -f; exit" 
-# Start time: 12:18:30 on Jun 21,2024
+# Start time: 23:23:22 on Jun 21,2024
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # //  Questa Sim-64
 # //  Version 10.7c linux_x86_64 Aug 17 2018
@@ -40,15 +40,14 @@
 # Loading work.UART_sampler(fast)
 # Loading mtiUvm.questa_uvm_pkg(fast)
 # ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (14) for port 'c_data'. The port definition is at: design/UART/UART.v(24).
-#    Time: 0 ns  Iteration: 0  Instance: /testbench_UART/UART_DUT File: testbench/UART/testbench_UART.sv Line: 33
-# ** Warning: (vsim-3839) Variable '/testbench_UART/UART_output_i/error', driven via a port connection, is multiply driven. See testbench/UART/testbench_UART.sv(33).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_UART/UART_DUT File: testbench/UART/testbench_UART.sv Line: 34
+# ** Warning: (vsim-3839) Variable '/testbench_UART/UART_output_i/error', driven via a port connection, is multiply driven. See testbench/UART/testbench_UART.sv(34).
 #    Time: 0 ns  Iteration: 0  Instance: /testbench_UART/UART_output_i File: testbench/UART/interface/UART_output_VIF.sv Line: 4
-# ** Warning: (vsim-3839) Variable '/testbench_UART/UART_output_i/valid_error', driven via a port conne# ** Note: (vish-4074) File /home/denisa/Desktop/Git/Incercari/Cod/simulation/wave/wave_UART_test.wlf is still open, viewing file in live viewing mode.
-# 
-add wave wave_UART_test3:/testbench_UART/UART_DUT/*
-ing: (vsim-3839) Variable '/testbench_UART/UART_output_i/out', driven via a port connection, is multiply driven. See testbench/UART/testbench_UART.sv(33).
+# ** Warning: (vsim-3839) Variable '/testbench_UART/UART_output_i/valid_error', driven via a port connection, is multiply driven. See testbench/UART/testbench_UART.sv(34).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_UART/UART_output_i File: testbench/UART/interface/UART_output_VIF.sv Line: 5
+# ** Warning: (vsim-3839) Variable '/testbench_UART/UART_output_i/out', driven via a port connection, is multiply driven. See testbench/UART/testbench_UART.sv(34).
 #    Time: 0 ns  Iteration: 0  Instance: /testbench_UART/UART_output_i File: testbench/UART/interface/UART_output_VIF.sv Line: 6
-# ** Warning: (vsim-3839) Variable '/testbench_UART/UART_output_i/valid_out', driven via a port connection, is multiply driven. See testbench/UART/testbench_UART.sv(33).
+# ** Warning: (vsim-3839) Variable '/testbench_UART/UART_output_i/valid_out', driven via a port connection, is multiply driven. See testbench/UART/testbench_UART.sv(34).
 #    Time: 0 ns  Iteration: 0  Instance: /testbench_UART/UART_output_i File: testbench/UART/interface/UART_output_VIF.sv Line: 7
 # Loading /opt/questa/questasim/uvm-1.1d/linux_x86_64/uvm_dpi.so
 # log -r /*
@@ -128,7 +127,7 @@ ing: (vsim-3839) Variable '/testbench_UART/UART_output_i/out', driven via a port
 #       an_port                     uvm_analysis_imp              -     @653 
 # ---------------------------------------------------------------------------
 # 
-# UVM_INFO testbench/UART/test/environment/coverage/UART_coverage.svh(35) @ 3089560: uvm_test_top.env.cov [cov] UART coverage: 77.78%
+# UVM_INFO testbench/UART/test/environment/coverage/UART_coverage.svh(35) @ 3601560: uvm_test_top.env.cov [cov] UART coverage: 82.54%
 # 
 # --- UVM Report Summary ---
 # 
@@ -142,7 +141,7 @@ ing: (vsim-3839) Variable '/testbench_UART/UART_output_i/out', driven via a port
 # [UVMTOP]     1
 # [cov]     1
 # ** Note: $finish    : /opt/questa/questasim/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 3089560 ns  Iteration: 96  Instance: /testbench_UART
+#    Time: 3601560 ns  Iteration: 96  Instance: /testbench_UART
 # Saving coverage database on exit...
-# End time: 12:18:49 on Jun 21,2024, Elapsed time: 0:00:19
+# End time: 23:23:41 on Jun 21,2024, Elapsed time: 0:00:19
 # Errors: 0, Warnings: 5

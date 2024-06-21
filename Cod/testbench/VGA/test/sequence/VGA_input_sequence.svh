@@ -25,7 +25,7 @@ task VGA_input_sequence::body();
     `uvm_info(get_name(), $sformatf("Create VGA input sequence."), UVM_MEDIUM);
 
     repeat(item_number) begin
-        #8000;
+        #8010;
         start_item(item);
         assert(item.randomize());
         `uvm_info(get_name(), $sformatf("Create VGA input item: %s", item.convert2string), UVM_FULL);

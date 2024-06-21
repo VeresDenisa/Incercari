@@ -1,7 +1,6 @@
 # vsim -c -voptargs="+acc" "+UVM_TESTNAME=CM_test" "+UVM_VERBOSITY=LOW" -wlf simulation/wave/wave_CM_test.wlf work.testbench_CM -do "log -r /*; coverage save -onexit simulation/ucdb/ucdb_CM_test.ucdb; run -all; quit -f; exit" 
-# Start time: 08:31:49 on Jun 21,2024
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Note: (vopt-143) Recognized 1 FSM in module "CM_Config_Manager(fast)".
+# Start time: 23:27:15 on Jun 21,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # //  Questa Sim-64
 # //  Version 10.7c linux_x86_64 Aug 17 2018
 # //
@@ -135,8 +134,8 @@
 #       an_port_CM_output            uvm_analysis_imp_CM_output     -     @661 
 # -----------------------------------------------------------------------------
 # 
-# UVM_INFO testbench/CM/test/environment/coverage/CM_coverage.svh(52) @ 145: uvm_test_top.env.cov [cov] Input CM coverage:  47.62%
-# UVM_INFO testbench/CM/test/environment/coverage/CM_coverage.svh(53) @ 145: uvm_test_top.env.cov [cov] Output CM coverage: 39.06%
+# UVM_INFO testbench/CM/test/environment/coverage/CM_coverage.svh(52) @ 1135: uvm_test_top.env.cov [cov] Input CM coverage:  100.00%
+# UVM_INFO testbench/CM/test/environment/coverage/CM_coverage.svh(53) @ 1135: uvm_test_top.env.cov [cov] Output CM coverage: 76.56%
 # 
 # --- UVM Report Summary ---
 # 
@@ -150,7 +149,7 @@
 # [UVMTOP]     1
 # [cov]     2
 # ** Note: $finish    : /opt/questa/questasim/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 145 ns  Iteration: 96  Instance: /testbench_CM
+#    Time: 1135 ns  Iteration: 96  Instance: /testbench_CM
 # Saving coverage database on exit...
-# End time: 08:31:55 on Jun 21,2024, Elapsed time: 0:00:06
+# End time: 23:27:20 on Jun 21,2024, Elapsed time: 0:00:05
 # Errors: 0, Warnings: 8

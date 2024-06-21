@@ -31,7 +31,7 @@ function void UART_test_no_config::build_phase(uvm_phase phase);
     UART_input_seq = UART_input_sequence        ::type_id::create("UART_input_seq");
 
     v_seq.set_parameters(0, 0, 1);
-    UART_input_seq.set_parameters(0, 0, 100);
+    UART_input_seq.set_parameters(0, 0, 50);
         
     `uvm_info(get_name(), $sformatf("<--- EXIT PHASE: --> BUILD <--"), UVM_DEBUG);
 endfunction : build_phase
