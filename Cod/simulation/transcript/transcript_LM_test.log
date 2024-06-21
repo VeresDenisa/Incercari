@@ -1,5 +1,5 @@
 # vsim -c -voptargs="+acc" "+UVM_TESTNAME=LM_test" "+UVM_VERBOSITY=LOW" -wlf simulation/wave/wave_LM_test.wlf work.testbench_LM -do "log -r /*; coverage save -onexit simulation/ucdb/ucdb_LM_test.ucdb; run -all; quit -f; exit" 
-# Start time: 08:29:48 on Jun 21,2024
+# Start time: 12:40:08 on Jun 21,2024
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # //  Questa Sim-64
 # //  Version 10.7c linux_x86_64 Aug 17 2018
@@ -105,9 +105,9 @@
 #       an_port_UART          uvm_analysis_imp_UART          -     @552 
 # ----------------------------------------------------------------------
 # 
-# UVM_INFO testbench/LM/test/environment/coverage/LM_coverage.svh(65) @ 145: uvm_test_top.env.cov [cov] LM coverage:        0.00%
-# UVM_INFO testbench/LM/test/environment/coverage/LM_coverage.svh(66) @ 145: uvm_test_top.env.cov [cov] UART coverage:      26.98%
-# UVM_INFO testbench/LM/test/environment/coverage/LM_coverage.svh(67) @ 145: uvm_test_top.env.cov [cov] CM output coverage: 37.50%
+# UVM_INFO testbench/LM/test/environment/coverage/LM_coverage.svh(65) @ 1535: uvm_test_top.env.cov [cov] LM coverage:        100.00%
+# UVM_INFO testbench/LM/test/environment/coverage/LM_coverage.svh(66) @ 1535: uvm_test_top.env.cov [cov] UART coverage:      80.95%
+# UVM_INFO testbench/LM/test/environment/coverage/LM_coverage.svh(67) @ 1535: uvm_test_top.env.cov [cov] CM output coverage: 100.00%
 # 
 # --- UVM Report Summary ---
 # 
@@ -121,7 +121,7 @@
 # [UVMTOP]     1
 # [cov]     3
 # ** Note: $finish    : /opt/questa/questasim/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 145 ns  Iteration: 96  Instance: /testbench_LM
+#    Time: 1535 ns  Iteration: 96  Instance: /testbench_LM
 # Saving coverage database on exit...
-# End time: 08:29:52 on Jun 21,2024, Elapsed time: 0:00:04
+# End time: 12:40:13 on Jun 21,2024, Elapsed time: 0:00:05
 # Errors: 0, Warnings: 0

@@ -43,6 +43,7 @@ function void LM_environment::build_phase(uvm_phase phase);
     end
 
     cov = LM_coverage::type_id::create("cov", this); 
+    cov.CM_output_cvg.Data_VGA_cvp.option.weight = 0; 
         
     `uvm_info(get_name(), $sformatf("<--- EXIT PHASE: --> BUILD <--"), UVM_DEBUG);
 endfunction : build_phase
@@ -51,7 +52,6 @@ function void LM_environment::connect_phase(uvm_phase phase);
     if(env_config_h.get_is_cluster() == UNIT) begin
         UART_output_agent_h.mon.an_port.connect(cov.an_port_UART);
         CM_output_agent_h.mon.an_port.connect(cov.an_port_LM_CM_output);
-    end else begin
-        LM_agent_h.mon.an_port.connect(cov.an_port_LM);
     end
+    LM_agent_h.mon.an_port.connect(cov.an_port_LM);
 endfunction : connect_phase

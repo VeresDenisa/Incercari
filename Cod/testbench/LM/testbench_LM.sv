@@ -23,6 +23,7 @@ module testbench_LM;
 
     initial begin
         switch = 1'b0;
+        #(70*`CLOCK) switch = 1'b1;
     end
     
     LM_VIF          LM_i(clk);
