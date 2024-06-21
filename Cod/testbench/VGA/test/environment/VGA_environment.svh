@@ -40,7 +40,7 @@ function void VGA_environment::build_phase(uvm_phase phase);
         CONF_config_h      = new(.is_active(UVM_ACTIVE));
             
         uvm_config_db #(agent_config)::set(this, "VGA_input_agent_h*", "VGA_config_db", VGA_config_input_h);
-        uvm_config_db #(agent_config)::set(this, "CONF_agent_h*",      "VGA_config_db", CONF_config_h);
+        uvm_config_db #(agent_config)::set(this, "CONF_agent_h*",      "CONF_config_db", CONF_config_h);
         
         VGA_input_agent_h = VGA_input_agent ::type_id::create("VGA_input_agent_h", this);
         CONF_agent_h      = CONF_input_agent::type_id::create("CONF_agent_h",      this);

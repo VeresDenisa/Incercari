@@ -1,0 +1,141 @@
+# vsim -c -voptargs="+acc" "+UVM_TESTNAME=VGA_test" "+UVM_VERBOSITY=LOW" -wlf simulation/wave/wave_VGA_test.wlf work.testbench_VGA -do "log -r /*; coverage save -onexit simulation/ucdb/ucdb_VGA_test.ucdb; run -all; quit -f; exit" 
+# Start time: 08:31:26 on Jun 21,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# //  Questa Sim-64
+# //  Version 10.7c linux_x86_64 Aug 17 2018
+# //
+# //  Copyright 1991-2018 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg
+# Loading work.item_pack(fast)
+# Loading work.VGA_coverage_pack(fast)
+# Loading work.CONF_input_VIF(fast)
+# Loading work.VGA_output_VIF(fast)
+# Loading work.VGA_agent_pack(fast)
+# Loading work.VGA_input_VIF(fast)
+# Loading work.VGA_sequence_pack(fast)
+# Loading work.VGA_environment_pack(fast)
+# Loading work.VGA_test_pack(fast)
+# Loading work.testbench_VGA_sv_unit(fast)
+# Loading work.testbench_VGA(fast)
+# Loading work.VGA_input_VIF_sv_unit(fast)
+# Loading work.VGA_input_VIF(fast)
+# Loading work.VGA_output_VIF_sv_unit(fast)
+# Loading work.VGA_output_VIF(fast)
+# Loading work.CONF_input_VIF_sv_unit(fast)
+# Loading work.CONF_input_VIF(fast)
+# Loading work.VGA(fast)
+# Loading work.VGA_Config(fast)
+# Loading work.VGA_Counter(fast)
+# Loading work.VGA_Assign_color(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (2) does not match connection size (4) for port 'c_addr'. The port definition is at: design/VGA/VGA.v(17).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_VGA/VGA_DUT File: testbench/VGA/testbench_VGA.sv Line: 27
+# ** Warning: (vsim-3015) [PCDPC] - Port size (2) does not match connection size (14) for port 'c_data'. The port definition is at: design/VGA/VGA.v(18).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_VGA/VGA_DUT File: testbench/VGA/testbench_VGA.sv Line: 27
+# Loading /opt/questa/questasim/uvm-1.1d/linux_x86_64/uvm_dpi.so
+# log -r /*
+#  coverage save -onexit simulation/ucdb/ucdb_VGA_test.ucdb
+#  run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO @ 0: reporter [RNTST] Running test VGA_test...
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# ---------------------------------------------------------------------------
+# Name                              Type                          Size  Value
+# ---------------------------------------------------------------------------
+# uvm_test_top                      VGA_test                      -     @483 
+#   env                             VGA_environment               -     @494 
+#     CONF_agent_h                  CONF_input_agent              -     @638 
+#       CONF_input_driver           CONF_input_driver             -     @831 
+#         rsp_port                  uvm_analysis_port             -     @846 
+#         seq_item_port             uvm_seq_item_pull_port        -     @838 
+#       CONF_input_monitor          CONF_input_monitor            -     @856 
+#         an_port                   uvm_analysis_port             -     @873 
+#       CONF_input_seqr             CONF_input_sequencer          -     @667 
+#         export_port               uvm_analysis_export           -     @776 
+#         fifo                      uvm_tlm_analysis_fifo #(T)    -     @784 
+#           analysis_export         uvm_analysis_imp              -     @823 
+#           get_ap                  uvm_analysis_port             -     @815 
+#           get_peek_export         uvm_get_peek_imp              -     @799 
+#           put_ap                  uvm_analysis_port             -     @807 
+#           put_export              uvm_put_imp                   -     @791 
+#         rsp_export                uvm_analysis_export           -     @674 
+#         seq_item_export           uvm_seq_item_pull_imp         -     @768 
+#         arbitration_queue         array                         0     -    
+#         lock_queue                array                         0     -    
+#         num_last_reqs             integral                      32    'd1  
+#         num_last_rsps             integral                      32    'd1  
+#     CONF_input_virtual_sequencer  CONF_input_virtual_sequencer  -     @517 
+#       rsp_export                  uvm_analysis_export           -     @524 
+#       seq_item_export             uvm_seq_item_pull_imp         -     @618 
+#       arbitration_queue           array                         0     -    
+#       lock_queue                  array                         0     -    
+#       num_last_reqs               integral                      32    'd1  
+#       num_last_rsps               integral                      32    'd1  
+#     VGA_input_agent_h             VGA_input_agent               -     @631 
+#       VGA_input_driver            VGA_input_driver              -     @1004
+#         rsp_port                  uvm_analysis_port             -     @1019
+#         seq_item_port             uvm_seq_item_pull_port        -     @1011
+#       VGA_input_monitor           VGA_input_monitor             -     @1029
+#         an_port                   uvm_analysis_port             -     @1046
+#       VGA_input_seqr              uvm_sequencer                 -     @895 
+#         rsp_export                uvm_analysis_export           -     @902 
+#         seq_item_export           uvm_seq_item_pull_imp         -     @996 
+#         arbitration_queue         array                         0     -    
+#         lock_queue                array                         0     -    
+#         num_last_reqs             integral                      32    'd1  
+#         num_last_rsps             integral                      32    'd1  
+#     VGA_output_agent_h            VGA_output_agent              -     @510 
+#       VGA_output_monitor          VGA_output_monitor            -     @1062
+#         an_port                   uvm_analysis_port             -     @1079
+#     cov                           VGA_coverage                  -     @645 
+#       an_port                     uvm_analysis_imp              -     @652 
+# ---------------------------------------------------------------------------
+# 
+# UVM_INFO testbench/VGA/test/environment/coverage/VGA_coverage.svh(35) @ 1045: uvm_test_top.env.cov [cov] VGA coverage:  0.00%
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    3
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [RNTST]     1
+# [UVMTOP]     1
+# [cov]     1
+# ** Note: $finish    : /opt/questa/questasim/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 1045 ns  Iteration: 96  Instance: /testbench_VGA
+# Saving coverage database on exit...
+# End time: 08:31:31 on Jun 21,2024, Elapsed time: 0:00:05
+# Errors: 0, Warnings: 2

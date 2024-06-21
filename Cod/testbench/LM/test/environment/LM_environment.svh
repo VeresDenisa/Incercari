@@ -35,10 +35,10 @@ function void LM_environment::build_phase(uvm_phase phase);
         CM_config_output_h   = new(.is_active(UVM_ACTIVE));
         UART_config_output_h = new(.is_active(UVM_ACTIVE));
             
-        uvm_config_db #(agent_config)::set(this, "CM_output_agent_h*",   "LM_config_db", CM_config_output_h);
-        uvm_config_db #(agent_config)::set(this, "UART_output_agent_h*", "LM_config_db", UART_config_output_h);
+        uvm_config_db #(agent_config)::set(this, "CM_output_agent_h*",   "CM_config_db", CM_config_output_h);
+        uvm_config_db #(agent_config)::set(this, "UART_output_agent_h*", "UART_config_db", UART_config_output_h);
         
-        CM_output_agent_h   = LM_agent   ::type_id::create("CM_output_agent_h",   this);
+        CM_output_agent_h   = CM_output_agent  ::type_id::create("CM_output_agent_h",   this);
         UART_output_agent_h = UART_output_agent::type_id::create("UART_output_agent_h", this);
     end
 
